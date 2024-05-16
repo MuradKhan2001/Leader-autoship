@@ -1,0 +1,56 @@
+.header-container {
+  width: 100%;
+  height: 100px;
+  background-color: rgba(30, 36, 44, 1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 8%;
+  padding-right: 8%;
+  border-bottom: 1px solid #404040;
+
+  .logo {
+    width: 200px;
+
+    img {
+      cursor: pointer;
+      width: 100%;
+    }
+  }
+
+  .information-wrapper {
+    display: flex;
+
+    .info-box {
+      display: flex;
+      align-items: center;
+      margin-left: 20px;
+
+      .icon-info {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgba(244, 168, 80, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+
+        img {
+          width: 40%;
+        }
+      }
+
+      .text-information {
+        width: max-content;
+        font-size: 14px;
+        color: white;
+        line-height: 18.9px;
+        font-weight: 500;
+        font-family: "Krub", sans-serif;
+      }
+    }
+  }
+
+
+}

@@ -1,0 +1,189 @@
+.carrier-container {
+  width: 100%;
+
+  .header-content {
+    width: 100%;
+    height: calc(100vh - 100px);
+    background-image: url("./bg.jpg");
+    background-size: cover;
+
+    .home-sloy {
+      background-color: rgba(30, 36, 44, 0.5);
+      width: 100%;
+      height: 100%;
+
+      .navbar_box {
+        width: 100%;
+      }
+
+      .home_contents {
+        height: calc(100% - 65px);
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        .left_side {
+          height: 100%;
+          width: 80%;
+          display: flex;
+          align-items: center;
+          padding-left: 8%;
+
+          .top-text {
+            width: max-content;
+            position: relative;
+            height: 30px;
+            padding-right: 10px;
+            padding-left: 10px;
+            color: white;
+            display: flex;
+            align-items: center;
+            background-color: rgba(4, 28, 55, 0.5);
+            font-size: 14px;
+
+            &:before {
+              content: '';
+              position: absolute;
+              background: linear-gradient(94.06deg, #FFB629 -1.21%, #FFDA56 58.66%, #FFD7A6 116.84%);
+              left: 0;
+              top: 0;
+              height: 100%;
+              width: 5px;
+            }
+          }
+
+          .text-large {
+            display: flex;
+            align-items: center;
+            width: 100%;
+
+            color: white;
+            font-weight: 700;
+            font-size: 60px;
+
+            p {
+              text-shadow: 4px 3px 7px rgba(0, 0, 0, 0.8);
+              margin-right: 10px
+            }
+          }
+
+          .des-text {
+            width: 80%;
+            margin-top: 10px;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24.32px;
+            color: white;
+            font-family: "Krub", sans-serif;
+          }
+
+          .buttons-home {
+            display: flex;
+            margin-top: 35px;
+
+            .button-home {
+              width: 190px;
+              height: 60px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border: none;
+              color: rgba(35, 33, 42, 1);
+              background-color: rgba(244, 168, 80, 1);
+              margin-right: 15px;
+              transition: 0.3s;
+
+              &:hover {
+                background-color: rgb(210, 144, 69);
+              }
+            }
+          }
+        }
+
+        .right_side {
+          height: 100%;
+          width: 20%;
+        }
+      }
+    }
+  }
+
+  .form-box {
+    margin-top: 80px;
+    padding-left: 8%;
+    padding-right: 15%;
+    width: 100%;
+
+    .title {
+      border-left: 4px solid rgba(244, 168, 80, 1);
+      font-family: "Rubik", sans-serif;
+      padding-left: 10px;
+      font-size: 35px;
+      font-weight: 600;
+      line-height: 41.48px;
+      text-align: left;
+      color: rgba(28, 31, 53, 1);
+    }
+
+    .input-box {
+      margin-top: 30px;
+      width: 70%;
+
+      input {
+        padding-left: 20px;
+        padding-right: 15px;
+        margin-top: 15px;
+        border-radius: 8px;
+        width: 100%;
+        height: 50px;
+        background-color: rgba(251, 251, 251, 1);
+        border: 1px solid rgba(230, 232, 236, 1);
+
+        &:focus {
+          outline: 1px solid rgba(244, 168, 80, 1);
+        }
+      }
+
+      label {
+        margin-top: 25px;
+        font-family: "Rubik", sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 23.7px;
+        text-align: left;
+
+      }
+
+      textarea {
+        padding: 20px;
+        margin-top: 15px;
+        border-radius: 8px;
+        width: 100%;
+        height: 160px;
+        background-color: rgba(251, 251, 251, 1);
+        border: 1px solid rgba(230, 232, 236, 1);
+
+        &:focus {
+          outline: 1px solid rgba(244, 168, 80, 1);
+        }
+      }
+
+      .send-btn {
+        border-radius: 8px;
+        margin-top: 30px;
+        background-color: rgba(244, 168, 80, 1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 40px;
+        border: none;
+        transition: 0.3s linear;
+        &:hover{
+          background-color: rgb(205, 139, 69);
+        }
+      }
+
+    }
+  }
+}

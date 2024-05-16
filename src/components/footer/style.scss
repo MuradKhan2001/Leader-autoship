@@ -1,0 +1,145 @@
+$Color1: #00C389;
+$Color2: #001020;
+
+.footer-container {
+  padding: 40px 8% 40px 8%;
+  margin-top: 100px;
+  width: 100%;
+  background-color: rgba(30, 36, 44, 1);
+  display: flex;
+  justify-content: space-between;
+  color: white;
+
+  .section-logo {
+    width: 28%;
+    margin-right: 30px;
+    height: 100%;
+
+    .logo {
+      img {
+        width: 240px;
+      }
+    }
+
+    .des {
+      margin-top: 80px;
+      margin-bottom: 40px;
+      font-family: "Krub", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24.24px;
+    }
+
+    .item {
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
+
+      .icon {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(244, 168, 80, 1);
+        margin-right: 10px;
+
+        img {
+          width: 60%;
+        }
+      }
+
+      .text {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 25.6px;
+      }
+    }
+
+    .social-media {
+      margin-top: 40px;
+
+      a {
+        text-decoration: none;
+        margin-right: 20px;
+      }
+
+      img {
+        width: 25px;
+        transition: 0.3s;
+
+        &:hover {
+          transform: scale(1.12);
+        }
+      }
+    }
+  }
+
+  .section-menu {
+    height: 100%;
+    margin-left: 60px;
+
+    .title-footer {
+      margin-bottom: 50px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .item-footer {
+      margin-top: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      border-bottom: 1px solid transparent;
+      transition: 0.3s linear;
+
+      &:hover {
+        color: rgba(244, 168, 80, 1);
+      }
+    }
+
+    .send-content {
+      margin-top: 10px;
+
+      .code {
+        margin-top: 70px;
+        display: flex;
+        align-items: center;
+
+        .icons {
+          margin-right: 10px;
+          img {
+            width:50px;
+          }
+        }
+
+        .text {
+
+        }
+      }
+
+      .btns {
+        .btn {
+          margin-bottom: 20px;
+          width: 160px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: rgba(35, 33, 42, 1);
+          background-color: rgba(244, 168, 80, 1);
+          margin-right: 15px;
+          transition: 0.3s;
+          &:hover{
+            background-color: rgb(200, 137, 67);
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media (max-width: 768px) {
+
+}
