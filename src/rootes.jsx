@@ -1,8 +1,5 @@
 import Home from "./components/Home/Home";
-import MainHome from "./components/admin/admin home/MainHome";
-import Admin from "./components/admin/Admin/Admin";
 import LoginAdmin from "./components/login/LoginAdmin";
-import Drivers from "./components/admin/drivers/Drivers";
 import HowItWorks from "./components/HowItWorks/HowItWorks";
 import ForIndividuals from "./components/ForIndividuals/ForIndividuals";
 import BussinesPageOne from "./components/for-bussiness/BussinesPageOne";
@@ -73,21 +70,4 @@ export const publicRoutes = [
         path: "/customer",
         element: <Customer/>
     }
-];
-
-export const adminRoutes = [
-    {
-        path: "/*",
-        element: <Admin/>
-    },
-];
-
-export const adminPageRoutes = [
-    {
-        path: "/",
-        element: <MainHome/>
-    }, {
-        path: "/drivers",
-        element: <Drivers/>
-    },
 ];

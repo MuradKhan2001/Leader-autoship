@@ -1,20 +1,12 @@
-import React, {useMemo, useState, createContext} from "react";
+import React, {useState, createContext} from "react";
 import {Routes, Route} from "react-router-dom";
-import {adminRoutes, publicRoutes} from "../../rootes";
+import {publicRoutes} from "../../rootes";
 import NotFound from "../notFound/NotFound";
 
 export const MyContext = createContext();
 
 function App() {
-    const [url, setUrl] = useState('');
-
-    const admin = useMemo(() => localStorage.getItem('admin'), []);
-
-    const routes = useMemo(() => {
-        if (admin) return adminRoutes;
-        return publicRoutes
-    }, [admin]);
-
+    const [url, setUrl] = useState('http://138.197.97.98/api/');
     return (
         <>
             <MyContext.Provider value={{
@@ -22,13 +14,12 @@ function App() {
             }}>
                 <Routes>
                     {
-                        routes.map((route, index) => (
+                        publicRoutes.map((route, index) => (
                             <Route key={index} {...route} />
                         ))
                     }
                     <Route path={'*'} element={<NotFound/>}/>
                 </Routes>
-
             </MyContext.Provider>
         </>
     );

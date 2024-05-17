@@ -81,6 +81,10 @@
             display: flex;
             margin-top: 35px;
 
+            a{
+              text-decoration: none;
+            }
+
             .button-home {
               width: 190px;
               height: 60px;
@@ -521,6 +525,219 @@
                 }
               }
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .states-container {
+    width: 100%;
+
+    .header-content {
+      width: 100%;
+      height: 300px;
+
+      .home-sloy {
+        background-color: rgba(30, 36, 44, 0.5);
+        width: 100%;
+        height: 100%;
+
+        .home_contents {
+          height: auto;
+          display: block;
+          align-items: center;
+          width: 100%;
+
+          .left_side {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding-left: 4%;
+            padding-right: 4%;
+            padding-top: 20px;
+
+            .top-text {
+              font-size: 12px;
+            }
+
+            .text-large {
+              margin-top: 10px;
+              font-weight: 700;
+              font-size: 35px;
+            }
+
+            .des-text {
+              width: 100%;
+              margin-top: 0px;
+              font-size: 14px;
+            }
+
+            .buttons-home {
+              width: 100%;
+              justify-content: space-between;
+              display: flex;
+              margin-top: 35px;
+
+              .button-home {
+                width: 160px;
+                height: 50px;
+                margin-right: 15px;
+              }
+            }
+          }
+
+          .right_side {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .delivery-container {
+      width: 100%;
+      margin-top: 60px;
+      padding-right: 6%;
+      padding-left: 6%;
+
+      .title {
+        font-size: 25px;
+        line-height: 30.48px;
+      }
+
+      .contents {
+        margin-top: 10px;
+        flex-wrap: wrap;
+
+        .content {
+          margin-top: 20px;
+          width: 49%;
+
+          .img {
+            width: 100%;
+            height: 260px;
+
+            img {
+              filter: grayscale(0%);
+            }
+          }
+
+          .title {
+            font-size: 22px;
+            font-weight: 600;
+            line-height: 30px;
+          }
+
+          .des {
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 25px;
+            color: rgba(23, 23, 23, 1);
+          }
+        }
+      }
+    }
+
+    .states {
+      width: 100%;
+      margin-top: 80px;
+      padding-right: 8%;
+      padding-left: 8%;
+
+      .title {
+        font-family: "Rubik", sans-serif;
+        font-size: 35px;
+        font-weight: 600;
+        line-height: 41.48px;
+      }
+
+      .des {
+        margin-top: 20px;
+        font-family: "Krub", sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24.32px;
+        text-align: left;
+        color: rgba(102, 108, 137, 1);
+      }
+
+      .state-box {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .state {
+          width: max-content;
+          padding: 3px;
+          margin-top: 15px;
+          margin-right: 40px;
+          color: rgba(244, 168, 80, 1);
+          cursor: pointer;
+          font-size: 18px;
+        }
+      }
+    }
+
+    .partners {
+      margin-top: 80px;
+      padding-left: 0%;
+      padding-right: 0%;
+      margin-bottom: 50px;
+
+      .slick-slider {
+        .slick-list {
+          .slick-track {
+            .slick-slide {
+              .logo {
+                width: 100px;
+                height: 100px;
+
+                img {
+                  width: 80px;
+                  object-fit: cover;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .reviews-container {
+      width: 100%;
+      margin-top: 60px;
+      padding-right: 6%;
+      padding-left: 6%;
+
+      .title {
+        width: 70%;
+        font-size: 25px;
+        line-height: 30.48px;
+      }
+
+      .slider-box-reviews {
+        margin-bottom: 0;
+
+        .slick-slider {
+          width: 100%;
+          position: relative;
+
+          .slick-prev {
+            top: -50px;
+            left: 77%;
+            width: 35px;
+            height: 35px;
+          }
+
+          .slick-next {
+            width: 35px;
+            height: 35px;
           }
         }
       }

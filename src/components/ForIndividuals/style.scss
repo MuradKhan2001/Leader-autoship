@@ -97,6 +97,10 @@
                 background-color: rgb(210, 144, 69);
               }
             }
+
+            a {
+              text-decoration: none;
+            }
           }
         }
 
@@ -645,6 +649,264 @@
                 }
               }
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .for-individuals-container {
+    width: 100%;
+
+    .header-content {
+      width: 100%;
+      height: 300px;
+
+      .home-sloy {
+        background-color: rgba(30, 36, 44, 0.5);
+        width: 100%;
+        height: 100%;
+
+        .home_contents {
+          height: auto;
+          display: block;
+          align-items: center;
+          width: 100%;
+
+          .left_side {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding-left: 4%;
+            padding-right: 4%;
+            padding-top: 20px;
+
+            .top-text {
+              font-size: 12px;
+            }
+
+            .text-large {
+              font-weight: 700;
+              font-size: 26px;
+            }
+
+            .des-text {
+              width: 100%;
+              margin-top: 0px;
+              font-size: 14px;
+            }
+
+            .buttons-home {
+              width: 100%;
+              justify-content: space-between;
+              display: flex;
+              margin-top: 35px;
+
+              .button-home {
+                width: 160px;
+                height: 50px;
+                margin-right: 0px;
+              }
+            }
+          }
+
+          .right_side {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .about-us {
+      margin-top: 60px;
+      width: 100%;
+      height: max-content;
+      padding-left: 6%;
+      padding-right: 6%;
+      display: block;
+      align-items: center;
+
+      .img-side {
+        width: 100%;
+        display: flex;
+        align-items: center;
+
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .sides {
+        margin-top: 30px;
+        width: 100%;
+        padding-left: 0;
+
+        .title {
+          text-align: center;
+          margin-top: 15px;
+          font-size: 24px;
+          line-height: 30.48px;
+        }
+
+        .steps {
+          .step {
+            margin-top: 25px;
+
+            img {
+              width: 40px;
+            }
+
+            .text {
+              .title-step {
+                font-size: 16px;
+              }
+
+            }
+          }
+        }
+      }
+    }
+
+    .section-service {
+      margin-top: 130px;
+      width: 100%;
+      padding-left: 6%;
+      padding-right: 6%;
+
+      .title {
+        margin-top: 5px;
+        color: rgba(28, 31, 53, 1);
+        font-weight: 600;
+        font-size: 26px;
+        line-height: 41.48px;
+      }
+
+      .services-box {
+        margin-top: 20px;
+        width: 100%;
+        display: block;
+
+        .service {
+          margin-top: 20px;
+          width: 100%;
+
+          .img-service {
+            width: 100%;
+            height: 200px;
+          }
+
+          .title {
+            font-size: 16px;
+          }
+
+          .des {
+            width: 99%;
+            height: 80px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    .partners {
+      margin-top: 80px;
+      padding-left: 0%;
+      padding-right: 0%;
+      margin-bottom: 50px;
+
+      .slick-slider {
+        .slick-list {
+          .slick-track {
+            .slick-slide {
+              .logo {
+                width: 100px;
+                height: 100px;
+
+                img {
+                  width: 80px;
+                  object-fit: cover;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .quations-container {
+      padding-left: 6%;
+      padding-right: 6%;
+      width: 100%;
+      margin-bottom: 50px;
+
+      .quation {
+        width: 100%;
+        padding: 10px;
+
+        .top-side {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .number {
+            font-size: 32px;
+          }
+
+          .title {
+            width: 70%;
+            font-size: 20px;
+            line-height: 24.4px;
+          }
+
+          .button {
+            width: 32px;
+            height: 32px;
+          }
+        }
+
+        .des-quation {
+          margin: 10px auto;
+          width: 70%;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .reviews-container {
+      width: 100%;
+      margin-top: 60px;
+      padding-right: 6%;
+      padding-left: 6%;
+
+      .title {
+        width: 70%;
+        font-size: 25px;
+        line-height: 30.48px;
+      }
+
+      .slider-box-reviews {
+        margin-bottom: 0;
+
+        .slick-slider {
+          width: 100%;
+          position: relative;
+
+          .slick-prev {
+            top: -50px;
+            left: 77%;
+            width: 35px;
+            height: 35px;
+          }
+
+          .slick-next {
+            width: 35px;
+            height: 35px;
           }
         }
       }

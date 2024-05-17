@@ -1,15 +1,24 @@
-import {useContext, useState, useRef} from "react";
+import {useContext, useState, useRef, useEffect} from "react";
 import "./style.scss";
 import {useNavigate} from "react-router-dom";
 import {CSSTransition} from "react-transition-group";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {MyContext} from "../App/App";
+import axios from "axios";
+import Aos from "aos";
 
 const Navbar = () => {
     let value = useContext(MyContext);
     const nodeRef = useRef(null);
     const [nav, setNav] = useState(false);
     const navigate = useNavigate();
+    const [contact, setContact] = useState("");
+
+    useEffect(() => {
+        axios.get(`${value.url}contact/`).then((response) => {
+            setContact(response.data[0])
+        });
+    }, []);
 
     return <div className="navbar-wrapper">
         <CSSTransition
@@ -55,21 +64,29 @@ const Navbar = () => {
                             <div onClick={() => navigate("/customer")} className="name">Customer</div>
                         </div>
                     </div>
+
+                    <div onClick={() => navigate("/get-quote")} className="driver_btn">
+                        Get a quote
+                    </div>
                 </div>
             </div>
         </CSSTransition>
-
+        
         <div className="mobile-left-side">
+            <div className="logo">
+                <img onClick={()=> navigate("/")} src="./images/logo.png" alt=""/>
+            </div>
+            
             <div className="icons-social-media">
-                <a href="#">
+                <a target="_blank" href={contact.instagramm}>
                     <img src="./images/Instagram.png" alt=""/>
                 </a>
 
-                <a href="#">
+                <a target="_blank" href={contact.facebook}>
                     <img src="./images/Facebook.png" alt=""/>
                 </a>
 
-                <a href="#">
+                <a target="_blank" href={contact.twitter}>
                     <img src="./images/Vector.png" alt=""/>
                 </a>
             </div>

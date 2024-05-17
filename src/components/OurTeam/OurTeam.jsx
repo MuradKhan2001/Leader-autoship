@@ -4,14 +4,24 @@ import Navbar from "../Navbar/Navbar";
 import {useNavigate} from "react-router-dom";
 import Footer from "../footer/Footer";
 import Slider from "react-slick/lib";
-import {useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import ScrollTrigger from "react-scroll-trigger";
 import CountUp from "react-countup";
+import axios from "axios";
+import Aos from "aos";
+import {MyContext} from "../App/App";
 
 
 const OurTeam = () => {
+    let value = useContext(MyContext);
     const [counterOn, setCounterOn] = useState(false)
     const navigate = useNavigate();
+    const [contact, setContact] = useState("");
+    const [statistics, setStatistic] = useState();
+    const [partners, setPartners] = useState([]);
+    const [supervisor, setSetSupervisor] = useState([]);
+    const [admin, setAdmin] = useState([]);
+
     const settingsPartners = {
         lazyLoad: false,
         slidesToShow: 5,
@@ -22,8 +32,6 @@ const OurTeam = () => {
         navs: true,
         slidesToScroll: 5,
         initialSlide: 5,
-        centerMode: true,
-        centerPadding: 0,
         responsive: [{
             breakpoint: 1024, settings: {
                 slidesToShow: 5, slidesToScroll: 5, infinite: true, dots: false
@@ -34,10 +42,54 @@ const OurTeam = () => {
             }
         }, {
             breakpoint: 480, settings: {
-                slidesToShow: 2, slidesToScroll: 2
+                slidesToShow: 3, slidesToScroll: 3
             }
         }]
     };
+    const settingsPersons = {
+        lazyLoad: false,
+        slidesToShow: 5,
+        dots: false,
+        infinite: true,
+        speed: 2000,
+        autoplay: true,
+        navs: true,
+        slidesToScroll: 1,
+        initialSlide: 1,
+        responsive: [{
+            breakpoint: 1024, settings: {
+                slidesToShow: 5, slidesToScroll: 5, infinite: true, dots: false
+            }
+        }, {
+            breakpoint: 600, settings: {
+                slidesToShow: 1, slidesToScroll: 1, initialSlide: 1
+            }
+        }, {
+            breakpoint: 480, settings: {
+                slidesToShow: 1, slidesToScroll: 1
+            }
+        }]
+    };
+
+    useEffect(() => {
+        axios.get(`${value.url}partner/`).then((response) => {
+            setPartners(response.data)
+        });
+        axios.get(`${value.url}statistics/`).then((response) => {
+            setStatistic(response.data[0])
+        });
+        axios.get(`${value.url}user/supervisor/`).then((response) => {
+            setSetSupervisor(response.data)
+        });
+        axios.get(`${value.url}user/admin/`).then((response) => {
+            setAdmin(response.data)
+        });
+        axios.get(`${value.url}contact/`).then((response) => {
+            setContact(response.data[0])
+        });
+        Aos.init({duration: 1000});
+    }, []);
+
 
     return <div className="our-team-container">
         <Header/>
@@ -54,12 +106,12 @@ const OurTeam = () => {
                                 <p>OUR TEAM</p>
                             </div>
                             <div className="buttons-home">
-                                <button onClick={()=> navigate("/get-quote")} type="button" className="button-home">
+                                <button onClick={() => navigate("/get-quote")} type="button" className="button-home">
                                     Get a quote
                                 </button>
-                                <button type="button" className="button-home">
+                                <a href={`tel:${contact.phone1}`} className="button-home">
                                     Call now
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -68,7 +120,6 @@ const OurTeam = () => {
                 </div>
             </div>
         </div>
-
         <div className="main-box">
             <div className="titles">
                 <div className="title-min">
@@ -79,227 +130,95 @@ const OurTeam = () => {
                 </div>
             </div>
             <div className="team-box">
-                <div className="person">
-                    <div className="photo">
-                        <img src="./images/person2.png" alt=""/>
-                    </div>
-                    <div className="bottom-text">
-                        <div className="name">Julian Jameson</div>
-                        <div className="position">Profession</div>
-                        <div className="contact">
-                            <div className="icon">
-                                <img src="./images/mail.png" alt=""/>
-                            </div>
-                            contact@logistics.com
+                {supervisor.map((item, index) => {
+                    return <div key={index} className="person">
+                        <div className="photo">
+                            {item.image ?
+                                <img className="img-person" src={`http://138.197.97.98` + item.image} alt=""/> :
+                                <img src="./images/person2.png" alt=""/>}
                         </div>
-                        <div className="contact">
-                            <div className="icon">
-                                <img src="./images/telephone.png" alt=""/>
+                        <div className="bottom-text">
+                            <div className="name">{item.name}</div>
+                            <div className="position">{item.position}</div>
+                            <div className="contact">
+                                <div className="icon">
+                                    <img src="./images/mail.png" alt=""/>
+                                </div>
+                                <a href={`mailto:${item.email}`} className="name">{item.email}</a>
                             </div>
-                            (00) 112 365 489
-                        </div>
-                    </div>
-                </div>
-                <div className="person">
-                    <div className="photo">
-                        <img src="./images/person2.png" alt=""/>
-                    </div>
-                    <div className="bottom-text">
-                        <div className="name">Julian Jameson</div>
-                        <div className="position">Profession</div>
-                        <div className="contact">
-                            <div className="icon">
-                                <img src="./images/mail.png" alt=""/>
+                            <div className="contact">
+                                <div className="icon">
+                                    <img src="./images/telephone.png" alt=""/>
+                                </div>
+                                <a href={`tel:${item.phone}`} className="name">{item.phone}</a>
                             </div>
-                            contact@logistics.com
-                        </div>
-                        <div className="contact">
-                            <div className="icon">
-                                <img src="./images/telephone.png" alt=""/>
-                            </div>
-                            (00) 112 365 489
                         </div>
                     </div>
-                </div>
-                <div className="person">
-                    <div className="photo">
-                        <img src="./images/person2.png" alt=""/>
-                    </div>
-                    <div className="bottom-text">
-                        <div className="name">Julian Jameson</div>
-                        <div className="position">Profession</div>
-                        <div className="contact">
-                            <div className="icon">
-                                <img src="./images/mail.png" alt=""/>
+                })}
+
+            </div>
+            <div className="team-box-mobile">
+                <Slider {...settingsPersons}>
+                    {supervisor.map((item, index) => {
+                        return <div key={index} className="person">
+                            <div className="photo">
+                                {item.image ?
+                                    <img className="img-person" src={`http://138.197.97.98` + item.image} alt=""/> :
+                                    <img src="./images/person2.png" alt=""/>}
                             </div>
-                            contact@logistics.com
-                        </div>
-                        <div className="contact">
-                            <div className="icon">
-                                <img src="./images/telephone.png" alt=""/>
+                            <div className="bottom-text">
+                                <div className="name">{item.name}</div>
+                                <div className="position">{item.position}</div>
+                                <div className="contact">
+                                    <div className="icon">
+                                        <img src="./images/mail.png" alt=""/>
+                                    </div>
+                                    <a href={`mailto:${item.email}`} className="name">{item.email}</a>
+                                </div>
+                                <div className="contact">
+                                    <div className="icon">
+                                        <img src="./images/telephone.png" alt=""/>
+                                    </div>
+                                    <a href={`tel:${item.phone}`} className="name">{item.phone}</a>
+                                </div>
                             </div>
-                            (00) 112 365 489
                         </div>
-                    </div>
-                </div>
-                <div className="person">
-                    <div className="photo">
-                        <img src="./images/person2.png" alt=""/>
-                    </div>
-                    <div className="bottom-text">
-                        <div className="name">Julian Jameson</div>
-                        <div className="position">Profession</div>
-                        <div className="contact">
-                            <div className="icon">
-                                <img src="./images/mail.png" alt=""/>
-                            </div>
-                            contact@logistics.com
-                        </div>
-                        <div className="contact">
-                            <div className="icon">
-                                <img src="./images/telephone.png" alt=""/>
-                            </div>
-                            (00) 112 365 489
-                        </div>
-                    </div>
-                </div>
-                <div className="person">
-                    <div className="photo">
-                        <img src="./images/person2.png" alt=""/>
-                    </div>
-                    <div className="bottom-text">
-                        <div className="name">Julian Jameson</div>
-                        <div className="position">Profession</div>
-                        <div className="contact">
-                            <div className="icon">
-                                <img src="./images/mail.png" alt=""/>
-                            </div>
-                            contact@logistics.com
-                        </div>
-                        <div className="contact">
-                            <div className="icon">
-                                <img src="./images/telephone.png" alt=""/>
-                            </div>
-                            (00) 112 365 489
-                        </div>
-                    </div>
-                </div>
+                    })}
+                </Slider>
             </div>
         </div>
-
         <div className="admins-box">
             <div className="main-title">
                 TEAM MEMBERS
             </div>
             <div className="team-box">
-                <div className="person">
-                    <div className="photo">
-                        <img src="./images/person2.png" alt=""/>
-                    </div>
-                    <div className="bottom-text">
-                        <div className="name">Julian Jameson</div>
-                        <div className="position">Profession</div>
-                        <div className="contact">
-                            <div className="icon">
-                                <img src="./images/mail.png" alt=""/>
-                            </div>
-                            contact@logistics.com
+                {admin.map((item, index) => {
+                    return <div key={index} className="person">
+                        <div className="photo">
+                            {item.image ?
+                                <img className="img-person" src={`http://138.197.97.98` + item.image} alt=""/> :
+                                <img src="./images/person2.png" alt=""/>}
                         </div>
-                        <div className="contact">
-                            <div className="icon">
-                                <img src="./images/telephone.png" alt=""/>
+                        <div className="bottom-text">
+                            <div className="name">{item.name}</div>
+                            <div className="position">{item.position}</div>
+                            <div className="contact">
+                                <div className="icon">
+                                    <img src="./images/mail.png" alt=""/>
+                                </div>
+                                <a href={`mailto:${item.email}`} className="name">{item.email}</a>
                             </div>
-                            (00) 112 365 489
-                        </div>
-                    </div>
-                </div>
-                <div className="person">
-                    <div className="photo">
-                        <img src="./images/person2.png" alt=""/>
-                    </div>
-                    <div className="bottom-text">
-                        <div className="name">Julian Jameson</div>
-                        <div className="position">Profession</div>
-                        <div className="contact">
-                            <div className="icon">
-                                <img src="./images/mail.png" alt=""/>
+                            <div className="contact">
+                                <div className="icon">
+                                    <img src="./images/telephone.png" alt=""/>
+                                </div>
+                                <a href={`tel:${item.phone}`} className="name">{item.phone}</a>
                             </div>
-                            contact@logistics.com
-                        </div>
-                        <div className="contact">
-                            <div className="icon">
-                                <img src="./images/telephone.png" alt=""/>
-                            </div>
-                            (00) 112 365 489
                         </div>
                     </div>
-                </div>
-                <div className="person">
-                    <div className="photo">
-                        <img src="./images/person2.png" alt=""/>
-                    </div>
-                    <div className="bottom-text">
-                        <div className="name">Julian Jameson</div>
-                        <div className="position">Profession</div>
-                        <div className="contact">
-                            <div className="icon">
-                                <img src="./images/mail.png" alt=""/>
-                            </div>
-                            contact@logistics.com
-                        </div>
-                        <div className="contact">
-                            <div className="icon">
-                                <img src="./images/telephone.png" alt=""/>
-                            </div>
-                            (00) 112 365 489
-                        </div>
-                    </div>
-                </div>
-                <div className="person">
-                    <div className="photo">
-                        <img src="./images/person2.png" alt=""/>
-                    </div>
-                    <div className="bottom-text">
-                        <div className="name">Julian Jameson</div>
-                        <div className="position">Profession</div>
-                        <div className="contact">
-                            <div className="icon">
-                                <img src="./images/mail.png" alt=""/>
-                            </div>
-                            contact@logistics.com
-                        </div>
-                        <div className="contact">
-                            <div className="icon">
-                                <img src="./images/telephone.png" alt=""/>
-                            </div>
-                            (00) 112 365 489
-                        </div>
-                    </div>
-                </div>
-                <div className="person">
-                    <div className="photo">
-                        <img src="./images/person2.png" alt=""/>
-                    </div>
-                    <div className="bottom-text">
-                        <div className="name">Julian Jameson</div>
-                        <div className="position">Profession</div>
-                        <div className="contact">
-                            <div className="icon">
-                                <img src="./images/mail.png" alt=""/>
-                            </div>
-                            contact@logistics.com
-                        </div>
-                        <div className="contact">
-                            <div className="icon">
-                                <img src="./images/telephone.png" alt=""/>
-                            </div>
-                            (00) 112 365 489
-                        </div>
-                    </div>
-                </div>
+                })}
             </div>
         </div>
-
         <div className="counter">
             <div className="title">
                 The numbers show Who we are
@@ -308,7 +227,7 @@ const OurTeam = () => {
                 <div className="count">
                     <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
                         <div className="num">
-                            {counterOn && <CountUp start={0} end={22890} duration={2} delay={0}/>}
+                            {counterOn && <CountUp start={0} end={statistics && statistics.clients} duration={2} delay={0}/>}
                             +
                         </div>
                     </ScrollTrigger>
@@ -319,7 +238,7 @@ const OurTeam = () => {
                 <div className="count">
                     <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
                         <div className="num">
-                            {counterOn && <CountUp start={0} end={1275} duration={2} delay={0}/>}
+                            {counterOn && <CountUp start={0} end={ statistics && statistics.orders} duration={2} delay={0}/>}
                             +
                         </div>
                     </ScrollTrigger>
@@ -330,7 +249,7 @@ const OurTeam = () => {
                 <div className="count">
                     <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
                         <div className="num">
-                            {counterOn && <CountUp start={0} end={3} duration={2} delay={0}/>}
+                            {counterOn && <CountUp start={0} end={statistics && statistics.projects} duration={2} delay={0}/>}
                             +
                         </div>
                     </ScrollTrigger>
@@ -341,7 +260,7 @@ const OurTeam = () => {
                 <div className="count">
                     <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
                         <div className="num">
-                            {counterOn && <CountUp start={0} end={15000} duration={2} delay={0}/>}
+                            {counterOn && <CountUp start={0} end={statistics && statistics.cities} duration={2} delay={0}/>}
                             +
                         </div>
                     </ScrollTrigger>
@@ -353,27 +272,11 @@ const OurTeam = () => {
         </div>
         <div className="partners">
             <Slider {...settingsPartners}>
-                <div className="logo">
-                    <img src="./images/partner1.png" alt=""/>
-                </div>
-                <div className="logo">
-                    <img src="./images/footer-img.png" alt=""/>
-                </div>
-                <div className="logo">
-                    <img src="./images/partner2.png" alt=""/>
-                </div>
-                <div className="logo">
-                    <img src="./images/partner3.png" alt=""/>
-                </div>
-                <div className="logo">
-                    <img src="./images/partner4.png" alt=""/>
-                </div>
-                <div className="logo">
-                    <img src="./images/partner5.png" alt=""/>
-                </div>
-                <div className="logo">
-                    <img src="./images/partner6.png" alt=""/>
-                </div>
+                {partners.map((item, index) => {
+                    return <div key={index} className="logo">
+                        <img src={item.logo} alt=""/>
+                    </div>
+                })}
             </Slider>
         </div>
         <Footer/>

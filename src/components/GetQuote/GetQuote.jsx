@@ -3,13 +3,18 @@ import Header from "../header/Heade";
 import Navbar from "../Navbar/Navbar";
 import {useNavigate} from "react-router-dom";
 import Footer from "../footer/Footer";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import Aos from "aos";
 
 
 const GetQuote = () => {
     const navigate = useNavigate();
     const [radioQuote, setRadioQuote] = useState("open");
     const [checkBoxQuote, setCheckBoxQuote] = useState(false);
+
+    useEffect(() => {
+        Aos.init({duration: 1000});
+    }, []);
 
     return <div className="get-quote-container">
         <Header/>
