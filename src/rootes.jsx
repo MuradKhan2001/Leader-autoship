@@ -12,6 +12,8 @@ import States from "./components/States/States";
 import GetQuote from "./components/GetQuote/GetQuote";
 import Carrier from "./components/carrier/Carrier";
 import Customer from "./components/customer/Customer";
+import PrivacyPolicy from "./components/policy-privency/PrivacyPolicy";
+import TermsAndConditions from "./components/Terms-and-conditions/TermsAndConditions";
 
 export const publicRoutes = [
     {
@@ -69,5 +71,13 @@ export const publicRoutes = [
     {
         path: "/customer",
         element: <Customer/>
+    },
+    {
+        path: "/privacy-policy",
+        element: <PrivacyPolicy/>
+    },
+    {
+        path: "/terms-and-conditions",
+        element: <TermsAndConditions/>
     }
 ];

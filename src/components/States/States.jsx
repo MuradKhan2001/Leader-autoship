@@ -65,7 +65,6 @@ const States = () => {
             }
         }]
     };
-
     useEffect(() => {
         axios.get(`${value.url}comment/`).then((response) => {
             setComments(response.data)
@@ -94,11 +93,11 @@ const States = () => {
                                 Logistics & Leader Auto Ship
                             </div>
                             <div className="text-large">
-                                <p>More states</p>
+                                <p data-aos="zoom-in">Shipping a car across the country</p>
 
                             </div>
                             <div className="des-text">
-                                Car transport anywhere in the U.S.
+                                Find cross country shipping deals with Leader Auto ship
                             </div>
                             <div className="buttons-home">
                                 <button onClick={() => navigate("/get-quote")} type="button" className="button-home">
@@ -177,42 +176,58 @@ const States = () => {
         </div>
 
         <div className="states">
-            <div className="title">More states</div>
-            <div className="des">Duis semper lacus scelerisque, aliquam leo quis, porttitor leo. Etiam lobortis dapibus
-                libero vel porttitor. Nulla tempor elit nec feugiat tempus.Phasellus at quam id elit hendrerit semper
-                feugiat id nunc.
-            </div>
+            <div className="title">Ship your car across the country with Leader Auto Ship</div>
             <div className="state-box">
-                <div className="state">New york</div>
-                <div className="state">California</div>
-                <div className="state">Ohio</div>
-                <div className="state">Montana</div>
-                <div className="state">Texas</div>
-                <div className="state">New york</div>
-                <div className="state">California</div>
-                <div className="state">Ohio</div>
-                <div className="state">Montana</div>
-                <div className="state">Texas</div>
-                <div className="state">New york</div>
-                <div className="state">California</div>
-                <div className="state">Ohio</div>
-                <div className="state">Montana</div>
-                <div className="state">Texas</div>
-                <div className="state">New york</div>
-                <div className="state">California</div>
-                <div className="state">Ohio</div>
-                <div className="state">Montana</div>
-                <div className="state">Texas</div>
-                <div className="state">New york</div>
-                <div className="state">California</div>
-                <div className="state">Ohio</div>
-                <div className="state">Montana</div>
-                <div className="state">Texas</div>
-                <div className="state">New york</div>
-                <div className="state">California</div>
-                <div className="state">Ohio</div>
-                <div className="state">Montana</div>
-                <div className="state">Texas</div>
+                <p>Alabama Car Shipping</p>
+                <p>Alaska Car Transport</p>
+                <p>Arizona Car Shipping</p>
+                <p>Arkansas Car Shipping</p>
+                <p>California Car Shipping</p>
+                <p>Colorado Car Shipping</p>
+                <p>Connecticut Car Shipping</p>
+                <p>Delaware Car Shipping</p>
+                <p>Florida Car Shipping</p>
+                <p>Georgia Car Shipping</p>
+                <p>Hawaii Car Transport</p>
+                <p>Idaho Car Shipping</p>
+                <p>Illinois Car Shipping</p>
+                <p>Indiana Car Shipping</p>
+                <p>Iowa Car Shipping</p>
+                <p>Kansas Car Shipping</p>
+                <p>Kentucky Car Shipping</p>
+                <p>Louisiana Car Shipping</p>
+                <p>Maine Car Shipping</p>
+                <p>Maryland Car Shipping</p>
+                <p>Massachusetts Car Shipping</p>
+                <p>Michigan Car Shipping</p>
+                <p>Minnesota Car Shipping</p>
+                <p>Mississippi Car Shipping</p>
+                <p>Missouri Car Shipping</p>
+                <p>Montana Car Shipping</p>
+                <p>Nebraska Car Shipping</p>
+                <p>Nevada Car Shipping</p>
+                <p>New Hampshire Car Shipping</p>
+                <p>New Jersey Car Shipping</p>
+                <p>New Mexico Car Shipping</p>
+                <p>New York Car Shipping</p>
+                <p>North Carolina Shipping</p>
+                <p>North Dakota Car Shipping</p>
+                <p>Ohio Car Shipping</p>
+                <p>Oklahoma Car Shipping</p>
+                <p>Oregon Car Shipping</p>
+                <p>Pennsylvania Car Shipping</p>
+                <p>Rhode Island Car Shipping</p>
+                <p>South Dakota Car Shipping</p>
+                <p>South Carolina Car Shipping</p>
+                <p>Tennessee Car Shipping</p>
+                <p>Texas Car Shipping</p>
+                <p>Utah Car Shipping</p>
+                <p>Vermont Car Shipping</p>
+                <p>Virginia Car Shipping</p>
+                <p>Washington Car Shipping</p>
+                <p>West Virginia Car Shipping</p>
+                <p>Wisconsin Car Shipping</p>
+                <p>Wyoming Car Shipping</p>
             </div>
         </div>
 

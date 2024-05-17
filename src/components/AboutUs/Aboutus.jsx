@@ -101,7 +101,7 @@ const AboutUs = () => {
                                 Logistics & Leader Auto Ship
                             </div>
                             <div className="text-large">
-                                <p>Over a Decade of Outstanding Delivery and Exponential Growth</p>
+                                <p data-aos="zoom-in">Over a Decade of Outstanding Delivery and Exponential Growth</p>
                             </div>
                             <div className="buttons-home">
                                 <button onClick={() => navigate("/get-quote")} type="button" className="button-home">
@@ -217,7 +217,7 @@ const AboutUs = () => {
                 <div className="count">
                     <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
                         <div className="num">
-                            {counterOn && <CountUp start={0} end={statistics.clients} duration={2} delay={0}/>}
+                            {counterOn && <CountUp start={0} end={statistics && statistics.clients} duration={2} delay={0}/>}
                             +
                         </div>
                     </ScrollTrigger>
@@ -228,7 +228,7 @@ const AboutUs = () => {
                 <div className="count">
                     <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
                         <div className="num">
-                            {counterOn && <CountUp start={0} end={statistics.orders} duration={2} delay={0}/>}
+                            {counterOn && <CountUp start={0} end={ statistics && statistics.orders} duration={2} delay={0}/>}
                             +
                         </div>
                     </ScrollTrigger>
@@ -239,7 +239,7 @@ const AboutUs = () => {
                 <div className="count">
                     <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
                         <div className="num">
-                            {counterOn && <CountUp start={0} end={statistics.projects} duration={2} delay={0}/>}
+                            {counterOn && <CountUp start={0} end={statistics && statistics.projects} duration={2} delay={0}/>}
                             +
                         </div>
                     </ScrollTrigger>
@@ -250,7 +250,7 @@ const AboutUs = () => {
                 <div className="count">
                     <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
                         <div className="num">
-                            {counterOn && <CountUp start={0} end={statistics.cities} duration={2} delay={0}/>}
+                            {counterOn && <CountUp start={0} end={statistics && statistics.cities} duration={2} delay={0}/>}
                             +
                         </div>
                     </ScrollTrigger>

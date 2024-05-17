@@ -103,7 +103,7 @@ const OurTeam = () => {
                                 Logistics & Leader Auto Ship
                             </div>
                             <div className="text-large">
-                                <p>OUR TEAM</p>
+                                <p data-aos="zoom-in">OUR TEAM</p>
                             </div>
                             <div className="buttons-home">
                                 <button onClick={() => navigate("/get-quote")} type="button" className="button-home">
@@ -134,7 +134,7 @@ const OurTeam = () => {
                     return <div key={index} className="person">
                         <div className="photo">
                             {item.image ?
-                                <img className="img-person" src={`http://138.197.97.98` + item.image} alt=""/> :
+                                <img className="img-person" src={`https://api.leaderautoship.com/` + item.image} alt=""/> :
                                 <img src="./images/person2.png" alt=""/>}
                         </div>
                         <div className="bottom-text">
@@ -163,7 +163,7 @@ const OurTeam = () => {
                         return <div key={index} className="person">
                             <div className="photo">
                                 {item.image ?
-                                    <img className="img-person" src={`http://138.197.97.98` + item.image} alt=""/> :
+                                    <img className="img-person" src={`https://api.leaderautoship.com/` + item.image} alt=""/> :
                                     <img src="./images/person2.png" alt=""/>}
                             </div>
                             <div className="bottom-text">

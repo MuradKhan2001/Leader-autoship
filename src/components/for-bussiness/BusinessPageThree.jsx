@@ -93,7 +93,7 @@ const BussinesPageThree = () => {
                                 Logistics & Leader Auto Ship
                             </div>
                             <div className="text-large">
-                                <p>Fast execution and service to support rental car velocity</p>
+                                <p data-aos="zoom-in">Fast execution and service to support rental car velocity</p>
                             </div>
                             <div className="des-text">
                                 Leader Auto Ship’s 16,000+ carrier network and industry expertise delivers the capacity

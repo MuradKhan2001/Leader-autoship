@@ -93,7 +93,7 @@ const BussinesPageOne = () => {
                                 Logistics & Leader Auto Ship
                             </div>
                             <div className="text-large">
-                                <p>Reach your sales goals.
+                                <p data-aos="zoom-in">Reach your sales goals.
                                     Faster than ever</p>
                             </div>
                             <div className="des-text">

@@ -157,11 +157,21 @@
     .sides {
       display: flex;
       .text {
+        &:hover{
+          color: rgba(244, 168, 80, 1);
+        }
+        transition: 0.3s linear;
         color: white;
-        margin-right: 5px;
         font-size: 14px;
         text-transform: uppercase;
         cursor: pointer;
+      }
+      .line{
+        margin-left: 8px;
+        margin-right: 8px;
+        width: 2px;
+        height: 17px;
+        background-color: white;
       }
     }
   }

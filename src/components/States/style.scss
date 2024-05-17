@@ -81,7 +81,7 @@
             display: flex;
             margin-top: 35px;
 
-            a{
+            a {
               text-decoration: none;
             }
 
@@ -252,7 +252,7 @@
       align-items: center;
       flex-wrap: wrap;
 
-      .state {
+      p {
         width: max-content;
         padding: 3px;
         margin-top: 15px;
@@ -488,6 +488,7 @@
                   }
 
                   .des {
+                    padding-right: 10px;
                     margin-top: 10px;
                     font-family: "Krub", sans-serif;
                     font-size: 14px;

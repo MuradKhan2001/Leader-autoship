@@ -67,8 +67,20 @@ const Footer = () => {
                     <div className="title-footer">
                         Menu
                     </div>
-                    <div onClick={() => navigate("/how-it-works")} className="item-footer">How it works?</div>
-                    <div onClick={() => navigate("/for-individuals")} className="item-footer">For individuals</div>
+                    <div onClick={() => {
+                        setTimeout(() => {
+                            window.scrollTo(0, 0)
+                        }, 200)
+                        navigate("/how-it-works")
+                    }} className="item-footer">How it works?
+                    </div>
+                    <div onClick={() => {
+                        setTimeout(() => {
+                            window.scrollTo(0, 0)
+                        }, 200)
+                        navigate("/for-individuals")
+                    }} className="item-footer">For individuals
+                    </div>
                     <div className="item-footer">
                         For businesses
                     </div>
@@ -85,22 +97,52 @@ const Footer = () => {
                         Useful links
                     </div>
 
-                    <div onClick={() => navigate("/about-us")} className="item-footer">
+                    <div onClick={() => {
+                        navigate("/about-us")
+                        setTimeout(() => {
+                            window.scrollTo(0, 0)
+                        }, 200)
+                    }} className="item-footer">
                         About us
                     </div>
-                    <div onClick={() => navigate("/our-team")} className="item-footer">
+                    <div onClick={() => {
+                        setTimeout(() => {
+                            window.scrollTo(0, 0)
+                        }, 200)
+                        navigate("/our-team")
+                    }} className="item-footer">
                         Our team
                     </div>
-                    <div onClick={() => navigate("/reviews")} className="item-footer">
+                    <div onClick={() => {
+                        setTimeout(() => {
+                            window.scrollTo(0, 0)
+                        }, 200)
+                        navigate("/reviews")
+                    }} className="item-footer">
                         Reviews
                     </div>
-                    <div onClick={() => navigate("/auto-dealerships")} className="item-footer">
+                    <div onClick={() => {
+                        setTimeout(() => {
+                            window.scrollTo(0, 0)
+                        }, 200)
+                        navigate("/auto-dealerships")
+                    }} className="item-footer">
                         Auto dealerships
                     </div>
-                    <div onClick={() => navigate("/auto-auctions")} className="item-footer">
+                    <div onClick={() => {
+                        setTimeout(() => {
+                            window.scrollTo(0, 0)
+                        }, 200)
+                        navigate("/auto-auctions")
+                    }} className="item-footer">
                         Auto auctions
                     </div>
-                    <div onClick={() => navigate("/rental-car-companies")} className="item-footer">
+                    <div onClick={() => {
+                        setTimeout(() => {
+                            window.scrollTo(0, 0)
+                        }, 200)
+                        navigate("/rental-car-companies")
+                    }} className="item-footer">
                         Rental car companies
                     </div>
 
@@ -131,18 +173,41 @@ const Footer = () => {
 
             <div className="footer-bottom">
                 <div className="sides">
-                    <div className="text">
-                        © 2022 LEADER AUTO SHIP llc |
+                    <div onClick={() => {
+                        setTimeout(() => {
+                            window.scrollTo(0, 0)
+                        }, 200)
+                        navigate("/")
+                    }} className="text">
+                        © 2024 LEADER AUTO SHIP llc
                     </div>
-                    <div className="text">
+
+                    <div className="line"></div>
+                    <div onClick={() => {
+                        setTimeout(() => {
+                            window.scrollTo(0, 0)
+                        }, 200)
+                        navigate("/get-quote")
+                    }} className="text">
                         ALL RIGHTS RESERVED
                     </div>
                 </div>
                 <div className="sides">
-                    <div className="text">
-                        PRIVACY POLICY |
+                    <div onClick={() => {
+                        navigate("/privacy-policy")
+                        setTimeout(() => {
+                            window.scrollTo(0, 0)
+                        }, 200)
+                    }} className="text">
+                        PRIVACY POLICY
                     </div>
-                    <div className="text">
+                    <div className="line"></div>
+                    <div onClick={() => {
+                        setTimeout(() => {
+                            window.scrollTo(0, 0)
+                        }, 200)
+                        navigate("/terms-and-conditions")
+                    }} className="text">
                         TERMS AND CONDITIONS
                     </div>
                 </div>

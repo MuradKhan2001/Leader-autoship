@@ -7,6 +7,7 @@ import {useFormik} from "formik";
 import axios from "axios";
 import React, {useContext, useEffect, useState} from "react";
 import {MyContext} from "../App/App";
+import Aos from "aos";
 
 const Carrier = () => {
         let value = useContext(MyContext);
@@ -74,6 +75,7 @@ const Carrier = () => {
             axios.get(`${value.url}contact/`).then((response) => {
                 setContact(response.data[0])
             });
+            Aos.init({duration: 1000});
         }, []);
 
         return <div className="carrier-container">
@@ -103,7 +105,7 @@ const Carrier = () => {
                                     Logistics & Leader Auto Ship
                                 </div>
                                 <div className="text-large">
-                                    <p>CARRIER NETWORK IN USA</p>
+                                    <p data-aos="zoom-in">CARRIER NETWORK IN USA</p>
                                 </div>
                                 <div className="des-text">
                                     Trusted company offering top-quality loads in the USA.

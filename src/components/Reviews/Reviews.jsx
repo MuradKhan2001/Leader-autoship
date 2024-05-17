@@ -69,7 +69,7 @@ const Reviews = () => {
                                 Logistics & Leader Auto Ship
                             </div>
                             <div className="text-large">
-                                <p>LEADER AUTO SHIP REVIEWS</p>
+                                <p data-aos="zoom-in">LEADER AUTO SHIP REVIEWS</p>
                             </div>
                             <div className="des-text">
                                 Ensuring our customers' full satisfaction is our priority, and receiving positive

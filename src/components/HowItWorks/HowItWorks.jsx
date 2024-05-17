@@ -126,7 +126,7 @@ const HowItWorks = () => {
                                 Logistics & Leader Auto Ship
                             </div>
                             <div className="text-large">
-                                <p>How does auto transport work?</p>
+                                <p data-aos="zoom-in">How does auto transport work?</p>
                             </div>
                             <div className="des-text">
                                 This easy guide will show you in 3 simple steps.

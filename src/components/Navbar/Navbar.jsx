@@ -35,14 +35,34 @@ const Navbar = () => {
                         <img onClick={() => setNav(false)} src="./images/close.png" alt=""/>
                     </div>
 
-                    <div onClick={() => navigate("/how-it-works")} className="nav-item">How it works?</div>
-                    <div onClick={() => navigate("/for-individuals")} className="nav-item">For individuals</div>
+                    <div onClick={() => {
+                        setTimeout(() => {
+                            window.scrollTo(0, 0)
+                        }, 200)
+                        navigate("/how-it-works")}} className="nav-item">How it works?</div>
+                    <div onClick={() => {
+                        setTimeout(() => {
+                            window.scrollTo(0, 0)
+                        }, 200)
+                        navigate("/for-individuals")}} className="nav-item">For individuals</div>
                     <div className="nav-item">
                         For businesses
                         <div className="submenu">
-                            <div onClick={() => navigate("/auto-dealerships")} className="name">Auto Dealerships</div>
-                            <div onClick={() => navigate("/auto-auctions")} className="name">Auto auctions</div>
-                            <div onClick={() => navigate("/rental-car-companies")} className="name">Car rental
+                            <div onClick={() => {
+                                setTimeout(() => {
+                                    window.scrollTo(0, 0)
+                                }, 200)
+                                navigate("/auto-dealerships")}} className="name">Auto Dealerships</div>
+                            <div onClick={() => {
+                                setTimeout(() => {
+                                    window.scrollTo(0, 0)
+                                }, 200)
+                                navigate("/auto-auctions")}} className="name">Auto auctions</div>
+                            <div onClick={() => {
+                                setTimeout(() => {
+                                    window.scrollTo(0, 0)
+                                }, 200)
+                                navigate("/rental-car-companies")}} className="name">Car rental
                                 companies
                             </div>
                         </div>
@@ -51,9 +71,21 @@ const Navbar = () => {
                     <div className="nav-item">
                         Why us
                         <div className="submenu">
-                            <div onClick={() => navigate("/reviews")} className="name">Reviews</div>
-                            <div onClick={() => navigate("/about-us")} className="name">About us</div>
-                            <div onClick={() => navigate("/our-team")} className="name">Our team</div>
+                            <div onClick={() => {
+                                setTimeout(() => {
+                                    window.scrollTo(0, 0)
+                                }, 200)
+                                navigate("/reviews")}} className="name">Reviews</div>
+                            <div onClick={() => {
+                                setTimeout(() => {
+                                    window.scrollTo(0, 0)
+                                }, 200)
+                                navigate("/about-us")}} className="name">About us</div>
+                            <div onClick={() => {
+                                setTimeout(() => {
+                                    window.scrollTo(0, 0)
+                                }, 200)
+                                navigate("/our-team")}} className="name">Our team</div>
                         </div>
                     </div>
 

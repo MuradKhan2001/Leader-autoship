@@ -116,7 +116,7 @@ const ForIndividuals = () => {
                                 Logistics & Leader Auto Ship
                             </div>
                             <div className="text-large">
-                                <p>Discover Our Range of Offers!</p>
+                                <p data-aos="zoom-in">Discover Our Range of Offers!</p>
                             </div>
                             <div className="des-text">
                                 Leader Auto Ship is known for safe and secure auto transportation services

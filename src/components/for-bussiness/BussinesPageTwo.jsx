@@ -93,7 +93,7 @@ const BussinesPageTwo = () => {
                                 Logistics & Leader Auto Ship
                             </div>
                             <div className="text-large">
-                                <p>When timing is crucial, rely on Leader Auto Ship</p>
+                                <p data-aos="zoom-in">When timing is crucial, rely on Leader Auto Ship</p>
                             </div>
                             <div className="des-text">
                                 Fast, flexible and reliable nationwide auto transport and logistics solutions for auto

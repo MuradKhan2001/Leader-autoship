@@ -63,6 +63,8 @@ const Customer = () => {
         axios.get(`${value.url}contact/`).then((response) => {
             setContact(response.data[0])
         });
+
+        Aos.init({duration: 1000});
     }, []);
 
     return <div className="customer-container">
@@ -91,7 +93,7 @@ const Customer = () => {
                                 Logistics & Leader Auto Ship
                             </div>
                             <div className="text-large">
-                                <p>CONTACT LEADER AUTO SHIP</p>
+                                <p data-aos="zoom-in">CONTACT LEADER AUTO SHIP</p>
                             </div>
                             <div className="des-text">
                                 We're eager to receive your feedback.
