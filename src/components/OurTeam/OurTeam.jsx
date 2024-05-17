@@ -196,7 +196,7 @@ const OurTeam = () => {
                     return <div key={index} className="person">
                         <div className="photo">
                             {item.image ?
-                                <img className="img-person" src={`http://138.197.97.98` + item.image} alt=""/> :
+                                <img className="img-person" src={`https://api.leaderautoship.com/` + item.image} alt=""/> :
                                 <img src="./images/person2.png" alt=""/>}
                         </div>
                         <div className="bottom-text">

@@ -6,7 +6,7 @@ import NotFound from "../notFound/NotFound";
 export const MyContext = createContext();
 
 function App() {
-    const [url, setUrl] = useState('http://138.197.97.98/api/');
+    const [url, setUrl] = useState('https://api.leaderautoship.com/api/');
     return (
         <>
             <MyContext.Provider value={{
