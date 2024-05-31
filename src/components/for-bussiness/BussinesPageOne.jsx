@@ -97,8 +97,7 @@ const BussinesPageOne = () => {
                                     Faster than ever</p>
                             </div>
                             <div className="des-text">
-                                Navigate obstacles and determine the best path forward with United Freeway
-                                Transportation’s Business Solutions.
+                                Navigate obstacles and determine the best path forward with Leader Auto Ship’s Business Solutions.
                             </div>
                             <div className="buttons-home">
                                 <button onClick={() => navigate("/get-quote")} type="button" className="button-home">

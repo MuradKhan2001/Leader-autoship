@@ -96,14 +96,9 @@ const GetQuote = () => {
                                     />
                                 </div>
                                 <label htmlFor="c1-13">
-                                    By checking this box, you agree to our Terms and Privacy Policy,
-                                    allowing us
-                                    to
-                                    send automated sales calls, text messages, and prerecorded voicemails to
-                                    the
-                                    provided phone number. Your consent is not required for purchasing any
-                                    items,
-                                    commodities, or services. Message and data rates may apply.
+                                    By checking this box, you agree to our Terms and Privacy Policy, allowing us to send
+                                    text messages to the provided phone number. Your consent is not required for
+                                    purchasing any items, commodities, or services. Message and data rates may apply.
                                 </label>
                             </div>
                         </div>

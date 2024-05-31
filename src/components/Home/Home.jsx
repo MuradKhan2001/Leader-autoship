@@ -285,13 +285,9 @@ const Home = () => {
                                             </div>
                                             <label htmlFor="c1-13">
                                                 By checking this box, you agree to our Terms and Privacy Policy,
-                                                allowing us
-                                                to
-                                                send automated sales calls, text messages, and prerecorded voicemails to
-                                                the
-                                                provided phone number. Your consent is not required for purchasing any
-                                                items,
-                                                commodities, or services. Message and data rates may apply.
+                                                allowing us to send text messages to the provided phone number. Your
+                                                consent is not required for purchasing any items, commodities, or
+                                                services. Message and data rates may apply.
                                             </label>
                                         </div>
                                     </div>
@@ -562,7 +558,8 @@ const Home = () => {
                 <div className="count">
                     <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
                         <div className="num">
-                            {counterOn && <CountUp start={0} end={statistics && statistics.clients} duration={2} delay={0}/>}
+                            {counterOn &&
+                            <CountUp start={0} end={statistics && statistics.clients} duration={2} delay={0}/>}
                             +
                         </div>
                     </ScrollTrigger>
@@ -573,7 +570,8 @@ const Home = () => {
                 <div className="count">
                     <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
                         <div className="num">
-                            {counterOn && <CountUp start={0} end={ statistics && statistics.orders} duration={2} delay={0}/>}
+                            {counterOn &&
+                            <CountUp start={0} end={statistics && statistics.orders} duration={2} delay={0}/>}
                             +
                         </div>
                     </ScrollTrigger>
@@ -584,7 +582,8 @@ const Home = () => {
                 <div className="count">
                     <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
                         <div className="num">
-                            {counterOn && <CountUp start={0} end={statistics && statistics.projects} duration={2} delay={0}/>}
+                            {counterOn &&
+                            <CountUp start={0} end={statistics && statistics.projects} duration={2} delay={0}/>}
                             +
                         </div>
                     </ScrollTrigger>
@@ -595,7 +594,8 @@ const Home = () => {
                 <div className="count">
                     <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
                         <div className="num">
-                            {counterOn && <CountUp start={0} end={statistics && statistics.cities} duration={2} delay={0}/>}
+                            {counterOn &&
+                            <CountUp start={0} end={statistics && statistics.cities} duration={2} delay={0}/>}
                             +
                         </div>
                     </ScrollTrigger>

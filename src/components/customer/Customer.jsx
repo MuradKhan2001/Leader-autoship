@@ -56,9 +56,9 @@ const Customer = () => {
             });
         },
     });
+
     const [contact, setContact] = useState("");
     const navigate = useNavigate();
-
     useEffect(() => {
         axios.get(`${value.url}contact/`).then((response) => {
             setContact(response.data[0])

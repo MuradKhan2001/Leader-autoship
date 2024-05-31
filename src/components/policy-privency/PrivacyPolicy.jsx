@@ -102,22 +102,20 @@ const PrivacyPolicy = () => {
                 information about you in your file as well as other information we gather from your use on our
                 website.</p>
             <p><strong>Our Disclosure to Third Parties</strong></p>
-            <p>We know that privacy is important; to protect you, we utilize actions that are logical and dependable. We
-                do not in any way sell or give away any personal information about you. Examples of ways your personal
-                information may be shared:</p>
-            <p>Your personal identification information does not get shared to any third parties unless we have
-                authorization by you to do so. By placing an order</p>
-            <p>If you need to change, update, or remove your personal information, you may do so by visiting
-                the &ldquo;Contact Us&rdquo; page on our website.</p>
-            <p>You may give us permission on when to share your information, or you may opt in/out of further
-                disclosure.</p>
-            <p>Our company is susceptible to the examining process and implementation of the US Federal Trade
-                Commission.</p>
-            <p>In the event of a legal matter, we must reveal any and all information to public authority, national
-                security, and law enforcement.</p>
-            <p>At time of dispatch, we must reveal your personal information (phone number, addresses, names, etc,.) to
-                third parties (transport carriers). You will be notified of this at the time when your data is collected
-                as well as before we release the information.</p>
+            <p>
+                We understand the value of privacy and take reasonable steps to safeguard it. We never sell or give away
+                any of your personal information. The following are some examples of how your personal information may
+                be shared: Your personally identifiable information is not shared with third parties unless you give us
+                permission to do so. By submitting an order – If you want to modify, amend, or delete your personal
+                information, you may do so by visiting our website’s “Contact Us” page. – You have the option of
+                granting us permission to disclose your information or opting in/out of subsequent sharing. – Our
+                business is subject to the US Federal Trade Commission’s examination and enforcement procedure. – We
+                must provide any and all information to public authorities, national security, and law enforcement in
+                the case of a legal proceeding. – At the moment of delivery, we must disclose your personal information
+                to third parties (phone numbers, addresses, and names, for example) (transport carriers). This will be
+                communicated to you both during the collection of your data and prior to its publication.
+            </p>
+
             <h4>Law Enforcement</h4>
             <p>In the event of a legal matter that may hold us liable, (fraud, informal copyright, etc,.), we may reveal
                 any personal information about you as we feel necessary or relevant.</p>
@@ -131,10 +129,13 @@ const PrivacyPolicy = () => {
                 spam, as we would be more than happy to honour your wishes and prevent any future communications. You
                 just need to reach out to us and let us know.</p>
             <p><strong>Disclosures You Make to Third Parties</strong></p>
-            <p>Leader Auto Ship LLC is not accountable for the Privacy Policies of third parties or other sites linked
-                to our website; please read the specific Privacy Policy for every page you visit. Leader Auto Ship LLC
-                includes other relevant links in our website only to benefit our users; these links are not a
-                responsibility of Leader Auto Ship LLC.</p>
+            <p>
+                Leader Auto Ship LLC will take great efforts to safeguard any kind of personal information. Leader Auto
+                Ship LLC cannot ensure total security and is not responsible or accountable for any personal data
+                disclosures, including but not limited to data transfer failures, hackers, or errors caused by Leader
+                Auto Ship LLC. For instance, any third party might get unauthorized access to your information using our
+                website.
+            </p>
             <p><strong>How We Protect Your Personal Information</strong></p>
             <p>With all forms of personal information, EAS will take extra precautions to protect it in any way. EAS
                 does not guarantee complete protection and is not responsible or liable for any personal data
