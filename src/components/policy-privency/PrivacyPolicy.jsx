@@ -111,9 +111,9 @@ const PrivacyPolicy = () => {
                 granting us permission to disclose your information or opting in/out of subsequent sharing. – Our
                 business is subject to the US Federal Trade Commission’s examination and enforcement procedure. – We
                 must provide any and all information to public authorities, national security, and law enforcement in
-                the case of a legal proceeding. – At the moment of delivery, we must disclose your personal information
-                to third parties (phone numbers, addresses, and names, for example) (transport carriers). This will be
-                communicated to you both during the collection of your data and prior to its publication.
+                the case of a legal proceeding.We do not share your phone number or SMS consent information with third
+                parties for any purpose. This will be communicated to you both during the collection of your data and
+                prior to its publication.
             </p>
 
             <h4>Law Enforcement</h4>

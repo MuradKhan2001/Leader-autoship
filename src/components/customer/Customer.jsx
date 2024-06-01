@@ -13,6 +13,7 @@ import Aos from "aos";
 const Customer = () => {
     let value = useContext(MyContext);
     const [success, setSuccess] = useState(false)
+    const [checkBoxQuote, setCheckBoxQuote] = useState(false);
     const validate = (values) => {
         const errors = {};
 
@@ -47,13 +48,17 @@ const Customer = () => {
         },
         validate,
         onSubmit: (values) => {
-            axios.post(`${value.url}customer-load/`, values).then((response) => {
-                setSuccess(true)
-                setTimeout(() => {
-                    setSuccess(false)
-                }, 4000)
-                formik.resetForm()
-            });
+
+            if (checkBoxQuote) {
+                axios.post(`${value.url}customer-load/`, values).then((response) => {
+                    setSuccess(true)
+                    setTimeout(() => {
+                        setSuccess(false)
+                    }, 4000)
+                    formik.resetForm()
+                    setCheckBoxQuote(false)
+                });
+            }
         },
     });
 
@@ -138,7 +143,27 @@ const Customer = () => {
                           value={formik.values.text}
                           name="text" placeholder="Message"></textarea>
 
-                <button type="submit" className="send-btn">Submit</button>
+                <div className="check-box">
+                    <div className="checkbox-wrapper-13">
+                        <input
+                            checked={checkBoxQuote}
+                            onChange={(e) => {
+                                setCheckBoxQuote((prevState) => !prevState);
+                            }}
+                            id="c1-13"
+                            type="checkbox"
+                        />
+                    </div>
+                    <label htmlFor="c1-13">
+                        By checking this box, you agree to our Terms and Privacy Policy, allowing us to send
+                        sms to the provided phone number. Your consent is not required for
+                        purchasing any items, commodities, or services. Message and data rates may apply.
+                    </label>
+                </div>
+
+                <button type="submit"
+                        className={`send-btn ${checkBoxQuote ? "send-btn-active" : ""}`}>Submit
+                </button>
             </form>
         </div>
         <Footer/>
