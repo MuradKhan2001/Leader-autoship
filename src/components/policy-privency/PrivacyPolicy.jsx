@@ -108,11 +108,9 @@ const PrivacyPolicy = () => {
                 be shared: Your personally identifiable information is not shared with third parties unless you give us
                 permission to do so. By submitting an order – If you want to modify, amend, or delete your personal
                 information, you may do so by visiting our website’s “Contact Us” page. – You have the option of
-                granting us permission to disclose your information or opting in/out of subsequent sharing. – Our
-                business is subject to the US Federal Trade Commission’s examination and enforcement procedure. – We
-                must provide any and all information to public authorities, national security, and law enforcement in
-                the case of a legal proceeding.We do not share your phone number or SMS consent information with third
-                parties for any purpose. This will be communicated to you both during the collection of your data and
+                granting us permission to disclose your information or opting in/out of subsequent sharing.We do not
+                share your phone number or SMS consent information with third parties for any purpose. This will be
+                communicated to you both during the collection of your data and
                 prior to its publication.
             </p>
 
