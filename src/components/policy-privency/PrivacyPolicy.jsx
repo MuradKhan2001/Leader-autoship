@@ -103,15 +103,63 @@ const PrivacyPolicy = () => {
                 website.</p>
             <p><strong>Our Disclosure to Third Parties</strong></p>
             <p>
-                We understand the value of privacy and take reasonable steps to safeguard it. We never sell or give away
-                any of your personal information. The following are some examples of how your personal information may
-                be shared: Your personally identifiable information is not shared with third parties unless you give us
-                permission to do so. By submitting an order – If you want to modify, amend, or delete your personal
-                information, you may do so by visiting our website’s “Contact Us” page. – You have the option of
-                granting us permission to disclose your information or opting in/out of subsequent sharing.We do not
-                share your phone number or SMS consent information with third parties for any purpose. This will be
-                communicated to you both during the collection of your data and
-                prior to its publication.
+
+                <p> We value privacy and use practices that are consistent with standards in our industry to protect
+                    your
+                    privacy. We do not sell or rent any Personal Data about you to any third party. The following
+                    describes
+                    to whom your Personal Data may be disclosed:</p>
+
+                <ul>
+                    <li>
+                        <b>Third Party Service Providers Performing Services on Our Behalf.</b> We may share your
+                        Personal Data with
+                        our service providers to perform the functions for which we engage them, including the functions
+                        described in the above section entitled, “What We Do With Your Information”. For example, we may
+                        use
+                        third parties to host the Site or assist us in providing functionality on the Site (including
+                        chat
+                        functionality), provide data analysis and research Site, to send out email updates about the
+                        Site or our
+                        products and services, and to make automated calls with respect to our products and services or
+                        to
+                        respond to your inquiry.
+                    </li>
+                    <li>
+                        <b>For Legal Purposes</b>. We also may share information that we collect from users as needed to
+                        enforce our
+                        rights, protect our property or protect the rights, property or safety of others, or as needed
+                        to
+                        support external auditing, compliance and corporate governance functions. We will disclose
+                        Personal Data
+                        as we deem necessary to respond to a subpoena, regulation, binding order of a data protection
+                        agency,
+                        legal process, governmental request or other legal or regulatory process. We may also share
+                        Personal
+                        Data as required to pursue available remedies or limit damages we may sustain.
+                    </li>
+                    <li><b>Law Enforcement</b>. We may disclose any information about you to law enforcement or other
+                        government
+                        officials as we, in our sole discretion, believe necessary or appropriate, in connection with an
+                        investigation of fraud, intellectual property infringements, or other activity that is illegal
+                        or
+                        may expose us to legal liability.
+                    </li>
+                    <li> <b>Changes of Control</b>. We may transfer or assign information, including your Personal Data, in
+                        connection
+                        with a merger, acquisition, reorganization, liquidation, change in control or other sale by or of us
+                        or
+                        any affiliated entity (in each case whether in whole or in part).
+                    </li>
+                    <li>
+                        <b>Advertisers</b>. We may disclose personal information and aggregate information about our users to
+                        advertisers and for our marketing and promotional purposes, including to determine the effectiveness of
+                        our promotional campaigns.
+                    </li>
+                </ul>
+
+                We do not share your Personal Data with third parties for those third parties’ direct marketing
+                purposes.
             </p>
 
             <h4>Law Enforcement</h4>
