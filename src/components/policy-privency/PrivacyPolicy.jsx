@@ -117,7 +117,7 @@ const PrivacyPolicy = () => {
                         Site or assist us in providing functionality on the Site (including chat functionality), provide
                         data analysis and research Site, to send out email updates about the Site or our products and
                         services, and to make automated calls with respect to our products and services or to respond to
-                        your inquiry.
+                        your inquiry. We do not share SMS consent with third parties.
                     </li>
                     <li>
                         <b>For Legal Purposes. </b>
@@ -148,7 +148,7 @@ const PrivacyPolicy = () => {
                     </li>
                 </ul>
 
-                We do not share your personal data and sms consent with third parties for those third parties’ direct
+                We do not share your personal data and SMS consent with third parties for those third parties’ direct
                 marketing purposes.
             </p>
 
