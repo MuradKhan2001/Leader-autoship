@@ -14,6 +14,7 @@ import Carrier from "./components/carrier/Carrier";
 import Customer from "./components/customer/Customer";
 import PrivacyPolicy from "./components/policy-privency/PrivacyPolicy";
 import TermsAndConditions from "./components/Terms-and-conditions/TermsAndConditions";
+import Success from "./components/success/Success";
 
 export const publicRoutes = [
     {
@@ -79,5 +80,9 @@ export const publicRoutes = [
     {
         path: "/terms-and-conditions",
         element: <TermsAndConditions/>
+    },
+    {
+        path: "/success",
+        element: <Success/>
     }
 ];
