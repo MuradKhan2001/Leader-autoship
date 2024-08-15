@@ -20,11 +20,14 @@ const HowItWorks = () => {
         },
         {
             title: "Can I put personal items in the car?",
-            des: "You can put personal items up to 100 lbs. in a box or single piece of luggage that will be in the trunk of the car during transport."
+            des: "You can put personal items up to 100 lbs. All Carriers are good without any extra fee if you have around 100-150 lbs.\n" +
+                "\n" +
+                "If it is more than 100 lbs, it needs to be negotiated with the assigned carrier. Leader Auto Ship LLC will do our best as much as we do to make it reasonable for you!"
         },
         {
             title: "When is the vehicle going to be picked-up?",
-            des: "After an order is placed, we search our car carrier network to find a trucker to transport your vehicle. We will assign the best one available and give you an estimated pickup time. The trucker will call you to confirm the details ahead of schedule."
+            des: "After an order is placed, we begin the process to assign one of the best available one based on your shipment date. If you need ASAP shipment, we can make it happen within 1-24 or max 48 hours after.\n" +
+                "Then you will be given estimated pickup time. The carrier will call you to confirm the details ahead of schedule."
         },
         {
             title: "When will my vehicle be delivered?",
@@ -32,14 +35,16 @@ const HowItWorks = () => {
         },
         {
             title: "How do I pay for my auto shipping?",
-            des: "We accept all major credit cards, electronic transfer, postal money order, and bank/certified check for the deposit. The rest of the money you will pay on the delivery spot once you get your car in cash or any certified funds. You can also do payment on Zelle, CashApp or Venmo!"
+            des: "We accept all major credit cards, electronic transfer, postal money order, and bank/certified check. No DEPOSIT FEE. We only get reservation fee once the suitable and available carrier is assigned with the guaranteed.\n" +
+                "\n" +
+                "The rest of the money you will pay ton the delivery spot once you get your car in cash or any certified funds. You can also do payment on Zelle, CashApp or Venmo!"
         }
     ]);
     const [statistics, setStatistic] = useState();
-    const [comments, setComments] = useState([])
-    const [partners, setPartners] = useState([])
+    const [comments, setComments] = useState([]);
+    const [partners, setPartners] = useState([]);
     const [contact, setContact] = useState("");
-    const [table, setTable] = useState([])
+    const [table, setTable] = useState([]);
     const [ActiveQuestion, setActiveQuestion] = useState("");
     const settingsPartners = {
         lazyLoad: false,
@@ -243,7 +248,7 @@ const HowItWorks = () => {
                     Step 3
                 </div>
                 <div className="title">
-                    <p>Recieve your vehicle</p>
+                    <p>Receive your vehicle</p>
                 </div>
                 <div className="des">
                     Reuniting you and your vehicle is an exciting moment—and one we look forward to atLeader Auto Ship!

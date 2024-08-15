@@ -3,15 +3,17 @@ import Header from "../header/Heade";
 import Navbar from "../Navbar/Navbar";
 import {useNavigate} from "react-router-dom";
 import Footer from "../footer/Footer";
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import Aos from "aos";
 import {Typeahead} from 'react-bootstrap-typeahead';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
 import axios from "axios";
+import {MyContext} from "../App/App";
 
 
 const GetQuote = () => {
     const navigate = useNavigate();
+    let value = useContext(MyContext);
     const [radioQuote, setRadioQuote] = useState("1");
     const [radioQuote2, setRadioQuote2] = useState("1");
     const [checkBoxQuote, setCheckBoxQuote] = useState(false);
@@ -42586,7 +42588,7 @@ const GetQuote = () => {
                     type: Vehicle_type,
                 }],
             };
-            axios.post(`https://las.msgplane.com/api/rest/post/lead/`, data).then((response) => {
+            axios.post(`${value.url}/api/get-quota/`, data).then((response) => {
                 navigate("/success")
             })
         }
@@ -42725,7 +42727,7 @@ const GetQuote = () => {
                         <label htmlFor="from">Vehicle year: *</label>
                         <select onChange={(e) => setVehicle_year(e.target.value)} name="vehicle" id="vehicle">
                             <option value="2025">2025</option>
-                            <option value="2024" selected>2024</option>
+                            <option value="2024">2024</option>
                             <option value="2023">2023</option>
                             <option value="2022">2022</option>
                             <option value="2021">2021</option>

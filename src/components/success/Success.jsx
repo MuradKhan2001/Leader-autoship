@@ -14,17 +14,28 @@ const Success = () => {
                 <img src="./images/success.png" alt=""/>
             </div>
             <div className="title">
-                Thank you
+                THANK YOU!
             </div>
             <div className="des">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque debitis deserunt doloremque ea et
-                impedit ipsum iure libero minima obcaecati, omnis possimus quae reiciendis similique tenetur vitae
-                voluptates. Alias, aliquam asperiores at atque dolor eius eligendi est eveniet ex expedita explicabo
-                harum illum impedit modi molestias nesciunt nostrum numquam omnis optio perferendis placeat quae quaerat
-                quam quas qui quibusdam recusandae reiciendis, sapiente similique sint totam, unde ut vel veniam vero
-                vitae voluptatem? Atque commodi consequuntur id in molestiae quia quis! Ad aliquam asperiores beatae
-                distinctio eaque eum ipsam ipsum maiores maxime modi odio omnis quibusdam, repudiandae rerum sit sunt
-                temporibus.
+                <h5>We have received your request. Our car shipping specialist will email your quote and contact you
+                    shortly.</h5>
+                <br/>
+                <h4>WHAT TO EXPECT NEXT?</h4>
+                <p>- You will get a call or text messages from one of our specialists asking exact pickup - drop off
+                    addresses, contact info of the person who will give and receive the vehicle.</p>
+
+                <p>- The agent contacts you 1-2 days before pickup date to update you with an available driver in the
+                    area.</p>
+
+                <p>- Once everything is scheduled the agent forwards you the driver’s contact info so that you can get
+                    an direct update during transfer.</p>
+
+
+                <p>If you still have a question feel free to contact us at: <br/>
+                    <a href={`tel: +5676664696`} className="name">(567) 666-4696</a> &nbsp;
+                    or
+                    &nbsp;
+                    <a href="mailto:support@leaderautoship.com">support@leaderautoship.com</a></p>
             </div>
         </div>
         <Footer/>

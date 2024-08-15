@@ -29,8 +29,8 @@ const Header = () => {
                 </div>
                 <div className="text-information">
                     <div className="title">
-                        <div> Mon to Fri: 09:00AM to 09:00PM</div>
-                        <div> Sat & Sun: 10:00am to 8:00pm</div>
+                        <div>Monday - Friday: Open 24 hours</div>
+                        <div>Weekends: 8:00am - 9:00pm EST</div>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@ const Header = () => {
                     <div className="title">
                         Call Us
                     </div>
-                    {contact.phone1}
+                    (567) 666-4696
                 </div>
             </div>
         </div>

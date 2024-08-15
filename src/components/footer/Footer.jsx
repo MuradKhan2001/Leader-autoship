@@ -37,7 +37,7 @@ const Footer = () => {
                             <img src="./images/telephone.png" alt=""/>
                         </div>
                         <div className="text">
-                            <a href={`tel:${contact.phone1}`} className="name">{contact.phone1}</a>
+                            <a href={`tel:${contact.phone1}`} className="name">(567) 666-4696</a>
                         </div>
                     </div>
                     <div className="item">
