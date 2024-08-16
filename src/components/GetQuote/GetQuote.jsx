@@ -42588,7 +42588,7 @@ const GetQuote = () => {
                     type: Vehicle_type,
                 }],
             };
-            axios.post(`${value.url}/api/get-quota/`, data).then((response) => {
+            axios.post(`${value.url}get-quota/`, data).then((response) => {
                 navigate("/success")
             })
         }
@@ -42602,7 +42602,7 @@ const GetQuote = () => {
                 Get a quote online, or call at
             </div>
             <div className="num-company">
-                (610) 982-4587
+                (567) 666-4696
             </div>
             <div className="icons-quote">
                 <div className={`icon-quote ${quote === 1 || quote === 2 || quote === 3 ? "active" : ""}`}>
