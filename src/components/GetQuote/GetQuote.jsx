@@ -42634,6 +42634,7 @@ const GetQuote = () => {
                             id="basic-typeahead"
                             options={options}
                             placeholder="ZIP or City"
+                            minLength={1}
                             onChange={(selected) => setZipfrom(selected)}
                         />
                     </div>
@@ -42643,6 +42644,7 @@ const GetQuote = () => {
                             id="basic-typeahead"
                             options={options}
                             placeholder="ZIP or City"
+                            minLength={1}
                             onChange={(selected) => setZipto(selected)}
                         />
                     </div>

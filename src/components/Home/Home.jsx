@@ -4,7 +4,7 @@ import React, {useEffect, useState, useContext} from "react";
 import Slider from "react-slick";
 import Footer from "../footer/Footer";
 import Header from "../header/Heade";
-import Typical from "react-typical"
+import Textra from 'react-textra'
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
 import Aos from "aos";
@@ -42754,20 +42754,9 @@ const Home = () => {
                         </div>
                         <div data-aos="zoom-in" className="text-large">
                             <p> WE DELIVER</p>
-                            <Typical
-                                loop={Infinity}
-                                steps={[
-                                    "Motorcycles",
-                                    2300,
-                                    "Suvs",
-                                    2300,
-                                    "Boats-Rvs",
-                                    2300,
-                                    "Pick up",
-                                    2300,
-                                    "Cars",
-                                    2300,
-                                ]}/>
+                            <p>
+                                <Textra effect='scale' data={['Motorcycles', 'Suvs', 'Boats-Rvs', 'Pick up', 'Cars']}/>
+                            </p>
                         </div>
                         <div className="des-text">
                             Leader Auto Ship is Top-Rated Car Shipping
@@ -42823,6 +42812,7 @@ const Home = () => {
                                         id="basic-typeahead"
                                         options={options}
                                         placeholder="ZIP or City"
+                                        minLength={1}
                                         onChange={(selected) => setZipfrom(selected)}
                                     />
                                 </div>
@@ -42832,6 +42822,7 @@ const Home = () => {
                                         id="basic-typeahead"
                                         options={options}
                                         placeholder="ZIP or City"
+                                        minLength={1}
                                         onChange={(selected) => setZipto(selected)}
                                     />
                                 </div>
@@ -42872,10 +42863,12 @@ const Home = () => {
                                                 />
                                             </div>
                                             <label htmlFor="c1-13">
-                                                By checking this box, you agree to our Terms and Privacy Policy, allowing us to
+                                                By checking this box, you agree to our Terms and Privacy Policy,
+                                                allowing us to
                                                 send
                                                 sms to the provided phone number. Your consent is not required for
-                                                purchasing any items, commodities, or services. Message and data rates may
+                                                purchasing any items, commodities, or services. Message and data rates
+                                                may
                                                 apply.
                                             </label>
                                         </div>
@@ -42896,7 +42889,8 @@ const Home = () => {
                             <div className="step2">
                                 <div className="input-quote">
                                     <label htmlFor="from">Vehicle type:*</label>
-                                    <select onChange={(e) => setVehicle_type(e.target.value)} name="vehicle" id="vehicle">
+                                    <select onChange={(e) => setVehicle_type(e.target.value)} name="vehicle"
+                                            id="vehicle">
                                         <option value="">Select Vehicle type</option>
                                         <option value="Car">Car</option>
                                         <option value="Truck">Truck</option>
@@ -42914,7 +42908,8 @@ const Home = () => {
 
                                 <div className="input-quote">
                                     <label htmlFor="from">Vehicle year: *</label>
-                                    <select onChange={(e) => setVehicle_year(e.target.value)} name="vehicle" id="vehicle">
+                                    <select onChange={(e) => setVehicle_year(e.target.value)} name="vehicle"
+                                            id="vehicle">
                                         <option value="2025">2025</option>
                                         <option value="2024">2024</option>
                                         <option value="2023">2023</option>
@@ -43214,9 +43209,11 @@ const Home = () => {
 
                                 <div className="input-quote">
                                     <label htmlFor="from">Vehicle model:*</label>
-                                    <select onChange={(e) => setVehicle_model(e.target.value)} name="vehicle" id="vehicle">
+                                    <select onChange={(e) => setVehicle_model(e.target.value)} name="vehicle"
+                                            id="vehicle">
                                         {Vehicle_modelList && Vehicle_modelList.map((item, index) => {
-                                            return <option key={index} value={item.Model_Name}>{item.Model_Name}</option>
+                                            return <option key={index}
+                                                           value={item.Model_Name}>{item.Model_Name}</option>
                                         })}
                                     </select>
                                 </div>
@@ -43265,16 +43262,19 @@ const Home = () => {
                             <div className="step1">
                                 <div className="input-quote">
                                     <label htmlFor="from">First available date: *</label>
-                                    <input onChange={(e) => setFirst_available_date(e.target.value)} id="from" type="date"/>
+                                    <input onChange={(e) => setFirst_available_date(e.target.value)} id="from"
+                                           type="date"/>
                                 </div>
                                 <div className="input-quote">
                                     <label htmlFor="from">Full Name: *</label>
-                                    <input onChange={(e) => setFull_name(e.target.value)} placeholder="Input your full name"
+                                    <input onChange={(e) => setFull_name(e.target.value)}
+                                           placeholder="Input your full name"
                                            id="from" type="text"/>
                                 </div>
                                 <div className="input-quote">
                                     <label htmlFor="from">Phone: *</label>
-                                    <input onChange={(e) => setPhone(e.target.value)} placeholder="Contact No " id="from"
+                                    <input onChange={(e) => setPhone(e.target.value)} placeholder="Contact No "
+                                           id="from"
                                            type="text"/>
                                 </div>
                                 <div className="input-quote">
@@ -43457,7 +43457,7 @@ const Home = () => {
                     <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
                         <div className="num">
                             {counterOn &&
-                            <CountUp start={0} end={statistics && statistics.clients} duration={2} delay={0}/>}
+                                <CountUp start={0} end={statistics && statistics.clients} duration={2} delay={0}/>}
                             +
                         </div>
                     </ScrollTrigger>
@@ -43469,7 +43469,7 @@ const Home = () => {
                     <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
                         <div className="num">
                             {counterOn &&
-                            <CountUp start={0} end={statistics && statistics.orders} duration={2} delay={0}/>}
+                                <CountUp start={0} end={statistics && statistics.orders} duration={2} delay={0}/>}
                             +
                         </div>
                     </ScrollTrigger>
@@ -43481,7 +43481,7 @@ const Home = () => {
                     <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
                         <div className="num">
                             {counterOn &&
-                            <CountUp start={0} end={statistics && statistics.projects} duration={2} delay={0}/>}
+                                <CountUp start={0} end={statistics && statistics.projects} duration={2} delay={0}/>}
                             +
                         </div>
                     </ScrollTrigger>
@@ -43493,7 +43493,7 @@ const Home = () => {
                     <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
                         <div className="num">
                             {counterOn &&
-                            <CountUp start={0} end={statistics && statistics.cities} duration={2} delay={0}/>}
+                                <CountUp start={0} end={statistics && statistics.cities} duration={2} delay={0}/>}
                             +
                         </div>
                     </ScrollTrigger>
