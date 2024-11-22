@@ -122,6 +122,7 @@ const HowItWorks = () => {
     return <div className="how-it-works-container">
         <Header/>
         <Navbar/>
+
         <div className="header-content">
             <div className="home-sloy">
                 <div className="home_contents">
