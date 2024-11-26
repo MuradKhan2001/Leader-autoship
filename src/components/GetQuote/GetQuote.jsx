@@ -9,6 +9,7 @@ import {Typeahead} from 'react-bootstrap-typeahead';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
 import axios from "axios";
 import {MyContext} from "../App/App";
+import {Helmet} from "react-helmet";
 
 
 const GetQuote = () => {
@@ -42595,519 +42596,535 @@ const GetQuote = () => {
     };
 
     return <div className="get-quote-container">
-        <Header/>
-        <Navbar/>
-        <div data-aos="flip-right" className="get-quote-card">
-            <div className="title-quote">
-                Get a quote online, or call at
-            </div>
-            <div className="num-company">
-                (567) 666-4696
-            </div>
-            <div className="icons-quote">
-                <div className={`icon-quote ${quote === 1 || quote === 2 || quote === 3 ? "active" : ""}`}>
-                    <img src="./images/mdi_location.png" alt=""/>
-                </div>
 
-                <div className={`line-quote ${quote === 2 || quote === 3 ? "active" : ""}`}></div>
-                <div className={`icon-quote ${quote === 2 || quote === 3 ? "active" : ""}`}>
-                    <img src="./images/truck.png" alt=""/>
-                </div>
+        <Helmet>
+            <title>Get a quote</title>
+            <meta name="description"
+                  content="Get a free, instant auto transport quote online! Ship your car quickly and affordably with trusted professionals."/>
+        </Helmet>
 
-                <div className={`line-quote ${quote === 3 ? "active" : ""}`}></div>
-                <div className={`icon-quote ${quote === 3 ? "active" : ""}`}>
-                    <img src="./images/person.png" alt=""/>
-                </div>
+        <header>
+            <Header/>
+            <Navbar/>
+        </header>
 
-                <div className={`line-quote ${quote === 4 ? "active" : ""}`}></div>
-                <div className={`icon-quote ${quote === 4 ? "active" : ""}`}>
-                    <img src="./images/check_circle.png" alt=""/>
-                </div>
-            </div>
-
-            {
-                quote === 1 &&
-                <div className="step1">
-                    <div className="input-quote">
-                        <label htmlFor="from">transport car from:*</label>
-                        <Typeahead
-                            id="basic-typeahead"
-                            options={options}
-                            placeholder="ZIP or City"
-                            minLength={1}
-                            onChange={(selected) => setZipfrom(selected)}
-                        />
+        <main>
+            <section data-aos="flip-right" className="get-quote-card">
+                <strong className="title-quote">
+                    Get a quote online, or call at
+                </strong>
+                <h1 className="num-company">
+                    (567) 666-4696
+                </h1>
+                <div className="icons-quote">
+                    <div className={`icon-quote ${quote === 1 || quote === 2 || quote === 3 ? "active" : ""}`}>
+                        <img src="./images/mdi_location.webp" alt=""/>
                     </div>
-                    <div className="input-quote">
-                        <label htmlFor="from">transport car to:*</label>
-                        <Typeahead
-                            id="basic-typeahead"
-                            options={options}
-                            placeholder="ZIP or City"
-                            minLength={1}
-                            onChange={(selected) => setZipto(selected)}
-                        />
+
+                    <div className={`line-quote ${quote === 2 || quote === 3 ? "active" : ""}`}></div>
+                    <div className={`icon-quote ${quote === 2 || quote === 3 ? "active" : ""}`}>
+                        <img src="./images/truck.webp" alt=""/>
                     </div>
-                    <div className="radio-quote">
-                        <div className="label-radios">
-                            transport type:*
-                        </div>
 
-                        <div onClick={() => setRadioQuote("1")} className="radio">
-                            <div className={`radio-btn ${radioQuote === "1" ? "active" : ""}`}>
-                                <div
-                                    className={`radio-circle ${radioQuote === "1" ? "active-radio" : ""}`}></div>
-                            </div>
-                            <div className="radio-text">
-                                Open
-                            </div>
-                        </div>
+                    <div className={`line-quote ${quote === 3 ? "active" : ""}`}></div>
+                    <div className={`icon-quote ${quote === 3 ? "active" : ""}`}>
+                        <img src="./images/person.webp" alt=""/>
+                    </div>
 
-                        <div onClick={() => setRadioQuote("2")} className="radio">
-                            <div className={`radio-btn ${radioQuote === "2" ? "active" : ""}`}>
-                                <div
-                                    className={`radio-circle ${radioQuote === "2" ? "active-radio" : ""}`}></div>
-                            </div>
-                            <div className="radio-text">
-                                Enclosed
-                            </div>
-                        </div>
+                    <div className={`line-quote ${quote === 4 ? "active" : ""}`}></div>
+                    <div className={`icon-quote ${quote === 4 ? "active" : ""}`}>
+                        <img src="./images/check_circle.webp" alt=""/>
+                    </div>
+                </div>
 
-                        <div className="radio">
-                            <div className="check-box">
-                                <div className="checkbox-wrapper-13">
-                                    <input
-                                        onChange={(e) => {
-                                            setCheckBoxQuote((prevState) => !prevState);
-                                        }}
-                                        id="c1-13"
-                                        type="checkbox"
-                                    />
+                {
+                    quote === 1 &&
+                    <div className="step1">
+                        <div className="input-quote">
+                            <label htmlFor="from">transport car from:*</label>
+                            <Typeahead
+                                id="basic-typeahead"
+                                options={options}
+                                placeholder="ZIP or City"
+                                minLength={1}
+                                onChange={(selected) => setZipfrom(selected)}
+                            />
+                        </div>
+                        <div className="input-quote">
+                            <label htmlFor="from">transport car to:*</label>
+                            <Typeahead
+                                id="basic-typeahead"
+                                options={options}
+                                placeholder="ZIP or City"
+                                minLength={1}
+                                onChange={(selected) => setZipto(selected)}
+                            />
+                        </div>
+                        <div className="radio-quote">
+                            <div className="label-radios">
+                                transport type:*
+                            </div>
+
+                            <div onClick={() => setRadioQuote("1")} className="radio">
+                                <div className={`radio-btn ${radioQuote === "1" ? "active" : ""}`}>
+                                    <div
+                                        className={`radio-circle ${radioQuote === "1" ? "active-radio" : ""}`}></div>
                                 </div>
-                                <label htmlFor="c1-13">
-                                    By checking this box, you agree to our Terms and Privacy Policy, allowing us to
-                                    send
-                                    sms to the provided phone number. Your consent is not required for
-                                    purchasing any items, commodities, or services. Message and data rates may
-                                    apply.
-                                </label>
+                                <div className="radio-text">
+                                    Open
+                                </div>
+                            </div>
+
+                            <div onClick={() => setRadioQuote("2")} className="radio">
+                                <div className={`radio-btn ${radioQuote === "2" ? "active" : ""}`}>
+                                    <div
+                                        className={`radio-circle ${radioQuote === "2" ? "active-radio" : ""}`}></div>
+                                </div>
+                                <div className="radio-text">
+                                    Enclosed
+                                </div>
+                            </div>
+
+                            <div className="radio">
+                                <div className="check-box">
+                                    <div className="checkbox-wrapper-13">
+                                        <input
+                                            onChange={(e) => {
+                                                setCheckBoxQuote((prevState) => !prevState);
+                                            }}
+                                            id="c1-13"
+                                            type="checkbox"
+                                        />
+                                    </div>
+                                    <label htmlFor="c1-13">
+                                        By checking this box, you agree to our Terms and Privacy Policy, allowing us to
+                                        send
+                                        sms to the provided phone number. Your consent is not required for
+                                        purchasing any items, commodities, or services. Message and data rates may
+                                        apply.
+                                    </label>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <button onClick={() => {
-                        if (checkBoxQuote && zipFrom && zipTo) {
-                            setQuote(2)
-                        }
-                    }} className="quote-btn">
-                        Next
-                    </button>
-                </div>
-            }
-
-            {
-                quote === 2 &&
-                <div className="step2">
-                    <div className="input-quote">
-                        <label htmlFor="from">Vehicle type:*</label>
-                        <select onChange={(e) => setVehicle_type(e.target.value)} name="vehicle" id="vehicle">
-                            <option value="">Select Vehicle type</option>
-                            <option value="Car">Car</option>
-                            <option value="Truck">Truck</option>
-                            <option value="Motorcycle">Motorcycle</option>
-                            <option value="ATV & UTV">ATV & UTV</option>
-                            <option value="Boat">Boat</option>
-                            <option value="PWC">PWC</option>
-                            <option value="Snowmobile">Snowmobile</option>
-                            <option value="RV/Trailer">RV/Trailer</option>
-                            <option value="Commercial Truck">Commercial Truck</option>
-                            <option value="Heavy Equipment">Heavy Equipment</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-
-                    <div className="input-quote">
-                        <label htmlFor="from">Vehicle year: *</label>
-                        <select onChange={(e) => setVehicle_year(e.target.value)} name="vehicle" id="vehicle">
-                            <option value="2025">2025</option>
-                            <option value="2024">2024</option>
-                            <option value="2023">2023</option>
-                            <option value="2022">2022</option>
-                            <option value="2021">2021</option>
-                            <option value="2020">2020</option>
-                            <option value="2019">2019</option>
-                            <option value="2018">2018</option>
-                            <option value="2017">2017</option>
-                            <option value="2016">2016</option>
-                            <option value="2015">2015</option>
-                            <option value="2014">2014</option>
-                            <option value="2013">2013</option>
-                            <option value="2012">2012</option>
-                            <option value="2011">2011</option>
-                            <option value="2010">2010</option>
-                            <option value="2009">2009</option>
-                            <option value="2008">2008</option>
-                            <option value="2007">2007</option>
-                            <option value="2006">2006</option>
-                            <option value="2005">2005</option>
-                            <option value="2004">2004</option>
-                            <option value="2003">2003</option>
-                            <option value="2002">2002</option>
-                            <option value="2001">2001</option>
-                            <option value="2000">2000</option>
-                            <option value="1999">1999</option>
-                            <option value="1998">1998</option>
-                            <option value="1997">1997</option>
-                            <option value="1996">1996</option>
-                            <option value="1995">1995</option>
-                            <option value="1994">1994</option>
-                            <option value="1993">1993</option>
-                            <option value="1992">1992</option>
-                            <option value="1991">1991</option>
-                            <option value="1990">1990</option>
-                            <option value="1989">1989</option>
-                            <option value="1988">1988</option>
-                            <option value="1987">1987</option>
-                            <option value="1986">1986</option>
-                            <option value="1985">1985</option>
-                            <option value="1984">1984</option>
-                            <option value="1983">1983</option>
-                            <option value="1982">1982</option>
-                            <option value="1981">1981</option>
-                            <option value="1980">1980</option>
-                            <option value="1979">1979</option>
-                            <option value="1978">1978</option>
-                            <option value="1977">1977</option>
-                            <option value="1976">1976</option>
-                            <option value="1975">1975</option>
-                            <option value="1974">1974</option>
-                            <option value="1973">1973</option>
-                            <option value="1972">1972</option>
-                            <option value="1971">1971</option>
-                            <option value="1970">1970</option>
-                            <option value="1969">1969</option>
-                            <option value="1968">1968</option>
-                            <option value="1967">1967</option>
-                            <option value="1966">1966</option>
-                            <option value="1965">1965</option>
-                            <option value="1964">1964</option>
-                            <option value="1963">1963</option>
-                            <option value="1962">1962</option>
-                            <option value="1961">1961</option>
-                            <option value="1960">1960</option>
-                            <option value="1959">1959</option>
-                            <option value="1958">1958</option>
-                            <option value="1957">1957</option>
-                            <option value="1956">1956</option>
-                            <option value="1955">1955</option>
-                            <option value="1954">1954</option>
-                            <option value="1953">1953</option>
-                            <option value="1952">1952</option>
-                            <option value="1951">1951</option>
-                            <option value="1950">1950</option>
-                            <option value="1949">1949</option>
-                            <option value="1948">1948</option>
-                            <option value="1947">1947</option>
-                            <option value="1946">1946</option>
-                            <option value="1945">1945</option>
-                            <option value="1944">1944</option>
-                            <option value="1943">1943</option>
-                            <option value="1942">1942</option>
-                            <option value="1941">1941</option>
-                            <option value="1940">1940</option>
-                            <option value="1939">1939</option>
-                            <option value="1938">1938</option>
-                            <option value="1937">1937</option>
-                            <option value="1936">1936</option>
-                            <option value="1935">1935</option>
-                            <option value="1934">1934</option>
-                            <option value="1933">1933</option>
-                            <option value="1932">1932</option>
-                            <option value="1931">1931</option>
-                            <option value="1930">1930</option>
-                            <option value="1929">1929</option>
-                            <option value="1928">1928</option>
-                            <option value="1927">1927</option>
-                            <option value="1926">1926</option>
-                            <option value="1925">1925</option>
-                            <option value="1924">1924</option>
-                            <option value="1923">1923</option>
-                            <option value="1922">1922</option>
-                            <option value="1921">1921</option>
-                            <option value="1920">1920</option>
-                            <option value="1919">1919</option>
-                            <option value="1918">1918</option>
-                            <option value="1917">1917</option>
-                            <option value="1916">1916</option>
-                            <option value="1915">1915</option>
-                            <option value="1914">1914</option>
-                            <option value="1913">1913</option>
-                            <option value="1912">1912</option>
-                            <option value="1911">1911</option>
-                            <option value="1910">1910</option>
-                            <option value="1909">1909</option>
-                            <option value="1908">1908</option>
-                            <option value="1907">1907</option>
-                            <option value="1906">1906</option>
-                            <option value="1905">1905</option>
-                            <option value="1904">1904</option>
-                            <option value="1903">1903</option>
-                            <option value="1902">1902</option>
-                            <option value="1901">1901</option>
-                            <option value="1900">1900</option>
-                            <option value="1899">1899</option>
-                            <option value="1898">1898</option>
-                            <option value="1897">1897</option>
-                            <option value="1896">1896</option>
-                            <option value="1895">1895</option>
-                            <option value="1894">1894</option>
-                            <option value="1893">1893</option>
-                            <option value="1892">1892</option>
-                            <option value="1891">1891</option>
-                            <option value="1890">1890</option>
-                            <option value="1889">1889</option>
-                            <option value="1888">1888</option>
-                            <option value="1887">1887</option>
-                            <option value="1886">1886</option>
-                            <option value="1885">1885</option>
-                            <option value="1884">1884</option>
-                            <option value="1883">1883</option>
-                            <option value="1882">1882</option>
-                            <option value="1881">1881</option>
-                            <option value="1880">1880</option>
-                            <option value="1879">1879</option>
-                            <option value="1878">1878</option>
-                            <option value="1877">1877</option>
-                            <option value="1876">1876</option>
-                            <option value="1875">1875</option>
-                            <option value="1874">1874</option>
-                            <option value="1873">1873</option>
-                            <option value="1872">1872</option>
-                            <option value="1871">1871</option>
-                            <option value="1870">1870</option>
-                            <option value="1869">1869</option>
-                            <option value="1868">1868</option>
-                            <option value="1867">1867</option>
-                            <option value="1866">1866</option>
-                            <option value="1865">1865</option>
-                            <option value="1864">1864</option>
-                            <option value="1863">1863</option>
-                            <option value="1862">1862</option>
-                            <option value="1861">1861</option>
-                            <option value="1860">1860</option>
-                            <option value="1859">1859</option>
-                            <option value="1858">1858</option>
-                            <option value="1857">1857</option>
-                            <option value="1856">1856</option>
-                            <option value="1855">1855</option>
-                            <option value="1854">1854</option>
-                            <option value="1853">1853</option>
-                            <option value="1852">1852</option>
-                            <option value="1851">1851</option>
-                            <option value="1850">1850</option>
-                            <option value="1849">1849</option>
-                            <option value="1848">1848</option>
-                            <option value="1847">1847</option>
-                            <option value="1846">1846</option>
-                            <option value="1845">1845</option>
-                            <option value="1844">1844</option>
-                            <option value="1843">1843</option>
-                            <option value="1842">1842</option>
-                            <option value="1841">1841</option>
-                            <option value="1840">1840</option>
-                            <option value="1839">1839</option>
-                            <option value="1838">1838</option>
-                            <option value="1837">1837</option>
-                            <option value="1836">1836</option>
-                            <option value="1835">1835</option>
-                            <option value="1834">1834</option>
-                            <option value="1833">1833</option>
-                            <option value="1832">1832</option>
-                            <option value="1831">1831</option>
-                            <option value="1830">1830</option>
-                            <option value="1829">1829</option>
-                            <option value="1828">1828</option>
-                            <option value="1827">1827</option>
-                            <option value="1826">1826</option>
-                            <option value="1825">1825</option>
-                            <option value="1824">1824</option>
-                            <option value="1823">1823</option>
-                            <option value="1822">1822</option>
-                            <option value="1821">1821</option>
-                            <option value="1820">1820</option>
-                            <option value="1819">1819</option>
-                            <option value="1818">1818</option>
-                            <option value="1817">1817</option>
-                            <option value="1816">1816</option>
-                            <option value="1815">1815</option>
-                            <option value="1814">1814</option>
-                            <option value="1813">1813</option>
-                            <option value="1812">1812</option>
-                            <option value="1811">1811</option>
-                            <option value="1810">1810</option>
-                            <option value="1809">1809</option>
-                            <option value="1808">1808</option>
-                            <option value="1807">1807</option>
-                            <option value="1806">1806</option>
-                            <option value="1805">1805</option>
-                            <option value="1804">1804</option>
-                            <option value="1803">1803</option>
-                            <option value="1802">1802</option>
-                            <option value="1801">1801</option>
-                        </select>
-                    </div>
-
-                    <div className="input-quote">
-                        <label htmlFor="from">Vehicle make:*</label>
-                        <select onChange={(e) => {
-                            setVehicle_make(e.target.value)
-                            axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/${e.target.value}?format=json`).then((response) => {
-                                setVehicle_modelList(response.data.Results)
-                            });
-                        }} name="vehicle" id="vehicle">
-                            <option value="">Select Make</option>
-                            <option value="Acura">Acura</option>
-                            <option value="Alfa Romeo">Alfa Romeo</option>
-                            <option value="Aptera">Aptera</option>
-                            <option value="Aston Martin">Aston Martin</option>
-                            <option value="Audi">Audi</option>
-                            <option value="Austin">Austin</option>
-                            <option value="Bentley">Bentley</option>
-                            <option value="BMW">BMW</option>
-                            <option value="Buick">Buick</option>
-                            <option value="Cadillac">Cadillac</option>
-                            <option value="Chevrolet">Chevrolet</option>
-                            <option value="Chrysler">Chrysler</option>
-                            <option value="Dodge">Dodge</option>
-                            <option value="Farm">Farm</option>
-                            <option value="Ferrari">Ferrari</option>
-                            <option value="FIAT">FIAT</option>
-                            <option value="Ford">Ford</option>
-                            <option value="Geo">Geo</option>
-                            <option value="GMC">GMC</option>
-                            <option value="Heavy">Heavy</option>
-                            <option value="Honda">Honda</option>
-                            <option value="HUMMER">HUMMER</option>
-                            <option value="Hyundai">Hyundai</option>
-                            <option value="Infiniti">Infiniti</option>
-                            <option value="Isuzu">Isuzu</option>
-                            <option value="Jaguar">Jaguar</option>
-                            <option value="Jeep">Jeep</option>
-                            <option value="Kia">Kia</option>
-                            <option value="Land Rover">Land Rover</option>
-                            <option value="Lexus">Lexus</option>
-                            <option value="Lincoln">Lincoln</option>
-                            <option value="Lotus">Lotus</option>
-                            <option value="Maserati">Maserati</option>
-                            <option value="Mazda">Mazda</option>
-                            <option value="Mercedes-Benz">Mercedes-Benz</option>
-                            <option value="Mercury">Mercury</option>
-                            <option value="MG">MG</option>
-                            <option value="MINI">MINI</option>
-                            <option value="Mitsubishi">Mitsubishi</option>
-                            <option value="Nissan">Nissan</option>
-                            <option value="Oldsmobile">Oldsmobile</option>
-                            <option value="Plymouth">Plymouth</option>
-                            <option value="Pontiac">Pontiac</option>
-                            <option value="Porsche">Porsche</option>
-                            <option value="Ram">Ram</option>
-                            <option value="Renault">Renault</option>
-                            <option value="Saab">Saab</option>
-                            <option value="Saturn">Saturn</option>
-                            <option value="Scion">Scion</option>
-                            <option value="Smart">Smart</option>
-                            <option value="Subaru">Subaru</option>
-                            <option value="Suzuki">Suzuki</option>
-                            <option value="Tesla">Tesla</option>
-                            <option value="Toyota">Toyota</option>
-                            <option value="Volkswagen">Volkswagen</option>
-                            <option value="Volvo">Volvo</option>
-
-                        </select>
-                    </div>
-
-                    <div className="input-quote">
-                        <label htmlFor="from">Vehicle model:*</label>
-                        <select onChange={(e) => setVehicle_model(e.target.value)} name="vehicle" id="vehicle">
-                            {Vehicle_modelList && Vehicle_modelList.map((item, index) => {
-                                return <option key={index} value={item.Model_Name}>{item.Model_Name}</option>
-                            })}
-                        </select>
-                    </div>
-                    <div className="radio-quote">
-                        <div className="label-radios">
-                            Is it running? *
-                        </div>
-                        <div onClick={() => setRadioQuote2("1")} className="radio">
-                            <div className={`radio-btn ${radioQuote2 === "1" ? "active" : ""}`}>
-                                <div
-                                    className={`radio-circle ${radioQuote2 === "1" ? "active-radio" : ""}`}></div>
-                            </div>
-                            <div className="radio-text">
-                                Yes
-                            </div>
-                        </div>
-                        <div onClick={() => setRadioQuote2("2")} className="radio">
-                            <div className={`radio-btn ${radioQuote2 === "2" ? "active" : ""}`}>
-                                <div
-                                    className={`radio-circle ${radioQuote2 === "2" ? "active-radio" : ""}`}></div>
-                            </div>
-                            <div className="radio-text">
-                                No
-                            </div>
-                        </div>
-                    </div>
-                    <div className="button-box">
                         <button onClick={() => {
-                            setCheckBoxQuote(false)
-                            setQuote(1)
-                        }} className="prev-btn">
-                            Previous
-                        </button>
-                        <button onClick={() => {
-                            if (Vehicle_type && Vehicle_year && Vehicle_make && Vehicle_model)
-                                setQuote(3)
+                            if (checkBoxQuote && zipFrom && zipTo) {
+                                setQuote(2)
+                            }
                         }} className="quote-btn">
                             Next
                         </button>
                     </div>
-                </div>
-            }
+                }
 
-            {
-                quote === 3 &&
-                <div className="step1">
-                    <div className="input-quote">
-                        <label htmlFor="from">First available date: *</label>
-                        <input onChange={(e) => setFirst_available_date(e.target.value)} id="from" type="date"/>
-                    </div>
-                    <div className="input-quote">
-                        <label htmlFor="from">Full Name: *</label>
-                        <input onChange={(e) => setFull_name(e.target.value)} placeholder="Input your full name"
-                               id="from" type="text"/>
-                    </div>
-                    <div className="input-quote">
-                        <label htmlFor="from">Phone: *</label>
-                        <input onChange={(e) => setPhone(e.target.value)} placeholder="Contact No " id="from"
-                               type="text"/>
-                    </div>
-                    <div className="input-quote">
-                        <label htmlFor="from">Send a copy of the quote to: *</label>
-                        <input onChange={(e) => setEmail(e.target.value)}
-                               placeholder="Enter your email" id="from" type="text"/>
-                    </div>
-                    <div className="button-box">
-                        <button onClick={() => setQuote(2)} className="prev-btn">
-                            Previous
-                        </button>
+                {
+                    quote === 2 &&
+                    <div className="step2">
+                        <div className="input-quote">
+                            <label htmlFor="from">Vehicle type:*</label>
+                            <select onChange={(e) => setVehicle_type(e.target.value)} name="vehicle" id="vehicle">
+                                <option value="">Select Vehicle type</option>
+                                <option value="Car">Car</option>
+                                <option value="Truck">Truck</option>
+                                <option value="Motorcycle">Motorcycle</option>
+                                <option value="ATV & UTV">ATV & UTV</option>
+                                <option value="Boat">Boat</option>
+                                <option value="PWC">PWC</option>
+                                <option value="Snowmobile">Snowmobile</option>
+                                <option value="RV/Trailer">RV/Trailer</option>
+                                <option value="Commercial Truck">Commercial Truck</option>
+                                <option value="Heavy Equipment">Heavy Equipment</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
 
-                        <button onClick={getQuote} className="quote-btn">
-                            Submit
-                        </button>
+                        <div className="input-quote">
+                            <label htmlFor="from">Vehicle year: *</label>
+                            <select onChange={(e) => setVehicle_year(e.target.value)} name="vehicle" id="vehicle">
+                                <option value="2025">2025</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                                <option value="2018">2018</option>
+                                <option value="2017">2017</option>
+                                <option value="2016">2016</option>
+                                <option value="2015">2015</option>
+                                <option value="2014">2014</option>
+                                <option value="2013">2013</option>
+                                <option value="2012">2012</option>
+                                <option value="2011">2011</option>
+                                <option value="2010">2010</option>
+                                <option value="2009">2009</option>
+                                <option value="2008">2008</option>
+                                <option value="2007">2007</option>
+                                <option value="2006">2006</option>
+                                <option value="2005">2005</option>
+                                <option value="2004">2004</option>
+                                <option value="2003">2003</option>
+                                <option value="2002">2002</option>
+                                <option value="2001">2001</option>
+                                <option value="2000">2000</option>
+                                <option value="1999">1999</option>
+                                <option value="1998">1998</option>
+                                <option value="1997">1997</option>
+                                <option value="1996">1996</option>
+                                <option value="1995">1995</option>
+                                <option value="1994">1994</option>
+                                <option value="1993">1993</option>
+                                <option value="1992">1992</option>
+                                <option value="1991">1991</option>
+                                <option value="1990">1990</option>
+                                <option value="1989">1989</option>
+                                <option value="1988">1988</option>
+                                <option value="1987">1987</option>
+                                <option value="1986">1986</option>
+                                <option value="1985">1985</option>
+                                <option value="1984">1984</option>
+                                <option value="1983">1983</option>
+                                <option value="1982">1982</option>
+                                <option value="1981">1981</option>
+                                <option value="1980">1980</option>
+                                <option value="1979">1979</option>
+                                <option value="1978">1978</option>
+                                <option value="1977">1977</option>
+                                <option value="1976">1976</option>
+                                <option value="1975">1975</option>
+                                <option value="1974">1974</option>
+                                <option value="1973">1973</option>
+                                <option value="1972">1972</option>
+                                <option value="1971">1971</option>
+                                <option value="1970">1970</option>
+                                <option value="1969">1969</option>
+                                <option value="1968">1968</option>
+                                <option value="1967">1967</option>
+                                <option value="1966">1966</option>
+                                <option value="1965">1965</option>
+                                <option value="1964">1964</option>
+                                <option value="1963">1963</option>
+                                <option value="1962">1962</option>
+                                <option value="1961">1961</option>
+                                <option value="1960">1960</option>
+                                <option value="1959">1959</option>
+                                <option value="1958">1958</option>
+                                <option value="1957">1957</option>
+                                <option value="1956">1956</option>
+                                <option value="1955">1955</option>
+                                <option value="1954">1954</option>
+                                <option value="1953">1953</option>
+                                <option value="1952">1952</option>
+                                <option value="1951">1951</option>
+                                <option value="1950">1950</option>
+                                <option value="1949">1949</option>
+                                <option value="1948">1948</option>
+                                <option value="1947">1947</option>
+                                <option value="1946">1946</option>
+                                <option value="1945">1945</option>
+                                <option value="1944">1944</option>
+                                <option value="1943">1943</option>
+                                <option value="1942">1942</option>
+                                <option value="1941">1941</option>
+                                <option value="1940">1940</option>
+                                <option value="1939">1939</option>
+                                <option value="1938">1938</option>
+                                <option value="1937">1937</option>
+                                <option value="1936">1936</option>
+                                <option value="1935">1935</option>
+                                <option value="1934">1934</option>
+                                <option value="1933">1933</option>
+                                <option value="1932">1932</option>
+                                <option value="1931">1931</option>
+                                <option value="1930">1930</option>
+                                <option value="1929">1929</option>
+                                <option value="1928">1928</option>
+                                <option value="1927">1927</option>
+                                <option value="1926">1926</option>
+                                <option value="1925">1925</option>
+                                <option value="1924">1924</option>
+                                <option value="1923">1923</option>
+                                <option value="1922">1922</option>
+                                <option value="1921">1921</option>
+                                <option value="1920">1920</option>
+                                <option value="1919">1919</option>
+                                <option value="1918">1918</option>
+                                <option value="1917">1917</option>
+                                <option value="1916">1916</option>
+                                <option value="1915">1915</option>
+                                <option value="1914">1914</option>
+                                <option value="1913">1913</option>
+                                <option value="1912">1912</option>
+                                <option value="1911">1911</option>
+                                <option value="1910">1910</option>
+                                <option value="1909">1909</option>
+                                <option value="1908">1908</option>
+                                <option value="1907">1907</option>
+                                <option value="1906">1906</option>
+                                <option value="1905">1905</option>
+                                <option value="1904">1904</option>
+                                <option value="1903">1903</option>
+                                <option value="1902">1902</option>
+                                <option value="1901">1901</option>
+                                <option value="1900">1900</option>
+                                <option value="1899">1899</option>
+                                <option value="1898">1898</option>
+                                <option value="1897">1897</option>
+                                <option value="1896">1896</option>
+                                <option value="1895">1895</option>
+                                <option value="1894">1894</option>
+                                <option value="1893">1893</option>
+                                <option value="1892">1892</option>
+                                <option value="1891">1891</option>
+                                <option value="1890">1890</option>
+                                <option value="1889">1889</option>
+                                <option value="1888">1888</option>
+                                <option value="1887">1887</option>
+                                <option value="1886">1886</option>
+                                <option value="1885">1885</option>
+                                <option value="1884">1884</option>
+                                <option value="1883">1883</option>
+                                <option value="1882">1882</option>
+                                <option value="1881">1881</option>
+                                <option value="1880">1880</option>
+                                <option value="1879">1879</option>
+                                <option value="1878">1878</option>
+                                <option value="1877">1877</option>
+                                <option value="1876">1876</option>
+                                <option value="1875">1875</option>
+                                <option value="1874">1874</option>
+                                <option value="1873">1873</option>
+                                <option value="1872">1872</option>
+                                <option value="1871">1871</option>
+                                <option value="1870">1870</option>
+                                <option value="1869">1869</option>
+                                <option value="1868">1868</option>
+                                <option value="1867">1867</option>
+                                <option value="1866">1866</option>
+                                <option value="1865">1865</option>
+                                <option value="1864">1864</option>
+                                <option value="1863">1863</option>
+                                <option value="1862">1862</option>
+                                <option value="1861">1861</option>
+                                <option value="1860">1860</option>
+                                <option value="1859">1859</option>
+                                <option value="1858">1858</option>
+                                <option value="1857">1857</option>
+                                <option value="1856">1856</option>
+                                <option value="1855">1855</option>
+                                <option value="1854">1854</option>
+                                <option value="1853">1853</option>
+                                <option value="1852">1852</option>
+                                <option value="1851">1851</option>
+                                <option value="1850">1850</option>
+                                <option value="1849">1849</option>
+                                <option value="1848">1848</option>
+                                <option value="1847">1847</option>
+                                <option value="1846">1846</option>
+                                <option value="1845">1845</option>
+                                <option value="1844">1844</option>
+                                <option value="1843">1843</option>
+                                <option value="1842">1842</option>
+                                <option value="1841">1841</option>
+                                <option value="1840">1840</option>
+                                <option value="1839">1839</option>
+                                <option value="1838">1838</option>
+                                <option value="1837">1837</option>
+                                <option value="1836">1836</option>
+                                <option value="1835">1835</option>
+                                <option value="1834">1834</option>
+                                <option value="1833">1833</option>
+                                <option value="1832">1832</option>
+                                <option value="1831">1831</option>
+                                <option value="1830">1830</option>
+                                <option value="1829">1829</option>
+                                <option value="1828">1828</option>
+                                <option value="1827">1827</option>
+                                <option value="1826">1826</option>
+                                <option value="1825">1825</option>
+                                <option value="1824">1824</option>
+                                <option value="1823">1823</option>
+                                <option value="1822">1822</option>
+                                <option value="1821">1821</option>
+                                <option value="1820">1820</option>
+                                <option value="1819">1819</option>
+                                <option value="1818">1818</option>
+                                <option value="1817">1817</option>
+                                <option value="1816">1816</option>
+                                <option value="1815">1815</option>
+                                <option value="1814">1814</option>
+                                <option value="1813">1813</option>
+                                <option value="1812">1812</option>
+                                <option value="1811">1811</option>
+                                <option value="1810">1810</option>
+                                <option value="1809">1809</option>
+                                <option value="1808">1808</option>
+                                <option value="1807">1807</option>
+                                <option value="1806">1806</option>
+                                <option value="1805">1805</option>
+                                <option value="1804">1804</option>
+                                <option value="1803">1803</option>
+                                <option value="1802">1802</option>
+                                <option value="1801">1801</option>
+                            </select>
+                        </div>
+
+                        <div className="input-quote">
+                            <label htmlFor="from">Vehicle make:*</label>
+                            <select onChange={(e) => {
+                                setVehicle_make(e.target.value)
+                                axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/${e.target.value}?format=json`).then((response) => {
+                                    setVehicle_modelList(response.data.Results)
+                                });
+                            }} name="vehicle" id="vehicle">
+                                <option value="">Select Make</option>
+                                <option value="Acura">Acura</option>
+                                <option value="Alfa Romeo">Alfa Romeo</option>
+                                <option value="Aptera">Aptera</option>
+                                <option value="Aston Martin">Aston Martin</option>
+                                <option value="Audi">Audi</option>
+                                <option value="Austin">Austin</option>
+                                <option value="Bentley">Bentley</option>
+                                <option value="BMW">BMW</option>
+                                <option value="Buick">Buick</option>
+                                <option value="Cadillac">Cadillac</option>
+                                <option value="Chevrolet">Chevrolet</option>
+                                <option value="Chrysler">Chrysler</option>
+                                <option value="Dodge">Dodge</option>
+                                <option value="Farm">Farm</option>
+                                <option value="Ferrari">Ferrari</option>
+                                <option value="FIAT">FIAT</option>
+                                <option value="Ford">Ford</option>
+                                <option value="Geo">Geo</option>
+                                <option value="GMC">GMC</option>
+                                <option value="Heavy">Heavy</option>
+                                <option value="Honda">Honda</option>
+                                <option value="HUMMER">HUMMER</option>
+                                <option value="Hyundai">Hyundai</option>
+                                <option value="Infiniti">Infiniti</option>
+                                <option value="Isuzu">Isuzu</option>
+                                <option value="Jaguar">Jaguar</option>
+                                <option value="Jeep">Jeep</option>
+                                <option value="Kia">Kia</option>
+                                <option value="Land Rover">Land Rover</option>
+                                <option value="Lexus">Lexus</option>
+                                <option value="Lincoln">Lincoln</option>
+                                <option value="Lotus">Lotus</option>
+                                <option value="Maserati">Maserati</option>
+                                <option value="Mazda">Mazda</option>
+                                <option value="Mercedes-Benz">Mercedes-Benz</option>
+                                <option value="Mercury">Mercury</option>
+                                <option value="MG">MG</option>
+                                <option value="MINI">MINI</option>
+                                <option value="Mitsubishi">Mitsubishi</option>
+                                <option value="Nissan">Nissan</option>
+                                <option value="Oldsmobile">Oldsmobile</option>
+                                <option value="Plymouth">Plymouth</option>
+                                <option value="Pontiac">Pontiac</option>
+                                <option value="Porsche">Porsche</option>
+                                <option value="Ram">Ram</option>
+                                <option value="Renault">Renault</option>
+                                <option value="Saab">Saab</option>
+                                <option value="Saturn">Saturn</option>
+                                <option value="Scion">Scion</option>
+                                <option value="Smart">Smart</option>
+                                <option value="Subaru">Subaru</option>
+                                <option value="Suzuki">Suzuki</option>
+                                <option value="Tesla">Tesla</option>
+                                <option value="Toyota">Toyota</option>
+                                <option value="Volkswagen">Volkswagen</option>
+                                <option value="Volvo">Volvo</option>
+
+                            </select>
+                        </div>
+
+                        <div className="input-quote">
+                            <label htmlFor="from">Vehicle model:*</label>
+                            <select onChange={(e) => setVehicle_model(e.target.value)} name="vehicle" id="vehicle">
+                                {Vehicle_modelList && Vehicle_modelList.map((item, index) => {
+                                    return <option key={index} value={item.Model_Name}>{item.Model_Name}</option>
+                                })}
+                            </select>
+                        </div>
+                        <div className="radio-quote">
+                            <div className="label-radios">
+                                Is it running? *
+                            </div>
+                            <div onClick={() => setRadioQuote2("1")} className="radio">
+                                <div className={`radio-btn ${radioQuote2 === "1" ? "active" : ""}`}>
+                                    <div
+                                        className={`radio-circle ${radioQuote2 === "1" ? "active-radio" : ""}`}></div>
+                                </div>
+                                <div className="radio-text">
+                                    Yes
+                                </div>
+                            </div>
+                            <div onClick={() => setRadioQuote2("2")} className="radio">
+                                <div className={`radio-btn ${radioQuote2 === "2" ? "active" : ""}`}>
+                                    <div
+                                        className={`radio-circle ${radioQuote2 === "2" ? "active-radio" : ""}`}></div>
+                                </div>
+                                <div className="radio-text">
+                                    No
+                                </div>
+                            </div>
+                        </div>
+                        <div className="button-box">
+                            <button onClick={() => {
+                                setCheckBoxQuote(false)
+                                setQuote(1)
+                            }} className="prev-btn">
+                                Previous
+                            </button>
+                            <button onClick={() => {
+                                if (Vehicle_type && Vehicle_year && Vehicle_make && Vehicle_model)
+                                    setQuote(3)
+                            }} className="quote-btn">
+                                Next
+                            </button>
+                        </div>
                     </div>
-                </div>
-            }
-        </div>
-        <Footer/>
+                }
+
+                {
+                    quote === 3 &&
+                    <div className="step1">
+                        <div className="input-quote">
+                            <label htmlFor="from">First available date: *</label>
+                            <input onChange={(e) => setFirst_available_date(e.target.value)} id="from" type="date"/>
+                        </div>
+                        <div className="input-quote">
+                            <label htmlFor="from">Full Name: *</label>
+                            <input onChange={(e) => setFull_name(e.target.value)} placeholder="Input your full name"
+                                   id="from" type="text"/>
+                        </div>
+                        <div className="input-quote">
+                            <label htmlFor="from">Phone: *</label>
+                            <input onChange={(e) => setPhone(e.target.value)} placeholder="Contact No " id="from"
+                                   type="text"/>
+                        </div>
+                        <div className="input-quote">
+                            <label htmlFor="from">Send a copy of the quote to: *</label>
+                            <input onChange={(e) => setEmail(e.target.value)}
+                                   placeholder="Enter your email" id="from" type="text"/>
+                        </div>
+                        <div className="button-box">
+                            <button onClick={() => setQuote(2)} className="prev-btn">
+                                Previous
+                            </button>
+
+                            <button onClick={getQuote} className="quote-btn">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                }
+            </section>
+        </main>
+
+
+        <footer>
+            <Footer/>
+        </footer>
     </div>
 };
 

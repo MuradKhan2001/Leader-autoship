@@ -1,5 +1,4 @@
 import "./style.scss";
-import {useTranslation} from "react-i18next";
 import {useNavigate} from "react-router-dom";
 import React, {useContext, useEffect, useState} from "react";
 import axios from "axios";
@@ -22,51 +21,51 @@ const Footer = () => {
             <div className="footer-body">
                 <div className="section-logo">
                     <div className="logo">
-                        <img src="./images/logo.png" alt=""/>
+                        <img src="./images/logo.webp" alt="leader-auto-ship-logo" loading="lazy"/>
                     </div>
                     <div className="item">
                         <div className="icon">
-                            <img src="./images/pin.png" alt=""/>
+                            <img src="./images/pin.webp" alt="location-company" loading="lazy"/>
                         </div>
-                        <div className="text">
+                        <strong className="text">
                             {contact.address}
-                        </div>
+                        </strong>
                     </div>
                     <div className="item">
                         <div className="icon">
-                            <img src="./images/telephone.png" alt=""/>
+                            <img src="./images/telephone.webp" alt="phone-company" loading="lazy"/>
                         </div>
-                        <div className="text">
+                        <strong className="text">
                             <a href={`tel:${contact.phone1}`} className="name">(567) 666-4696</a>
-                        </div>
+                        </strong>
                     </div>
                     <div className="item">
                         <div className="icon">
-                            <img src="./images/mail.png" alt=""/>
+                            <img src="./images/mail.webp" alt="gmail-company" loading="lazy"/>
                         </div>
-                        <div className="text">
+                        <strong className="text">
                             <a href={`mailto:${contact.email}`} className="name">{contact.email}</a>
-                        </div>
+                        </strong>
                     </div>
                     <div className="social-media">
                         <a target="_blank" href={contact.instagramm}>
-                            <img src="./images/Instagram.png" alt=""/>
+                            <img src="./images/Instagram.webp" alt="instagram" loading="lazy"/>
                         </a>
 
                         <a target="_blank" href={contact.facebook}>
-                            <img src="./images/Facebook.png" alt=""/>
+                            <img src="./images/Facebook.webp" alt="facebook" loading="lazy"/>
                         </a>
 
                         <a target="_blank" href={contact.twitter}>
-                            <img src="./images/Vector.png" alt=""/>
+                            <img src="./images/Vector.webp" alt="twitter" loading="lazy"/>
                         </a>
                     </div>
                 </div>
 
                 <div className="section-menu">
-                    <div className="title-footer">
+                    <h3 className="title-footer">
                         Menu
-                    </div>
+                    </h3>
                     <div onClick={() => {
                         setTimeout(() => {
                             window.scrollTo(0, 0)
@@ -81,13 +80,27 @@ const Footer = () => {
                         navigate("/for-individuals")
                     }} className="item-footer">For individuals
                     </div>
-                    <div className="item-footer">
+                    <div onClick={() => {
+                        setTimeout(() => {
+                            window.scrollTo(0, 0)}, 200)
+                        navigate("/auto-dealerships")}} className="item-footer">
                         For businesses
                     </div>
-                    <div className="item-footer">
+                    <div onClick={() => {
+                        navigate("/about-us")
+                        setTimeout(() => {
+                            window.scrollTo(0, 0)
+                        }, 200)}} className="item-footer">
                         Why us
                     </div>
-                    <div className="item-footer">
+                    <div onClick={() => {
+                        navigate("/carrier")
+
+                        setTimeout(() => {
+                            window.scrollTo(0, 0)
+                        }, 200)
+
+                    }} className="item-footer">
                         Contact
                     </div>
                 </div>
@@ -101,8 +114,7 @@ const Footer = () => {
                         navigate("/about-us")
                         setTimeout(() => {
                             window.scrollTo(0, 0)
-                        }, 200)
-                    }} className="item-footer">
+                        }, 200)}} className="item-footer">
                         About us
                     </div>
                     <div onClick={() => {
@@ -123,10 +135,8 @@ const Footer = () => {
                     </div>
                     <div onClick={() => {
                         setTimeout(() => {
-                            window.scrollTo(0, 0)
-                        }, 200)
-                        navigate("/auto-dealerships")
-                    }} className="item-footer">
+                            window.scrollTo(0, 0)}, 200)
+                        navigate("/auto-dealerships")}} className="item-footer">
                         Auto dealerships
                     </div>
                     <div onClick={() => {
@@ -160,7 +170,7 @@ const Footer = () => {
                         </div>
                         <div className="code">
                             <div className="icons">
-                                <img src="./images/partner.png" alt=""/>
+                                <img src="./images/partner.png" alt="partner" loading="lazy"/>
                             </div>
                             <div className="text">
                                 <div> USDOT: 4232283</div>

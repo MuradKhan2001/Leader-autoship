@@ -8,6 +8,7 @@ import axios from "axios";
 import React, {useContext, useEffect, useState} from "react";
 import {MyContext} from "../App/App";
 import Aos from "aos";
+import {Helmet} from "react-helmet";
 
 
 const Customer = () => {
@@ -73,100 +74,114 @@ const Customer = () => {
     }, []);
 
     return <div className="customer-container">
-        <Header/>
-        <Navbar/>
-        {
-            success && <div className="alert">
-                <div className="left-side">
-                    <img src="./images/green.svg" alt=""/>
-                </div>
-                <div className="right-side">
-                    Message sent
-                </div>
-                <div className="xbtn">
-                    <img onClick={() => setSuccess(false)} src="./images/x-button.png" alt=""/>
-                </div>
-            </div>
-        }
+        <Helmet>
+            <title>CUSTOMERS</title>
+            <meta name="description"
+                  content="Our customers range from individuals to large businesses. Join the many satisfied clients who trust us for their auto transport needs."/>
+        </Helmet>
 
-        <div className="header-content">
-            <div className="home-sloy">
-                <div className="home_contents">
-                    <div className="left_side">
-                        <div className="text-wrapper">
-                            <div className="top-text">
-                                Logistics & Leader Auto Ship
-                            </div>
-                            <div className="text-large">
-                                <p data-aos="zoom-in">CONTACT LEADER AUTO SHIP</p>
-                            </div>
-                            <div className="des-text">
-                                We're eager to receive your feedback.
-                            </div>
-                            <div className="buttons-home">
-                                <button onClick={() => navigate("/get-quote")} type="button" className="button-home">
-                                    Get a quote
-                                </button>
-                                <a href={`tel:${contact.phone1}`} className="button-home">
-                                    Call now
-                                </a>
+        <header>
+            <Header/>
+            <Navbar/>
+        </header>
+
+        <main>
+            {
+                success && <div className="alert">
+                    <div className="left-side">
+                        <img src="./images/green.svg" alt=""/>
+                    </div>
+                    <div className="right-side">
+                        Message sent
+                    </div>
+                    <div className="xbtn">
+                        <img onClick={() => setSuccess(false)} src="./images/x-button.png" alt=""/>
+                    </div>
+                </div>
+            }
+            <section className="header-content">
+                <div className="home-sloy">
+                    <div className="home_contents">
+                        <div className="left_side">
+                            <div className="text-wrapper">
+                                <strong className="top-text">
+                                    Logistics & Leader Auto Ship
+                                </strong>
+                                <h1 className="text-large">
+                                    <p data-aos="zoom-in">CONTACT LEADER AUTO SHIP</p>
+                                </h1>
+                                <article className="des-text">
+                                    We're eager to receive your feedback.
+                                </article>
+                                <div className="buttons-home">
+                                    <button onClick={() => navigate("/get-quote")} type="button"
+                                            className="button-home">
+                                        Get a quote
+                                    </button>
+                                    <a href={`tel:${contact.phone1}`} className="button-home">
+                                        Call now
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="right_side">
+                        <div className="right_side">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div className="form-box">
-            <div className="title">
-                QUICK FEEDBACK FORM
-            </div>
-            <form onSubmit={formik.handleSubmit} className="input-box">
-                <input className={formik.errors.name === "Required" ? "Required" : ""}
-                       onChange={formik.handleChange}
-                       value={formik.values.name}
-                       name="name" placeholder="Your full name*" type="text"/>
+            </section>
+            <section className="form-box">
+                <h2 className="title">
+                    QUICK FEEDBACK FORM
+                </h2>
+                <form onSubmit={formik.handleSubmit} className="input-box">
+                    <input className={formik.errors.name === "Required" ? "Required" : ""}
+                           onChange={formik.handleChange}
+                           value={formik.values.name}
+                           name="name" placeholder="Your full name*" type="text"/>
 
-                <input className={formik.errors.email === "Required" ? "Required" : ""}
-                       onChange={formik.handleChange}
-                       value={formik.values.email}
-                       name="email" placeholder="Email*" type="text"/>
+                    <input className={formik.errors.email === "Required" ? "Required" : ""}
+                           onChange={formik.handleChange}
+                           value={formik.values.email}
+                           name="email" placeholder="Email*" type="text"/>
 
-                <input className={formik.errors.phone === "Required" ? "Required" : ""}
-                       onChange={formik.handleChange}
-                       value={formik.values.phone}
-                       name="phone" placeholder="Phone number*" type="text"/>
+                    <input className={formik.errors.phone === "Required" ? "Required" : ""}
+                           onChange={formik.handleChange}
+                           value={formik.values.phone}
+                           name="phone" placeholder="Phone number*" type="text"/>
 
-                <textarea className={formik.errors.text === "Required" ? "Required" : ""}
-                          onChange={formik.handleChange}
-                          value={formik.values.text}
-                          name="text" placeholder="Message"></textarea>
+                    <textarea className={formik.errors.text === "Required" ? "Required" : ""}
+                              onChange={formik.handleChange}
+                              value={formik.values.text}
+                              name="text" placeholder="Message"></textarea>
 
-                <div className="check-box">
-                    <div className="checkbox-wrapper-13">
-                        <input
-                            checked={checkBoxQuote}
-                            onChange={(e) => {
-                                setCheckBoxQuote((prevState) => !prevState);
-                            }}
-                            id="c1-13"
-                            type="checkbox"
-                        />
+                    <div className="check-box">
+                        <div className="checkbox-wrapper-13">
+                            <input
+                                checked={checkBoxQuote}
+                                onChange={(e) => {
+                                    setCheckBoxQuote((prevState) => !prevState);
+                                }}
+                                id="c1-13"
+                                type="checkbox"
+                            />
+                        </div>
+                        <label htmlFor="c1-13">
+                            By checking this box, you agree to our Terms and Privacy Policy, allowing us to send
+                            sms to the provided phone number. Your consent is not required for
+                            purchasing any items, commodities, or services. Message and data rates may apply.
+                        </label>
                     </div>
-                    <label htmlFor="c1-13">
-                        By checking this box, you agree to our Terms and Privacy Policy, allowing us to send
-                        sms to the provided phone number. Your consent is not required for
-                        purchasing any items, commodities, or services. Message and data rates may apply.
-                    </label>
-                </div>
 
-                <button type="submit"
-                        className={`send-btn ${checkBoxQuote ? "send-btn-active" : ""}`}>Submit
-                </button>
-            </form>
-        </div>
-        <Footer/>
+                    <button type="submit"
+                            className={`send-btn ${checkBoxQuote ? "send-btn-active" : ""}`}>Submit
+                    </button>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <Footer/>
+        </footer>
     </div>
 };
 

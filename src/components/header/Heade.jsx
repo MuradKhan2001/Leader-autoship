@@ -20,12 +20,12 @@ const Header = () => {
 
     return <div className="header-container">
         <div onClick={() => navigate("/")} className="logo">
-            <img src="./images/logo.png" alt=""/>
+            <img src="./images/logo.webp" alt="leader-auto-ship-logo"/>
         </div>
         <div className="information-wrapper">
             <div className="info-box">
                 <div className="icon-info">
-                    <img src="./images/clock.png" alt=""/>
+                    <img src="./images/clock.webp" alt="working-time" loading="lazy"/>
                 </div>
                 <div className="text-information">
                     <div className="title">
@@ -36,7 +36,7 @@ const Header = () => {
             </div>
             <div className="info-box">
                 <div className="icon-info">
-                    <img src="./images/mail.png" alt=""/>
+                    <img src="./images/mail.webp" alt="gamil-company" loading="lazy"/>
                 </div>
                 <div className="text-information">
                     <div className="title">Email</div>
@@ -45,7 +45,7 @@ const Header = () => {
             </div>
             <div className="info-box">
                 <div className="icon-info">
-                    <img src="./images/telephone.png" alt=""/>
+                    <img src="./images/telephone.webp" alt="phone" loading="lazy"/>
                 </div>
                 <div className="text-information">
                     <div className="title">

@@ -42738,7 +42738,7 @@ const Home = () => {
     return <div className="home-wrapper">
 
         <Helmet>
-            <title>Leader Auto Ship - Trusted Car Shipping Services Across the United States</title>
+            <title>Leader Auto Ship</title>
             <meta name="description"
                   content="Leader Auto Ship is a Top-Rated Car Shipping Company in the United States, offering reliable door-to-door car shipping, motorcycle transport, and both open and enclosed auto transport services."/>
         </Helmet>
@@ -42749,1036 +42749,1037 @@ const Home = () => {
         </header>
 
         <main>
-            <section>
-                <div className="home_page">
-                    <Slider {...settingsHomeSlider}>
-                        {homePhoto ? homePhoto.map((item, index) => {
-                            return <div key={index}>
-                                <img src={item.image} alt=""/>
+        <section className="home_page">
+            <Slider {...settingsHomeSlider}>
+                {homePhoto ? homePhoto.map((item, index) => {
+                    return <div key={index}>
+                        <img src={item.image} alt="car-ship-banners" loading="lazy"/>
+                    </div>
+                }) : ""}
+            </Slider>
+
+            <div className="home-sloy"></div>
+            <div className="home_contents">
+                <div className="left_side">
+                    <div className="text-wrapper">
+                        <strong className="top-text">
+                            Logistics & Leader Auto Ship
+                        </strong>
+                        <h1 data-aos="zoom-in" className="text-large">
+                            <p> WE DELIVER</p>
+                            <p>
+                                <Textra effect='scale'
+                                        data={['Motorcycles', 'Suvs', 'Boats-Rvs', 'Pick up', 'Cars']}/>
+                            </p>
+                        </h1>
+                        <article className="des-text">
+                            Leader Auto Ship is Top-Rated Car Shipping
+                            Company in the United States
+                        </article>
+                        <div className="buttons-home">
+                            <button onClick={() => navigate("/get-quote")} type="button"
+                                    className="button-home">
+                                Get a quote
+                            </button>
+
+                            <a href={`tel:${contact.phone1}`} className="button-home">
+                                Call now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="right_side">
+                    <div data-aos="flip-right" className="get-quote-card">
+                        <strong className="title-quote">
+                            Get a quote online, or call at
+                        </strong>
+                        <h4 className="num-company">
+                            (567) 666-4696
+                        </h4>
+                        <div className="icons-quote">
+                            <div
+                                className={`icon-quote ${quote === 1 || quote === 2 || quote === 3 ? "active" : ""}`}>
+                                <img src="./images/mdi_location.webp" alt=""/>
                             </div>
-                        }) : ""}
-                    </Slider>
-                    <div className="home-sloy"></div>
-                    <div className="home_contents">
-                        <div className="left_side">
-                            <div className="text-wrapper">
-                                <div className="top-text">
-                                    Logistics & Leader Auto Ship
+
+                            <div className={`line-quote ${quote === 2 || quote === 3 ? "active" : ""}`}></div>
+                            <div className={`icon-quote ${quote === 2 || quote === 3 ? "active" : ""}`}>
+                                <img src="./images/truck.webp" alt=""/>
+                            </div>
+
+                            <div className={`line-quote ${quote === 3 ? "active" : ""}`}></div>
+                            <div className={`icon-quote ${quote === 3 ? "active" : ""}`}>
+                                <img src="./images/person.webp" alt=""/>
+                            </div>
+
+                            <div className={`line-quote ${quote === 4 ? "active" : ""}`}></div>
+                            <div className={`icon-quote ${quote === 4 ? "active" : ""}`}>
+                                <img src="./images/check_circle.webp" alt=""/>
+                            </div>
+                        </div>
+
+                        {
+                            quote === 1 &&
+                            <div className="step1">
+                                <div className="input-quote">
+                                    <label htmlFor="from">transport car from:*</label>
+                                    <Typeahead
+                                        id="basic-typeahead"
+                                        options={options}
+                                        placeholder="ZIP or City"
+                                        minLength={1}
+                                        onChange={(selected) => setZipfrom(selected)}
+                                    />
                                 </div>
-                                <div data-aos="zoom-in" className="text-large">
-                                    <p> WE DELIVER</p>
-                                    <p>
-                                        <Textra effect='scale'
-                                                data={['Motorcycles', 'Suvs', 'Boats-Rvs', 'Pick up', 'Cars']}/>
-                                    </p>
+                                <div className="input-quote">
+                                    <label htmlFor="from">transport car to:*</label>
+                                    <Typeahead
+                                        id="basic-typeahead"
+                                        options={options}
+                                        placeholder="ZIP or City"
+                                        minLength={1}
+                                        onChange={(selected) => setZipto(selected)}
+                                    />
                                 </div>
-                                <div className="des-text">
-                                    Leader Auto Ship is Top-Rated Car Shipping
-                                    Company in the United States
+                                <div className="radio-quote">
+                                    <div className="label-radios">
+                                        transport type:*
+                                    </div>
+
+                                    <div onClick={() => setRadioQuote("1")} className="radio">
+                                        <div className={`radio-btn ${radioQuote === "1" ? "active" : ""}`}>
+                                            <div
+                                                className={`radio-circle ${radioQuote === "1" ? "active-radio" : ""}`}></div>
+                                        </div>
+                                        <div className="radio-text">
+                                            Open
+                                        </div>
+                                    </div>
+
+                                    <div onClick={() => setRadioQuote("2")} className="radio">
+                                        <div className={`radio-btn ${radioQuote === "2" ? "active" : ""}`}>
+                                            <div
+                                                className={`radio-circle ${radioQuote === "2" ? "active-radio" : ""}`}></div>
+                                        </div>
+                                        <div className="radio-text">
+                                            Enclosed
+                                        </div>
+                                    </div>
+
+                                    <div className="radio">
+                                        <div className="check-box">
+                                            <div className="checkbox-wrapper-13">
+                                                <input
+                                                    onChange={(e) => {
+                                                        setCheckBoxQuote((prevState) => !prevState);
+                                                    }}
+                                                    id="c1-13"
+                                                    type="checkbox"
+                                                />
+                                            </div>
+                                            <label htmlFor="c1-13">
+                                                By checking this box, you agree to our Terms and Privacy Policy,
+                                                allowing us to
+                                                send
+                                                sms to the provided phone number. Your consent is not required
+                                                for
+                                                purchasing any items, commodities, or services. Message and data
+                                                rates
+                                                may
+                                                apply.
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="buttons-home">
-                                    <button onClick={() => navigate("/get-quote")} type="button"
-                                            className="button-home">
-                                        Get a quote
+                                <button onClick={() => {
+                                    if (checkBoxQuote && zipFrom && zipTo) {
+                                        setQuote(2)
+                                    }
+                                }} className="quote-btn">
+                                    Next
+                                </button>
+                            </div>
+                        }
+
+                        {
+                            quote === 2 &&
+                            <div className="step2">
+                                <div className="input-quote">
+                                    <label htmlFor="from">Vehicle type:*</label>
+                                    <select onChange={(e) => setVehicle_type(e.target.value)} name="vehicle"
+                                            id="vehicle">
+                                        <option value="">Select Vehicle type</option>
+                                        <option value="Car">Car</option>
+                                        <option value="Truck">Truck</option>
+                                        <option value="Motorcycle">Motorcycle</option>
+                                        <option value="ATV & UTV">ATV & UTV</option>
+                                        <option value="Boat">Boat</option>
+                                        <option value="PWC">PWC</option>
+                                        <option value="Snowmobile">Snowmobile</option>
+                                        <option value="RV/Trailer">RV/Trailer</option>
+                                        <option value="Commercial Truck">Commercial Truck</option>
+                                        <option value="Heavy Equipment">Heavy Equipment</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+
+                                <div className="input-quote">
+                                    <label htmlFor="from">Vehicle year: *</label>
+                                    <select onChange={(e) => setVehicle_year(e.target.value)} name="vehicle"
+                                            id="vehicle">
+                                        <option value="2025">2025</option>
+                                        <option value="2024">2024</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2022">2022</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2020">2020</option>
+                                        <option value="2019">2019</option>
+                                        <option value="2018">2018</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2015">2015</option>
+                                        <option value="2014">2014</option>
+                                        <option value="2013">2013</option>
+                                        <option value="2012">2012</option>
+                                        <option value="2011">2011</option>
+                                        <option value="2010">2010</option>
+                                        <option value="2009">2009</option>
+                                        <option value="2008">2008</option>
+                                        <option value="2007">2007</option>
+                                        <option value="2006">2006</option>
+                                        <option value="2005">2005</option>
+                                        <option value="2004">2004</option>
+                                        <option value="2003">2003</option>
+                                        <option value="2002">2002</option>
+                                        <option value="2001">2001</option>
+                                        <option value="2000">2000</option>
+                                        <option value="1999">1999</option>
+                                        <option value="1998">1998</option>
+                                        <option value="1997">1997</option>
+                                        <option value="1996">1996</option>
+                                        <option value="1995">1995</option>
+                                        <option value="1994">1994</option>
+                                        <option value="1993">1993</option>
+                                        <option value="1992">1992</option>
+                                        <option value="1991">1991</option>
+                                        <option value="1990">1990</option>
+                                        <option value="1989">1989</option>
+                                        <option value="1988">1988</option>
+                                        <option value="1987">1987</option>
+                                        <option value="1986">1986</option>
+                                        <option value="1985">1985</option>
+                                        <option value="1984">1984</option>
+                                        <option value="1983">1983</option>
+                                        <option value="1982">1982</option>
+                                        <option value="1981">1981</option>
+                                        <option value="1980">1980</option>
+                                        <option value="1979">1979</option>
+                                        <option value="1978">1978</option>
+                                        <option value="1977">1977</option>
+                                        <option value="1976">1976</option>
+                                        <option value="1975">1975</option>
+                                        <option value="1974">1974</option>
+                                        <option value="1973">1973</option>
+                                        <option value="1972">1972</option>
+                                        <option value="1971">1971</option>
+                                        <option value="1970">1970</option>
+                                        <option value="1969">1969</option>
+                                        <option value="1968">1968</option>
+                                        <option value="1967">1967</option>
+                                        <option value="1966">1966</option>
+                                        <option value="1965">1965</option>
+                                        <option value="1964">1964</option>
+                                        <option value="1963">1963</option>
+                                        <option value="1962">1962</option>
+                                        <option value="1961">1961</option>
+                                        <option value="1960">1960</option>
+                                        <option value="1959">1959</option>
+                                        <option value="1958">1958</option>
+                                        <option value="1957">1957</option>
+                                        <option value="1956">1956</option>
+                                        <option value="1955">1955</option>
+                                        <option value="1954">1954</option>
+                                        <option value="1953">1953</option>
+                                        <option value="1952">1952</option>
+                                        <option value="1951">1951</option>
+                                        <option value="1950">1950</option>
+                                        <option value="1949">1949</option>
+                                        <option value="1948">1948</option>
+                                        <option value="1947">1947</option>
+                                        <option value="1946">1946</option>
+                                        <option value="1945">1945</option>
+                                        <option value="1944">1944</option>
+                                        <option value="1943">1943</option>
+                                        <option value="1942">1942</option>
+                                        <option value="1941">1941</option>
+                                        <option value="1940">1940</option>
+                                        <option value="1939">1939</option>
+                                        <option value="1938">1938</option>
+                                        <option value="1937">1937</option>
+                                        <option value="1936">1936</option>
+                                        <option value="1935">1935</option>
+                                        <option value="1934">1934</option>
+                                        <option value="1933">1933</option>
+                                        <option value="1932">1932</option>
+                                        <option value="1931">1931</option>
+                                        <option value="1930">1930</option>
+                                        <option value="1929">1929</option>
+                                        <option value="1928">1928</option>
+                                        <option value="1927">1927</option>
+                                        <option value="1926">1926</option>
+                                        <option value="1925">1925</option>
+                                        <option value="1924">1924</option>
+                                        <option value="1923">1923</option>
+                                        <option value="1922">1922</option>
+                                        <option value="1921">1921</option>
+                                        <option value="1920">1920</option>
+                                        <option value="1919">1919</option>
+                                        <option value="1918">1918</option>
+                                        <option value="1917">1917</option>
+                                        <option value="1916">1916</option>
+                                        <option value="1915">1915</option>
+                                        <option value="1914">1914</option>
+                                        <option value="1913">1913</option>
+                                        <option value="1912">1912</option>
+                                        <option value="1911">1911</option>
+                                        <option value="1910">1910</option>
+                                        <option value="1909">1909</option>
+                                        <option value="1908">1908</option>
+                                        <option value="1907">1907</option>
+                                        <option value="1906">1906</option>
+                                        <option value="1905">1905</option>
+                                        <option value="1904">1904</option>
+                                        <option value="1903">1903</option>
+                                        <option value="1902">1902</option>
+                                        <option value="1901">1901</option>
+                                        <option value="1900">1900</option>
+                                        <option value="1899">1899</option>
+                                        <option value="1898">1898</option>
+                                        <option value="1897">1897</option>
+                                        <option value="1896">1896</option>
+                                        <option value="1895">1895</option>
+                                        <option value="1894">1894</option>
+                                        <option value="1893">1893</option>
+                                        <option value="1892">1892</option>
+                                        <option value="1891">1891</option>
+                                        <option value="1890">1890</option>
+                                        <option value="1889">1889</option>
+                                        <option value="1888">1888</option>
+                                        <option value="1887">1887</option>
+                                        <option value="1886">1886</option>
+                                        <option value="1885">1885</option>
+                                        <option value="1884">1884</option>
+                                        <option value="1883">1883</option>
+                                        <option value="1882">1882</option>
+                                        <option value="1881">1881</option>
+                                        <option value="1880">1880</option>
+                                        <option value="1879">1879</option>
+                                        <option value="1878">1878</option>
+                                        <option value="1877">1877</option>
+                                        <option value="1876">1876</option>
+                                        <option value="1875">1875</option>
+                                        <option value="1874">1874</option>
+                                        <option value="1873">1873</option>
+                                        <option value="1872">1872</option>
+                                        <option value="1871">1871</option>
+                                        <option value="1870">1870</option>
+                                        <option value="1869">1869</option>
+                                        <option value="1868">1868</option>
+                                        <option value="1867">1867</option>
+                                        <option value="1866">1866</option>
+                                        <option value="1865">1865</option>
+                                        <option value="1864">1864</option>
+                                        <option value="1863">1863</option>
+                                        <option value="1862">1862</option>
+                                        <option value="1861">1861</option>
+                                        <option value="1860">1860</option>
+                                        <option value="1859">1859</option>
+                                        <option value="1858">1858</option>
+                                        <option value="1857">1857</option>
+                                        <option value="1856">1856</option>
+                                        <option value="1855">1855</option>
+                                        <option value="1854">1854</option>
+                                        <option value="1853">1853</option>
+                                        <option value="1852">1852</option>
+                                        <option value="1851">1851</option>
+                                        <option value="1850">1850</option>
+                                        <option value="1849">1849</option>
+                                        <option value="1848">1848</option>
+                                        <option value="1847">1847</option>
+                                        <option value="1846">1846</option>
+                                        <option value="1845">1845</option>
+                                        <option value="1844">1844</option>
+                                        <option value="1843">1843</option>
+                                        <option value="1842">1842</option>
+                                        <option value="1841">1841</option>
+                                        <option value="1840">1840</option>
+                                        <option value="1839">1839</option>
+                                        <option value="1838">1838</option>
+                                        <option value="1837">1837</option>
+                                        <option value="1836">1836</option>
+                                        <option value="1835">1835</option>
+                                        <option value="1834">1834</option>
+                                        <option value="1833">1833</option>
+                                        <option value="1832">1832</option>
+                                        <option value="1831">1831</option>
+                                        <option value="1830">1830</option>
+                                        <option value="1829">1829</option>
+                                        <option value="1828">1828</option>
+                                        <option value="1827">1827</option>
+                                        <option value="1826">1826</option>
+                                        <option value="1825">1825</option>
+                                        <option value="1824">1824</option>
+                                        <option value="1823">1823</option>
+                                        <option value="1822">1822</option>
+                                        <option value="1821">1821</option>
+                                        <option value="1820">1820</option>
+                                        <option value="1819">1819</option>
+                                        <option value="1818">1818</option>
+                                        <option value="1817">1817</option>
+                                        <option value="1816">1816</option>
+                                        <option value="1815">1815</option>
+                                        <option value="1814">1814</option>
+                                        <option value="1813">1813</option>
+                                        <option value="1812">1812</option>
+                                        <option value="1811">1811</option>
+                                        <option value="1810">1810</option>
+                                        <option value="1809">1809</option>
+                                        <option value="1808">1808</option>
+                                        <option value="1807">1807</option>
+                                        <option value="1806">1806</option>
+                                        <option value="1805">1805</option>
+                                        <option value="1804">1804</option>
+                                        <option value="1803">1803</option>
+                                        <option value="1802">1802</option>
+                                        <option value="1801">1801</option>
+                                    </select>
+                                </div>
+
+                                <div className="input-quote">
+                                    <label htmlFor="from">Vehicle make:*</label>
+                                    <select onChange={(e) => {
+                                        setVehicle_make(e.target.value)
+                                        axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/${e.target.value}?format=json`).then((response) => {
+                                            setVehicle_modelList(response.data.Results)
+                                        });
+                                    }} name="vehicle" id="vehicle">
+                                        <option value="">Select Make</option>
+                                        <option value="Acura">Acura</option>
+                                        <option value="Alfa Romeo">Alfa Romeo</option>
+                                        <option value="Aptera">Aptera</option>
+                                        <option value="Aston Martin">Aston Martin</option>
+                                        <option value="Audi">Audi</option>
+                                        <option value="Austin">Austin</option>
+                                        <option value="Bentley">Bentley</option>
+                                        <option value="BMW">BMW</option>
+                                        <option value="Buick">Buick</option>
+                                        <option value="Cadillac">Cadillac</option>
+                                        <option value="Chevrolet">Chevrolet</option>
+                                        <option value="Chrysler">Chrysler</option>
+                                        <option value="Dodge">Dodge</option>
+                                        <option value="Farm">Farm</option>
+                                        <option value="Ferrari">Ferrari</option>
+                                        <option value="FIAT">FIAT</option>
+                                        <option value="Ford">Ford</option>
+                                        <option value="Geo">Geo</option>
+                                        <option value="GMC">GMC</option>
+                                        <option value="Heavy">Heavy</option>
+                                        <option value="Honda">Honda</option>
+                                        <option value="HUMMER">HUMMER</option>
+                                        <option value="Hyundai">Hyundai</option>
+                                        <option value="Infiniti">Infiniti</option>
+                                        <option value="Isuzu">Isuzu</option>
+                                        <option value="Jaguar">Jaguar</option>
+                                        <option value="Jeep">Jeep</option>
+                                        <option value="Kia">Kia</option>
+                                        <option value="Land Rover">Land Rover</option>
+                                        <option value="Lexus">Lexus</option>
+                                        <option value="Lincoln">Lincoln</option>
+                                        <option value="Lotus">Lotus</option>
+                                        <option value="Maserati">Maserati</option>
+                                        <option value="Mazda">Mazda</option>
+                                        <option value="Mercedes-Benz">Mercedes-Benz</option>
+                                        <option value="Mercury">Mercury</option>
+                                        <option value="MG">MG</option>
+                                        <option value="MINI">MINI</option>
+                                        <option value="Mitsubishi">Mitsubishi</option>
+                                        <option value="Nissan">Nissan</option>
+                                        <option value="Oldsmobile">Oldsmobile</option>
+                                        <option value="Plymouth">Plymouth</option>
+                                        <option value="Pontiac">Pontiac</option>
+                                        <option value="Porsche">Porsche</option>
+                                        <option value="Ram">Ram</option>
+                                        <option value="Renault">Renault</option>
+                                        <option value="Saab">Saab</option>
+                                        <option value="Saturn">Saturn</option>
+                                        <option value="Scion">Scion</option>
+                                        <option value="Smart">Smart</option>
+                                        <option value="Subaru">Subaru</option>
+                                        <option value="Suzuki">Suzuki</option>
+                                        <option value="Tesla">Tesla</option>
+                                        <option value="Toyota">Toyota</option>
+                                        <option value="Volkswagen">Volkswagen</option>
+                                        <option value="Volvo">Volvo</option>
+
+                                    </select>
+                                </div>
+
+                                <div className="input-quote">
+                                    <label htmlFor="from">Vehicle model:*</label>
+                                    <select onChange={(e) => setVehicle_model(e.target.value)} name="vehicle"
+                                            id="vehicle">
+                                        {Vehicle_modelList && Vehicle_modelList.map((item, index) => {
+                                            return <option key={index}
+                                                           value={item.Model_Name}>{item.Model_Name}</option>
+                                        })}
+                                    </select>
+                                </div>
+                                <div className="radio-quote">
+                                    <div className="label-radios">
+                                        Is it running? *
+                                    </div>
+                                    <div onClick={() => setRadioQuote2("1")} className="radio">
+                                        <div className={`radio-btn ${radioQuote2 === "1" ? "active" : ""}`}>
+                                            <div
+                                                className={`radio-circle ${radioQuote2 === "1" ? "active-radio" : ""}`}></div>
+                                        </div>
+                                        <div className="radio-text">
+                                            Yes
+                                        </div>
+                                    </div>
+                                    <div onClick={() => setRadioQuote2("2")} className="radio">
+                                        <div className={`radio-btn ${radioQuote2 === "2" ? "active" : ""}`}>
+                                            <div
+                                                className={`radio-circle ${radioQuote2 === "2" ? "active-radio" : ""}`}></div>
+                                        </div>
+                                        <div className="radio-text">
+                                            No
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="button-box">
+                                    <button onClick={() => {
+                                        setCheckBoxQuote(false)
+                                        setQuote(1)
+                                    }} className="prev-btn">
+                                        Previous
+                                    </button>
+                                    <button onClick={() => {
+                                        if (Vehicle_type && Vehicle_year && Vehicle_make && Vehicle_model)
+                                            setQuote(3)
+                                    }} className="quote-btn">
+                                        Next
+                                    </button>
+                                </div>
+                            </div>
+                        }
+
+                        {
+                            quote === 3 &&
+                            <div className="step1">
+                                <div className="input-quote">
+                                    <label htmlFor="from">First available date: *</label>
+                                    <input onChange={(e) => setFirst_available_date(e.target.value)} id="from"
+                                           type="date"/>
+                                </div>
+                                <div className="input-quote">
+                                    <label htmlFor="from">Full Name: *</label>
+                                    <input onChange={(e) => setFull_name(e.target.value)}
+                                           placeholder="Input your full name"
+                                           id="from" type="text"/>
+                                </div>
+                                <div className="input-quote">
+                                    <label htmlFor="from">Phone: *</label>
+                                    <input onChange={(e) => setPhone(e.target.value)} placeholder="Contact No "
+                                           id="from"
+                                           type="text"/>
+                                </div>
+                                <div className="input-quote">
+                                    <label htmlFor="from">Send a copy of the quote to: *</label>
+                                    <input onChange={(e) => setEmail(e.target.value)}
+                                           placeholder="Enter your email" id="from" type="text"/>
+                                </div>
+                                <div className="button-box">
+                                    <button onClick={() => setQuote(2)} className="prev-btn">
+                                        Previous
                                     </button>
 
-                                    <a href={`tel:${contact.phone1}`} className="button-home">
-                                        Call now
-                                    </a>
+                                    <button onClick={getQuote} className="quote-btn">
+                                        Submit
+                                    </button>
                                 </div>
                             </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section className="about-us">
+            <div className="img-side">
+                <video autoPlay loop muted playsInline preload="metadata">
+                    <source src="./images/video2.mp4" type="video/mp4"/>
+                    Your browser does not support video!
+                </video>
+            </div>
+            <div className="sides">
+                <strong className="main-title">
+                    How do i book with an auto transport company?
+                </strong>
+                <h2 className="title">
+                    Leader Auto ship’s company guide to quick, easy and safe auto shipping
+                </h2>
+                <div className="steps">
+                    <div className="step">
+                        <img src="./images/step1.webp" alt="step-one" loading="lazy"/>
+                        <div className="text">
+                            <h3 className="title-step">
+                                Step 1
+                            </h3>
+                            <article className="des">
+                                Quote and book your order
+                            </article>
                         </div>
-
-                        <div className="right_side">
-                            <div data-aos="flip-right" className="get-quote-card">
-                                <div className="title-quote">
-                                    Get a quote online, or call at
-                                </div>
-                                <div className="num-company">
-                                    (567) 666-4696
-                                </div>
-                                <div className="icons-quote">
-                                    <div
-                                        className={`icon-quote ${quote === 1 || quote === 2 || quote === 3 ? "active" : ""}`}>
-                                        <img src="./images/mdi_location.png" alt=""/>
-                                    </div>
-
-                                    <div className={`line-quote ${quote === 2 || quote === 3 ? "active" : ""}`}></div>
-                                    <div className={`icon-quote ${quote === 2 || quote === 3 ? "active" : ""}`}>
-                                        <img src="./images/truck.png" alt=""/>
-                                    </div>
-
-                                    <div className={`line-quote ${quote === 3 ? "active" : ""}`}></div>
-                                    <div className={`icon-quote ${quote === 3 ? "active" : ""}`}>
-                                        <img src="./images/person.png" alt=""/>
-                                    </div>
-
-                                    <div className={`line-quote ${quote === 4 ? "active" : ""}`}></div>
-                                    <div className={`icon-quote ${quote === 4 ? "active" : ""}`}>
-                                        <img src="./images/check_circle.png" alt=""/>
-                                    </div>
-                                </div>
-
-                                {
-                                    quote === 1 &&
-                                    <div className="step1">
-                                        <div className="input-quote">
-                                            <label htmlFor="from">transport car from:*</label>
-                                            <Typeahead
-                                                id="basic-typeahead"
-                                                options={options}
-                                                placeholder="ZIP or City"
-                                                minLength={1}
-                                                onChange={(selected) => setZipfrom(selected)}
-                                            />
-                                        </div>
-                                        <div className="input-quote">
-                                            <label htmlFor="from">transport car to:*</label>
-                                            <Typeahead
-                                                id="basic-typeahead"
-                                                options={options}
-                                                placeholder="ZIP or City"
-                                                minLength={1}
-                                                onChange={(selected) => setZipto(selected)}
-                                            />
-                                        </div>
-                                        <div className="radio-quote">
-                                            <div className="label-radios">
-                                                transport type:*
-                                            </div>
-
-                                            <div onClick={() => setRadioQuote("1")} className="radio">
-                                                <div className={`radio-btn ${radioQuote === "1" ? "active" : ""}`}>
-                                                    <div
-                                                        className={`radio-circle ${radioQuote === "1" ? "active-radio" : ""}`}></div>
-                                                </div>
-                                                <div className="radio-text">
-                                                    Open
-                                                </div>
-                                            </div>
-
-                                            <div onClick={() => setRadioQuote("2")} className="radio">
-                                                <div className={`radio-btn ${radioQuote === "2" ? "active" : ""}`}>
-                                                    <div
-                                                        className={`radio-circle ${radioQuote === "2" ? "active-radio" : ""}`}></div>
-                                                </div>
-                                                <div className="radio-text">
-                                                    Enclosed
-                                                </div>
-                                            </div>
-
-                                            <div className="radio">
-                                                <div className="check-box">
-                                                    <div className="checkbox-wrapper-13">
-                                                        <input
-                                                            onChange={(e) => {
-                                                                setCheckBoxQuote((prevState) => !prevState);
-                                                            }}
-                                                            id="c1-13"
-                                                            type="checkbox"
-                                                        />
-                                                    </div>
-                                                    <label htmlFor="c1-13">
-                                                        By checking this box, you agree to our Terms and Privacy Policy,
-                                                        allowing us to
-                                                        send
-                                                        sms to the provided phone number. Your consent is not required
-                                                        for
-                                                        purchasing any items, commodities, or services. Message and data
-                                                        rates
-                                                        may
-                                                        apply.
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button onClick={() => {
-                                            if (checkBoxQuote && zipFrom && zipTo) {
-                                                setQuote(2)
-                                            }
-                                        }} className="quote-btn">
-                                            Next
-                                        </button>
-                                    </div>
-                                }
-
-                                {
-                                    quote === 2 &&
-                                    <div className="step2">
-                                        <div className="input-quote">
-                                            <label htmlFor="from">Vehicle type:*</label>
-                                            <select onChange={(e) => setVehicle_type(e.target.value)} name="vehicle"
-                                                    id="vehicle">
-                                                <option value="">Select Vehicle type</option>
-                                                <option value="Car">Car</option>
-                                                <option value="Truck">Truck</option>
-                                                <option value="Motorcycle">Motorcycle</option>
-                                                <option value="ATV & UTV">ATV & UTV</option>
-                                                <option value="Boat">Boat</option>
-                                                <option value="PWC">PWC</option>
-                                                <option value="Snowmobile">Snowmobile</option>
-                                                <option value="RV/Trailer">RV/Trailer</option>
-                                                <option value="Commercial Truck">Commercial Truck</option>
-                                                <option value="Heavy Equipment">Heavy Equipment</option>
-                                                <option value="Other">Other</option>
-                                            </select>
-                                        </div>
-
-                                        <div className="input-quote">
-                                            <label htmlFor="from">Vehicle year: *</label>
-                                            <select onChange={(e) => setVehicle_year(e.target.value)} name="vehicle"
-                                                    id="vehicle">
-                                                <option value="2025">2025</option>
-                                                <option value="2024">2024</option>
-                                                <option value="2023">2023</option>
-                                                <option value="2022">2022</option>
-                                                <option value="2021">2021</option>
-                                                <option value="2020">2020</option>
-                                                <option value="2019">2019</option>
-                                                <option value="2018">2018</option>
-                                                <option value="2017">2017</option>
-                                                <option value="2016">2016</option>
-                                                <option value="2015">2015</option>
-                                                <option value="2014">2014</option>
-                                                <option value="2013">2013</option>
-                                                <option value="2012">2012</option>
-                                                <option value="2011">2011</option>
-                                                <option value="2010">2010</option>
-                                                <option value="2009">2009</option>
-                                                <option value="2008">2008</option>
-                                                <option value="2007">2007</option>
-                                                <option value="2006">2006</option>
-                                                <option value="2005">2005</option>
-                                                <option value="2004">2004</option>
-                                                <option value="2003">2003</option>
-                                                <option value="2002">2002</option>
-                                                <option value="2001">2001</option>
-                                                <option value="2000">2000</option>
-                                                <option value="1999">1999</option>
-                                                <option value="1998">1998</option>
-                                                <option value="1997">1997</option>
-                                                <option value="1996">1996</option>
-                                                <option value="1995">1995</option>
-                                                <option value="1994">1994</option>
-                                                <option value="1993">1993</option>
-                                                <option value="1992">1992</option>
-                                                <option value="1991">1991</option>
-                                                <option value="1990">1990</option>
-                                                <option value="1989">1989</option>
-                                                <option value="1988">1988</option>
-                                                <option value="1987">1987</option>
-                                                <option value="1986">1986</option>
-                                                <option value="1985">1985</option>
-                                                <option value="1984">1984</option>
-                                                <option value="1983">1983</option>
-                                                <option value="1982">1982</option>
-                                                <option value="1981">1981</option>
-                                                <option value="1980">1980</option>
-                                                <option value="1979">1979</option>
-                                                <option value="1978">1978</option>
-                                                <option value="1977">1977</option>
-                                                <option value="1976">1976</option>
-                                                <option value="1975">1975</option>
-                                                <option value="1974">1974</option>
-                                                <option value="1973">1973</option>
-                                                <option value="1972">1972</option>
-                                                <option value="1971">1971</option>
-                                                <option value="1970">1970</option>
-                                                <option value="1969">1969</option>
-                                                <option value="1968">1968</option>
-                                                <option value="1967">1967</option>
-                                                <option value="1966">1966</option>
-                                                <option value="1965">1965</option>
-                                                <option value="1964">1964</option>
-                                                <option value="1963">1963</option>
-                                                <option value="1962">1962</option>
-                                                <option value="1961">1961</option>
-                                                <option value="1960">1960</option>
-                                                <option value="1959">1959</option>
-                                                <option value="1958">1958</option>
-                                                <option value="1957">1957</option>
-                                                <option value="1956">1956</option>
-                                                <option value="1955">1955</option>
-                                                <option value="1954">1954</option>
-                                                <option value="1953">1953</option>
-                                                <option value="1952">1952</option>
-                                                <option value="1951">1951</option>
-                                                <option value="1950">1950</option>
-                                                <option value="1949">1949</option>
-                                                <option value="1948">1948</option>
-                                                <option value="1947">1947</option>
-                                                <option value="1946">1946</option>
-                                                <option value="1945">1945</option>
-                                                <option value="1944">1944</option>
-                                                <option value="1943">1943</option>
-                                                <option value="1942">1942</option>
-                                                <option value="1941">1941</option>
-                                                <option value="1940">1940</option>
-                                                <option value="1939">1939</option>
-                                                <option value="1938">1938</option>
-                                                <option value="1937">1937</option>
-                                                <option value="1936">1936</option>
-                                                <option value="1935">1935</option>
-                                                <option value="1934">1934</option>
-                                                <option value="1933">1933</option>
-                                                <option value="1932">1932</option>
-                                                <option value="1931">1931</option>
-                                                <option value="1930">1930</option>
-                                                <option value="1929">1929</option>
-                                                <option value="1928">1928</option>
-                                                <option value="1927">1927</option>
-                                                <option value="1926">1926</option>
-                                                <option value="1925">1925</option>
-                                                <option value="1924">1924</option>
-                                                <option value="1923">1923</option>
-                                                <option value="1922">1922</option>
-                                                <option value="1921">1921</option>
-                                                <option value="1920">1920</option>
-                                                <option value="1919">1919</option>
-                                                <option value="1918">1918</option>
-                                                <option value="1917">1917</option>
-                                                <option value="1916">1916</option>
-                                                <option value="1915">1915</option>
-                                                <option value="1914">1914</option>
-                                                <option value="1913">1913</option>
-                                                <option value="1912">1912</option>
-                                                <option value="1911">1911</option>
-                                                <option value="1910">1910</option>
-                                                <option value="1909">1909</option>
-                                                <option value="1908">1908</option>
-                                                <option value="1907">1907</option>
-                                                <option value="1906">1906</option>
-                                                <option value="1905">1905</option>
-                                                <option value="1904">1904</option>
-                                                <option value="1903">1903</option>
-                                                <option value="1902">1902</option>
-                                                <option value="1901">1901</option>
-                                                <option value="1900">1900</option>
-                                                <option value="1899">1899</option>
-                                                <option value="1898">1898</option>
-                                                <option value="1897">1897</option>
-                                                <option value="1896">1896</option>
-                                                <option value="1895">1895</option>
-                                                <option value="1894">1894</option>
-                                                <option value="1893">1893</option>
-                                                <option value="1892">1892</option>
-                                                <option value="1891">1891</option>
-                                                <option value="1890">1890</option>
-                                                <option value="1889">1889</option>
-                                                <option value="1888">1888</option>
-                                                <option value="1887">1887</option>
-                                                <option value="1886">1886</option>
-                                                <option value="1885">1885</option>
-                                                <option value="1884">1884</option>
-                                                <option value="1883">1883</option>
-                                                <option value="1882">1882</option>
-                                                <option value="1881">1881</option>
-                                                <option value="1880">1880</option>
-                                                <option value="1879">1879</option>
-                                                <option value="1878">1878</option>
-                                                <option value="1877">1877</option>
-                                                <option value="1876">1876</option>
-                                                <option value="1875">1875</option>
-                                                <option value="1874">1874</option>
-                                                <option value="1873">1873</option>
-                                                <option value="1872">1872</option>
-                                                <option value="1871">1871</option>
-                                                <option value="1870">1870</option>
-                                                <option value="1869">1869</option>
-                                                <option value="1868">1868</option>
-                                                <option value="1867">1867</option>
-                                                <option value="1866">1866</option>
-                                                <option value="1865">1865</option>
-                                                <option value="1864">1864</option>
-                                                <option value="1863">1863</option>
-                                                <option value="1862">1862</option>
-                                                <option value="1861">1861</option>
-                                                <option value="1860">1860</option>
-                                                <option value="1859">1859</option>
-                                                <option value="1858">1858</option>
-                                                <option value="1857">1857</option>
-                                                <option value="1856">1856</option>
-                                                <option value="1855">1855</option>
-                                                <option value="1854">1854</option>
-                                                <option value="1853">1853</option>
-                                                <option value="1852">1852</option>
-                                                <option value="1851">1851</option>
-                                                <option value="1850">1850</option>
-                                                <option value="1849">1849</option>
-                                                <option value="1848">1848</option>
-                                                <option value="1847">1847</option>
-                                                <option value="1846">1846</option>
-                                                <option value="1845">1845</option>
-                                                <option value="1844">1844</option>
-                                                <option value="1843">1843</option>
-                                                <option value="1842">1842</option>
-                                                <option value="1841">1841</option>
-                                                <option value="1840">1840</option>
-                                                <option value="1839">1839</option>
-                                                <option value="1838">1838</option>
-                                                <option value="1837">1837</option>
-                                                <option value="1836">1836</option>
-                                                <option value="1835">1835</option>
-                                                <option value="1834">1834</option>
-                                                <option value="1833">1833</option>
-                                                <option value="1832">1832</option>
-                                                <option value="1831">1831</option>
-                                                <option value="1830">1830</option>
-                                                <option value="1829">1829</option>
-                                                <option value="1828">1828</option>
-                                                <option value="1827">1827</option>
-                                                <option value="1826">1826</option>
-                                                <option value="1825">1825</option>
-                                                <option value="1824">1824</option>
-                                                <option value="1823">1823</option>
-                                                <option value="1822">1822</option>
-                                                <option value="1821">1821</option>
-                                                <option value="1820">1820</option>
-                                                <option value="1819">1819</option>
-                                                <option value="1818">1818</option>
-                                                <option value="1817">1817</option>
-                                                <option value="1816">1816</option>
-                                                <option value="1815">1815</option>
-                                                <option value="1814">1814</option>
-                                                <option value="1813">1813</option>
-                                                <option value="1812">1812</option>
-                                                <option value="1811">1811</option>
-                                                <option value="1810">1810</option>
-                                                <option value="1809">1809</option>
-                                                <option value="1808">1808</option>
-                                                <option value="1807">1807</option>
-                                                <option value="1806">1806</option>
-                                                <option value="1805">1805</option>
-                                                <option value="1804">1804</option>
-                                                <option value="1803">1803</option>
-                                                <option value="1802">1802</option>
-                                                <option value="1801">1801</option>
-                                            </select>
-                                        </div>
-
-                                        <div className="input-quote">
-                                            <label htmlFor="from">Vehicle make:*</label>
-                                            <select onChange={(e) => {
-                                                setVehicle_make(e.target.value)
-                                                axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/${e.target.value}?format=json`).then((response) => {
-                                                    setVehicle_modelList(response.data.Results)
-                                                });
-                                            }} name="vehicle" id="vehicle">
-                                                <option value="">Select Make</option>
-                                                <option value="Acura">Acura</option>
-                                                <option value="Alfa Romeo">Alfa Romeo</option>
-                                                <option value="Aptera">Aptera</option>
-                                                <option value="Aston Martin">Aston Martin</option>
-                                                <option value="Audi">Audi</option>
-                                                <option value="Austin">Austin</option>
-                                                <option value="Bentley">Bentley</option>
-                                                <option value="BMW">BMW</option>
-                                                <option value="Buick">Buick</option>
-                                                <option value="Cadillac">Cadillac</option>
-                                                <option value="Chevrolet">Chevrolet</option>
-                                                <option value="Chrysler">Chrysler</option>
-                                                <option value="Dodge">Dodge</option>
-                                                <option value="Farm">Farm</option>
-                                                <option value="Ferrari">Ferrari</option>
-                                                <option value="FIAT">FIAT</option>
-                                                <option value="Ford">Ford</option>
-                                                <option value="Geo">Geo</option>
-                                                <option value="GMC">GMC</option>
-                                                <option value="Heavy">Heavy</option>
-                                                <option value="Honda">Honda</option>
-                                                <option value="HUMMER">HUMMER</option>
-                                                <option value="Hyundai">Hyundai</option>
-                                                <option value="Infiniti">Infiniti</option>
-                                                <option value="Isuzu">Isuzu</option>
-                                                <option value="Jaguar">Jaguar</option>
-                                                <option value="Jeep">Jeep</option>
-                                                <option value="Kia">Kia</option>
-                                                <option value="Land Rover">Land Rover</option>
-                                                <option value="Lexus">Lexus</option>
-                                                <option value="Lincoln">Lincoln</option>
-                                                <option value="Lotus">Lotus</option>
-                                                <option value="Maserati">Maserati</option>
-                                                <option value="Mazda">Mazda</option>
-                                                <option value="Mercedes-Benz">Mercedes-Benz</option>
-                                                <option value="Mercury">Mercury</option>
-                                                <option value="MG">MG</option>
-                                                <option value="MINI">MINI</option>
-                                                <option value="Mitsubishi">Mitsubishi</option>
-                                                <option value="Nissan">Nissan</option>
-                                                <option value="Oldsmobile">Oldsmobile</option>
-                                                <option value="Plymouth">Plymouth</option>
-                                                <option value="Pontiac">Pontiac</option>
-                                                <option value="Porsche">Porsche</option>
-                                                <option value="Ram">Ram</option>
-                                                <option value="Renault">Renault</option>
-                                                <option value="Saab">Saab</option>
-                                                <option value="Saturn">Saturn</option>
-                                                <option value="Scion">Scion</option>
-                                                <option value="Smart">Smart</option>
-                                                <option value="Subaru">Subaru</option>
-                                                <option value="Suzuki">Suzuki</option>
-                                                <option value="Tesla">Tesla</option>
-                                                <option value="Toyota">Toyota</option>
-                                                <option value="Volkswagen">Volkswagen</option>
-                                                <option value="Volvo">Volvo</option>
-
-                                            </select>
-                                        </div>
-
-                                        <div className="input-quote">
-                                            <label htmlFor="from">Vehicle model:*</label>
-                                            <select onChange={(e) => setVehicle_model(e.target.value)} name="vehicle"
-                                                    id="vehicle">
-                                                {Vehicle_modelList && Vehicle_modelList.map((item, index) => {
-                                                    return <option key={index}
-                                                                   value={item.Model_Name}>{item.Model_Name}</option>
-                                                })}
-                                            </select>
-                                        </div>
-                                        <div className="radio-quote">
-                                            <div className="label-radios">
-                                                Is it running? *
-                                            </div>
-                                            <div onClick={() => setRadioQuote2("1")} className="radio">
-                                                <div className={`radio-btn ${radioQuote2 === "1" ? "active" : ""}`}>
-                                                    <div
-                                                        className={`radio-circle ${radioQuote2 === "1" ? "active-radio" : ""}`}></div>
-                                                </div>
-                                                <div className="radio-text">
-                                                    Yes
-                                                </div>
-                                            </div>
-                                            <div onClick={() => setRadioQuote2("2")} className="radio">
-                                                <div className={`radio-btn ${radioQuote2 === "2" ? "active" : ""}`}>
-                                                    <div
-                                                        className={`radio-circle ${radioQuote2 === "2" ? "active-radio" : ""}`}></div>
-                                                </div>
-                                                <div className="radio-text">
-                                                    No
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="button-box">
-                                            <button onClick={() => {
-                                                setCheckBoxQuote(false)
-                                                setQuote(1)
-                                            }} className="prev-btn">
-                                                Previous
-                                            </button>
-                                            <button onClick={() => {
-                                                if (Vehicle_type && Vehicle_year && Vehicle_make && Vehicle_model)
-                                                    setQuote(3)
-                                            }} className="quote-btn">
-                                                Next
-                                            </button>
-                                        </div>
-                                    </div>
-                                }
-
-                                {
-                                    quote === 3 &&
-                                    <div className="step1">
-                                        <div className="input-quote">
-                                            <label htmlFor="from">First available date: *</label>
-                                            <input onChange={(e) => setFirst_available_date(e.target.value)} id="from"
-                                                   type="date"/>
-                                        </div>
-                                        <div className="input-quote">
-                                            <label htmlFor="from">Full Name: *</label>
-                                            <input onChange={(e) => setFull_name(e.target.value)}
-                                                   placeholder="Input your full name"
-                                                   id="from" type="text"/>
-                                        </div>
-                                        <div className="input-quote">
-                                            <label htmlFor="from">Phone: *</label>
-                                            <input onChange={(e) => setPhone(e.target.value)} placeholder="Contact No "
-                                                   id="from"
-                                                   type="text"/>
-                                        </div>
-                                        <div className="input-quote">
-                                            <label htmlFor="from">Send a copy of the quote to: *</label>
-                                            <input onChange={(e) => setEmail(e.target.value)}
-                                                   placeholder="Enter your email" id="from" type="text"/>
-                                        </div>
-                                        <div className="button-box">
-                                            <button onClick={() => setQuote(2)} className="prev-btn">
-                                                Previous
-                                            </button>
-
-                                            <button onClick={getQuote} className="quote-btn">
-                                                Submit
-                                            </button>
-                                        </div>
-                                    </div>
-                                }
-                            </div>
+                    </div>
+                    <div className="step">
+                        <img src="./images/step2.webp" alt=""/>
+                        <div className="text">
+                            <h3 className="title-step">
+                                Step 2
+                            </h3>
+                            <article className="des">
+                                We pick up your vehicle
+                            </article>
+                        </div>
+                    </div>
+                    <div className="step">
+                        <img src="./images/step3.webp" alt=""/>
+                        <div className="text">
+                            <h3 className="title-step">
+                                Step 3
+                            </h3>
+                            <article className="des">
+                                Recieve your vehicle
+                            </article>
                         </div>
                     </div>
                 </div>
-                <div className="about-us">
-                    <div className="img-side">
-                        <video autoPlay loop muted src="./images/video2.mp4"></video>
-                    </div>
-                    <div className="sides">
-                        <div className="main-title">
-                            How do i book with an auto transport company?
-                        </div>
-                        <div className="title">
-                            Leader Auto ship’s company guide to quick, easy and safe auto shipping
-                        </div>
-                        <div className="steps">
-                            <div className="step">
-                                <img src="./images/step1.png" alt=""/>
-                                <div className="text">
-                                    <div className="title-step">
-                                        Step 1
-                                    </div>
-                                    <div className="des">
-                                        Quote and book your order
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="step">
-                                <img src="./images/step2.png" alt=""/>
-                                <div className="text">
-                                    <div className="title-step">
-                                        Step 2
-                                    </div>
-                                    <div className="des">
-                                        We pick up your vehicle
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="step">
-                                <img src="./images/step3.png" alt=""/>
-                                <div className="text">
-                                    <div className="title-step">
-                                        Step 3
-                                    </div>
-                                    <div className="des">
-                                        Recieve your vehicle
-                                    </div>
-                                </div>
-                            </div>
+            </div>
+        </section>
+        <section data-aos="fade-up" className="section-why-us">
+            <div className="content-info">
+                <div className="side">
+                    <h3 className="title">
+                        Why you should book with one of the best auto shipping companies
+                    </h3>
+                    <article data-aos="zoom-in" className="info">
+                        <img src="./images/plus1.webp" alt="DEDICATED ADVISORS" loading="lazy"/>
+                        <h3 className="name">
+                            DEDICATED ADVISORS
+                        </h3>
+                    </article>
+                    <article data-aos="zoom-in" className="info">
+                        <img src="./images/plus2.webp" alt="TOP RATED COMPANY" loading="lazy"/>
+                        <h3 className="name">
+                            TOP RATED COMPANY
+                        </h3>
+                    </article>
+                    <article data-aos="zoom-in" className="info">
+                        <img src="./images/Dollar.webp" alt="ZERO UPFRONT PAYMENT" loading="lazy"/>
+                        <h3 className="name">
+                            ZERO UPFRONT PAYMENT
+                        </h3>
+                    </article>
+                    <article data-aos="zoom-in" className="info">
+                        <img src="./images/plus4.webp" alt="INSURANCE COVERAGE" loading="lazy"/>
+                        <h3 className="name">
+                            INSURANCE COVERAGE
+                        </h3>
+                    </article>
+                    <article data-aos="zoom-in" className="info">
+                        <img src="./images/plus5.webp" alt="16K+ AUTO CARRIERS" loading="lazy"/>
+                        <h3 className="name">
+                            16K+ AUTO CARRIERS
+                        </h3>
+                    </article>
+                </div>
+                <div className="side">
+                    <div className="main-images">
+                        <img src="./images/about-us1.webp" alt="car-shipping" loading="lazy"/>
+                        <div className="image">
+                            <img src="./images/about-us3.webp" alt="car-shipping" loading="lazy"/>
                         </div>
                     </div>
                 </div>
-                <div data-aos="fade-up" className="section-why-us">
-                    <div className="content-info">
-                        <div className="side">
-                            <div className="title">
-                                Why you should book with one of the best auto shipping companies
-                            </div>
-
-                            <div data-aos="zoom-in" className="info">
-                                <img src="./images/plus1.png" alt=""/>
-                                <div className="name">
-                                    DEDICATED ADVISORS
-                                </div>
-                            </div>
-                            <div data-aos="zoom-in" className="info">
-                                <img src="./images/plus2.png" alt=""/>
-                                <div className="name">
-                                    TOP RATED COMPANY
-                                </div>
-                            </div>
-                            <div data-aos="zoom-in" className="info">
-                                <img src="./images/Dollar.png" alt=""/>
-                                <div className="name">
-                                    ZERO UPFRONT PAYMENT
-                                </div>
-                            </div>
-                            <div data-aos="zoom-in" className="info">
-                                <img src="./images/plus4.png" alt=""/>
-                                <div className="name">
-                                    INSURANCE COVERAGE
-                                </div>
-                            </div>
-                            <div data-aos="zoom-in" className="info">
-                                <img src="./images/plus5.png" alt=""/>
-                                <div className="name">
-                                    16K+ AUTO CARRIERS
-                                </div>
-                            </div>
+            </div>
+        </section>
+        <section className="section-service">
+            <h3 className="main-title">
+                Services
+            </h3>
+            <h1 className="title">
+                Services We offer
+            </h1>
+            <div className="services-box">
+                <div data-aos="flip-right" className="service">
+                    <div className="img-service">
+                        <img src="./images/service1.webp" alt="DOOR TO DOOR SHIPPING" loading="lazy"/>
+                    </div>
+                    <h3 className="title">DOOR TO DOOR SHIPPING</h3>
+                    <article className="des">
+                        Door-to-door car shipping is the most convenient method of auto transport. You select a
+                        specific
+                        address for your vehicle to be picked up and dropped off. The truck driver will pick up
+                        and
+                        drop
+                        off your vehicle as close to this desired address as safely and legally possible.
+                    </article>
+                </div>
+                <div data-aos="flip-right" className="service">
+                    <div className="img-service">
+                        <img src="./images/service2.webp" alt="OPEN AUTO SHIPPING" loading="lazy"/>
+                    </div>
+                    <h3 className="title">OPEN AUTO SHIPPING</h3>
+                    <article className="des">
+                        Our reliable service ensures your vehicle reaches its destination securely and
+                        affordably.
+                        With
+                        open carriers, we offer efficient, cost-effective transport, providing peace of mind for
+                        your
+                        car's journey.
+                    </article>
+                </div>
+                <div data-aos="flip-right" className="service">
+                    <div className="img-service">
+                        <img src="./images/service3.webp" alt="ENCLOSED AUTO SHIPPING" loading="lazy"/>
+                    </div>
+                    <h3 className="title">ENCLOSED AUTO SHIPPING</h3>
+                    <article className="des">
+                        Enclosed car transport is a type of auto transport that adds protection for vehicles.
+                        It’s a
+                        great car shipping option if you need to transport a classic or luxury car. Enclosed
+                        carriers
+                        can often only carry a few vehicles at the same time, in most cases, up to 7
+                        automobiles.
+                    </article>
+                </div>
+                <div data-aos="flip-right" className="service">
+                    <div className="img-service">
+                        <img src="./images/service4.webp" alt="MOTORCYCLE SHIPPING"/>
+                    </div>
+                    <h3 className="title">MOTORCYCLE SHIPPING</h3>
+                    <article className="des">
+                        Nationwide motorcycle shipping has never been easier with Leader Auto Ship. We offer two
+                        types
+                        of motorcycle transport services to our customers: Door-to-Door (home delivery) and
+                        shipping
+                        between distribution centers. Home delivery (Door-to-Door) transport is the most common
+                        and
+                        preferred customer solution.
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section className="counter">
+            <h1 className="title">
+                The numbers show Who we are
+            </h1>
+            <div className="counts">
+                <div className="count">
+                    <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
+                        <div className="num">
+                            {counterOn &&
+                                <CountUp start={0} end={statistics && statistics.clients} duration={2}
+                                         delay={0}/>}
+                            +
                         </div>
-                        <div className="side">
-                            <div className="main-images">
-                                <img src="./images/about-us1.jpg" alt=""/>
-                                <div className="image">
-                                    <img src="./images/about-us3.jpg" alt=""/>
-                                </div>
-                            </div>
-                        </div>
+                    </ScrollTrigger>
+                    <div className="text">
+                        SATISFIED CUSTOMER
                     </div>
                 </div>
-                <div className="section-service">
-                    <div className="main-title">
-                        Services
-                    </div>
-                    <div className="title">
-                        Services We offer
-                    </div>
-                    <div className="services-box">
-                        <div data-aos="flip-right" className="service">
-                            <div className="img-service">
-                                <img src="./images/service1.jpg" alt=""/>
-                            </div>
-                            <div className="title">DOOR TO DOOR SHIPPING</div>
-                            <div className="des">
-                                Door-to-door car shipping is the most convenient method of auto transport. You select a
-                                specific
-                                address for your vehicle to be picked up and dropped off. The truck driver will pick up
-                                and
-                                drop
-                                off your vehicle as close to this desired address as safely and legally possible.
-                            </div>
+                <div className="count">
+                    <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
+                        <div className="num">
+                            {counterOn &&
+                                <CountUp start={0} end={statistics && statistics.orders} duration={2}
+                                         delay={0}/>}
+                            +
                         </div>
-                        <div data-aos="flip-right" className="service">
-                            <div className="img-service">
-                                <img src="./images/service2.jpg" alt=""/>
-                            </div>
-                            <div className="title">OPEN AUTO SHIPPING</div>
-                            <div className="des">
-                                Our reliable service ensures your vehicle reaches its destination securely and
-                                affordably.
-                                With
-                                open carriers, we offer efficient, cost-effective transport, providing peace of mind for
-                                your
-                                car's journey.
-                            </div>
-                        </div>
-                        <div data-aos="flip-right" className="service">
-                            <div className="img-service">
-                                <img src="./images/service3.jpg" alt=""/>
-                            </div>
-                            <div className="title">ENCLOSED AUTO SHIPPING</div>
-                            <div className="des">
-                                Enclosed car transport is a type of auto transport that adds protection for vehicles.
-                                It’s a
-                                great car shipping option if you need to transport a classic or luxury car. Enclosed
-                                carriers
-                                can often only carry a few vehicles at the same time, in most cases, up to 7
-                                automobiles.
-                            </div>
-                        </div>
-                        <div data-aos="flip-right" className="service">
-                            <div className="img-service">
-                                <img src="./images/service4.jpg" alt=""/>
-                            </div>
-                            <div className="title">MOTORCYCLE SHIPPING</div>
-                            <div className="des">
-                                Nationwide motorcycle shipping has never been easier with Leader Auto Ship. We offer two
-                                types
-                                of motorcycle transport services to our customers: Door-to-Door (home delivery) and
-                                shipping
-                                between distribution centers. Home delivery (Door-to-Door) transport is the most common
-                                and
-                                preferred customer solution.
-                            </div>
-                        </div>
+                    </ScrollTrigger>
+                    <div className="text">
+                        REVIEWS
                     </div>
                 </div>
-                <div className="counter">
-                    <div className="title">
-                        The numbers show Who we are
-                    </div>
-                    <div className="counts">
-                        <div className="count">
-                            <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
-                                <div className="num">
-                                    {counterOn &&
-                                        <CountUp start={0} end={statistics && statistics.clients} duration={2}
-                                                 delay={0}/>}
-                                    +
-                                </div>
-                            </ScrollTrigger>
-                            <div className="text">
-                                SATISFIED CUSTOMER
-                            </div>
+                <div className="count">
+                    <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
+                        <div className="num">
+                            {counterOn &&
+                                <CountUp start={0} end={statistics && statistics.projects} duration={2}
+                                         delay={0}/>}
+                            +
                         </div>
-                        <div className="count">
-                            <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
-                                <div className="num">
-                                    {counterOn &&
-                                        <CountUp start={0} end={statistics && statistics.orders} duration={2}
-                                                 delay={0}/>}
-                                    +
-                                </div>
-                            </ScrollTrigger>
-                            <div className="text">
-                                REVIEWS
-                            </div>
-                        </div>
-                        <div className="count">
-                            <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
-                                <div className="num">
-                                    {counterOn &&
-                                        <CountUp start={0} end={statistics && statistics.projects} duration={2}
-                                                 delay={0}/>}
-                                    +
-                                </div>
-                            </ScrollTrigger>
-                            <div className="text">
-                                EXPERIENCE
-                            </div>
-                        </div>
-                        <div className="count">
-                            <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
-                                <div className="num">
-                                    {counterOn &&
-                                        <CountUp start={0} end={statistics && statistics.cities} duration={2}
-                                                 delay={0}/>}
-                                    +
-                                </div>
-                            </ScrollTrigger>
-                            <div className="text">
-                                DRIVERS
-                            </div>
-                        </div>
+                    </ScrollTrigger>
+                    <div className="text">
+                        EXPERIENCE
                     </div>
                 </div>
-                <div className="what-we-do">
-                    <div className="main-title">
-                        What We Offer
-                    </div>
-                    <div className="title">
-                        Discovering the Power of Our Advantages
-                    </div>
-                    <div className="content-box">
-                        <div className="content">
-                            <div className="icon">
-                                <img data-aos="flip-right" src="./images/persons.png" alt=""/>
-                            </div>
-                            <div className="title">
-                                Dedicated advisors
-                            </div>
-                            <div className="des">
-                                Our professional advisors work around the clock to ensure you receive the best auto
-                                transport
-                                experience.
-                            </div>
+                <div className="count">
+                    <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
+                        <div className="num">
+                            {counterOn &&
+                                <CountUp start={0} end={statistics && statistics.cities} duration={2}
+                                         delay={0}/>}
+                            +
                         </div>
-                        <div className="content">
-                            <div className="icon">
-                                <img data-aos="flip-right" src="./images/Shield.png" alt=""/>
-                            </div>
-                            <div className="title">
-                                Insurance coverage
-                            </div>
-                            <div className="des">
-                                Car transport companies include insurance coverage in your shipping quote. Our selected
-                                auto
-                                haulers must meet insurance standards before qualifying to be part of our carrier
-                                network.
-                            </div>
-                        </div>
-                        <div className="content">
-                            <div className="icon">
-                                <img data-aos="flip-right" src="./images/Document.png" alt=""/>
-                            </div>
-                            <div className="title">
-                                Personalized approach
-                            </div>
-                            <div className="des">
-                                Why choose our auto transport company? Leader Auto Ship works with you through every
-                                step of
-                                your car or truck’s move. Experience hassle-free shipping when you choose us as your car
-                                transporter and enjoy an easy and painless shipment process.
-                            </div>
-                        </div>
-                        <div className="content">
-                            <div className="icon">
-                                <img data-aos="flip-right" src="./images/Dollar.png" alt=""/>
-                            </div>
-                            <div className="title">
-                                Zero upfront payment
-                            </div>
-                            <div className="des">
-                                You read that right, no upfront payment! The best auto transport companies charge you
-                                once
-                                the
-                                carrier has been dispatched for your order. So, you can book with your auto transport
-                                company
-                                now and not worry about the car shipping costs until later.
-                            </div>
-                        </div>
-                        <div className="content">
-                            <div className="icon">
-                                <img data-aos="flip-right" src="./images/Star.png" alt=""/>
-                            </div>
-                            <div className="title">
-                                Top rated company
-                            </div>
-                            <div className="des">
-                                We're a top-rated auto transport company, so your car will get from point A to point B
-                                without
-                                you having to break a single sweat. By having your car delivered straight to your door,
-                                you’re
-                                allowing the experts to handle every step of the process and ensure there are no speed
-                                bumps
-                                along the way.
-                            </div>
-                        </div>
-                        <div className="content">
-                            <div className="icon">
-                                <img data-aos="flip-right" src="./images/Shield-tick.png" alt=""/>
-                            </div>
-                            <div className="title">
-                                Auto cariers
-                            </div>
-                            <div className="des">
-                                Our auto transporter company has a huge network of haulers who are personally vetted
-                                auto
-                                shipping experts, ensuring your vehicle is transported by trusted members of the
-                                industry.
-                                These
-                                vehicle transport companies will treat your car like their own.
-                            </div>
-                        </div>
+                    </ScrollTrigger>
+                    <div className="text">
+                        DRIVERS
                     </div>
                 </div>
-                <div className="reviews-container">
-                    <div className="main-title">
-                        Explore Our Reviews!
+            </div>
+        </section>
+        <section className="what-we-do">
+            <h3 className="main-title">
+                What We Offer
+            </h3>
+            <h1 className="title">
+                Discovering the Power of Our Advantages
+            </h1>
+            <div className="content-box">
+                <div className="content">
+                    <div className="icon">
+                        <img data-aos="flip-right" src="./images/persons.webp" alt="Dedicated advisors" loading="lazy"/>
                     </div>
-                    <div className="title">
-                        See What Our Customers are Saying
+                    <strong className="title">
+                        Dedicated advisors
+                    </strong>
+                    <article className="des">
+                        Our professional advisors work around the clock to ensure you receive the best auto
+                        transport
+                        experience.
+                    </article>
+                </div>
+                <div className="content">
+                    <div className="icon">
+                        <img data-aos="flip-right" src="./images/Shield.webp" alt="Insurance coverage" loading="lazy"/>
                     </div>
-                    <div className="slider-box-reviews">
-                        <Slider {...settingsReviews}>
-                            {comments.map((item, index) => {
-                                return <div key={index} className="review">
-                                    <div className="content">
-                                        <div className="header">
-                                            <div className="left">
-                                                <div className="name">
-                                                    <div className="name-user">{item.name}</div>
-                                                </div>
-                                            </div>
-                                            <div className="google">
-                                                <img src={item.image} alt=""/>
-                                            </div>
-                                        </div>
-                                        <div className="des">
-                                            {item.comment}
-                                        </div>
-                                        <div className="stars">
-                                            <img src="./images/star1.png" alt=""/>
-                                            <img src="./images/star1.png" alt=""/>
-                                            <img src="./images/star1.png" alt=""/>
-                                            <img src="./images/star1.png" alt=""/>
-                                            <img src="./images/star1.png" alt=""/>
+                    <strong className="title">
+                        Insurance coverage
+                    </strong>
+                    <article className="des">
+                        Car transport companies include insurance coverage in your shipping quote. Our selected
+                        auto
+                        haulers must meet insurance standards before qualifying to be part of our carrier
+                        network.
+                    </article>
+                </div>
+                <div className="content">
+                    <div className="icon">
+                        <img data-aos="flip-right" src="./images/Document.webp" alt="Personalized approach" loading="lazy"/>
+                    </div>
+                    <strong className="title">
+                        Personalized approach
+                    </strong>
+                    <article className="des">
+                        Why choose our auto transport company? Leader Auto Ship works with you through every
+                        step of
+                        your car or truck’s move. Experience hassle-free shipping when you choose us as your car
+                        transporter and enjoy an easy and painless shipment process.
+                    </article>
+                </div>
+                <div className="content">
+                    <div className="icon">
+                        <img data-aos="flip-right" src="./images/Dollar.webp" alt="Zero upfront payment" loading="lazy"/>
+                    </div>
+                    <strong className="title">
+                        Zero upfront payment
+                    </strong>
+                    <article className="des">
+                        You read that right, no upfront payment! The best auto transport companies charge you
+                        once
+                        the
+                        carrier has been dispatched for your order. So, you can book with your auto transport
+                        company
+                        now and not worry about the car shipping costs until later.
+                    </article>
+                </div>
+                <div className="content">
+                    <div className="icon">
+                        <img data-aos="flip-right" src="./images/Star.webp" alt="Top rated company" loading="lazy"/>
+                    </div>
+                    <strong className="title">
+                        Top rated company
+                    </strong>
+                    <article className="des">
+                        We're a top-rated auto transport company, so your car will get from point A to point B
+                        without
+                        you having to break a single sweat. By having your car delivered straight to your door,
+                        you’re
+                        allowing the experts to handle every step of the process and ensure there are no speed
+                        bumps
+                        along the way.
+                    </article>
+                </div>
+                <div className="content">
+                    <div className="icon">
+                        <img data-aos="flip-right" src="./images/Shield-tick.webp" alt="Auto cariers" loading="lazy"/>
+                    </div>
+                    <strong className="title">
+                        Auto cariers
+                    </strong>
+                    <article className="des">
+                        Our auto transporter company has a huge network of haulers who are personally vetted
+                        auto
+                        shipping experts, ensuring your vehicle is transported by trusted members of the
+                        industry.
+                        These
+                        vehicle transport companies will treat your car like their own.
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section className="reviews-container">
+            <h3 className="main-title">
+                Explore Our Reviews!
+            </h3>
+            <h1 className="title">
+                See What Our Customers are Saying
+            </h1>
+            <div className="slider-box-reviews">
+                <Slider {...settingsReviews}>
+                    {comments.map((item, index) => {
+                        return <div key={index} className="review">
+                            <div className="content">
+                                <div className="header">
+                                    <div className="left">
+                                        <div className="name">
+                                            <strong className="name-user">{item.name}</strong>
                                         </div>
                                     </div>
+                                    <div className="google">
+                                        <img src={item.image} alt="icon-reviews" loading="lazy"/>
+                                    </div>
                                 </div>
-                            })}
-
-
-                        </Slider>
-                    </div>
-                </div>
-                <div className="delivery-container">
-                    <div className="main-title">
-                        Shipping Destinations
-                    </div>
-                    <div className="title">
-                        <div className="title-left">
-                            Where We Deliver Your Vehicles in the USA!
-                        </div>
-                    </div>
-                    <div className="contents">
-                        <div data-aos="zoom-in" className="content">
-                            <div className="img">
-                                <img src="./images/state1.png" alt=""/>
-                            </div>
-                            <div className="title">
-                                California
-                            </div>
-                            <div className="des">
-                                Car shipping services anywhere to or from The Golden State
-                            </div>
-                        </div>
-
-                        <div data-aos="zoom-in" className="content">
-                            <div className="img">
-                                <img src="./images/state2.png" alt=""/>
-                            </div>
-                            <div className="title">
-                                Florida
-                            </div>
-                            <div className="des">
-                                Florida auto transport services, to and from The Sunshine State
-                            </div>
-                        </div>
-
-                        <div data-aos="zoom-in" className="content">
-                            <div className="img">
-                                <img src="./images/state4.png" alt=""/>
-                            </div>
-                            <div className="title">
-                                Texas
-                            </div>
-                            <div className="des">
-                                Vehicle shipping services to and throughout The Lone Star State
-                            </div>
-                        </div>
-
-                        <div data-aos="zoom-in" className="content">
-                            <div className="img">
-                                <img src="./images/state3.png" alt=""/>
-                            </div>
-                            <div className="title">
-                                New York
-                            </div>
-                            <div className="des">
-                                Transport your car anywhere to or from The Empire State
-                            </div>
-                        </div>
-                    </div>
-                    <div onClick={() => {
-                        setTimeout(() => {
-                            window.scrollTo(0, 0)
-                        }, 200)
-                        navigate("/states")
-                    }} className="more-btn">
-                        More states
-                    </div>
-                </div>
-                <div className="partners">
-                    <Slider {...settingsPartners}>
-                        {partners.map((item, index) => {
-                            return <div key={index} className="logo">
-                                <img src={item.logo} alt=""/>
-                            </div>
-                        })}
-                    </Slider>
-                </div>
-                <div className="quations-container">
-                    {question.map((item, index) => {
-                        return <div key={index} className={`quation ${ActiveQuestion === index ? "active" : ""}`}>
-                            <div className="top-side">
-                                <div className="number">
-                                    0{index + 1}
-                                </div>
-                                <div className="title">
-                                    {item.title}
-                                </div>
-                                <div onClick={() => {
-                                    if (ActiveQuestion === index) {
-                                        setActiveQuestion("")
-                                    } else setActiveQuestion(index)
-                                }} className={`button ${ActiveQuestion === index ? "rotate-icon" : ""}`}>
-                                    <img src="./images/Union.png" alt=""/>
+                                <article className="des">
+                                    {item.comment}
+                                </article>
+                                <div className="stars">
+                                    <img src="./images/star1.webp" alt="review"/>
+                                    <img src="./images/star1.webp" alt="review"/>
+                                    <img src="./images/star1.webp" alt="review"/>
+                                    <img src="./images/star1.webp" alt="review"/>
+                                    <img src="./images/star1.webp" alt="review"/>
                                 </div>
                             </div>
-                            {ActiveQuestion === index && <div className="des-quation">
-                                {item.des}
-                            </div>}
                         </div>
                     })}
 
+
+                </Slider>
+            </div>
+        </section>
+        <section className="delivery-container">
+            <h3 className="main-title">
+                Shipping Destinations
+            </h3>
+            <div className="title">
+                <h1 className="title-left">
+                    Where We Deliver Your Vehicles in the USA!
+                </h1>
+            </div>
+            <div className="contents">
+                <div data-aos="zoom-in" className="content">
+                    <div className="img">
+                        <img src="./images/state1.webp" alt="California" loading="lazy"/>
+                    </div>
+                    <strong className="title">
+                        California
+                    </strong>
+                    <article className="des">
+                        Car shipping services anywhere to or from The Golden State
+                    </article>
                 </div>
-            </section>
+
+                <div data-aos="zoom-in" className="content">
+                    <div className="img">
+                        <img src="./images/state2.webp" alt="Florida" loading="lazy"/>
+                    </div>
+                    <strong className="title">
+                        Florida
+                    </strong>
+                    <article className="des">
+                        Florida auto transport services, to and from The Sunshine State
+                    </article>
+                </div>
+
+                <div data-aos="zoom-in" className="content">
+                    <div className="img">
+                        <img src="./images/state4.webp" alt="Texas" loading="lazy"/>
+                    </div>
+                    <strong className="title">
+                        Texas
+                    </strong>
+                    <article className="des">
+                        Vehicle shipping services to and throughout The Lone Star State
+                    </article>
+                </div>
+
+                <div data-aos="zoom-in" className="content">
+                    <div className="img">
+                        <img src="./images/state3.webp" alt="New York" loading="lazy"/>
+                    </div>
+                    <strong className="title">
+                        New York
+                    </strong>
+                    <article className="des">
+                        Transport your car anywhere to or from The Empire State
+                    </article>
+                </div>
+            </div>
+            <div onClick={() => {
+                setTimeout(() => {
+                    window.scrollTo(0, 0)
+                }, 200)
+                navigate("/states")
+            }} className="more-btn">
+                More states
+            </div>
+        </section>
+        <section className="partners">
+            <Slider {...settingsPartners}>
+                {partners.map((item, index) => {
+                    return <div key={index} className="logo">
+                        <img src={item.logo} alt="partners" loading="lazy"/>
+                    </div>
+                })}
+            </Slider>
+        </section>
+        <section className="quations-container">
+            {question.map((item, index) => {
+                return <div key={index} className={`quation ${ActiveQuestion === index ? "active" : ""}`}>
+                    <div className="top-side">
+                        <h1 className="number">
+                            0{index + 1}
+                        </h1>
+                        <h3 className="title">
+                            {item.title}
+                        </h3>
+                        <div onClick={() => {
+                            if (ActiveQuestion === index) {
+                                setActiveQuestion("")
+                            } else setActiveQuestion(index)
+                        }} className={`button ${ActiveQuestion === index ? "rotate-icon" : ""}`}>
+                            <img src="./images/Union.png" alt="quation" loading="lazy"/>
+                        </div>
+                    </div>
+                    {ActiveQuestion === index && <article className="des-quation">
+                        {item.des}
+                    </article>}
+                </div>
+            })}
+
+        </section>
         </main>
 
         <footer>

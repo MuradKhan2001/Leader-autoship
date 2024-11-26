@@ -8,6 +8,7 @@ import React, {useContext, useEffect, useState} from "react";
 import Aos from "aos";
 import axios from "axios";
 import {MyContext} from "../App/App";
+import {Helmet} from "react-helmet";
 
 
 const HowItWorks = () => {
@@ -120,241 +121,264 @@ const HowItWorks = () => {
     }, []);
 
     return <div className="how-it-works-container">
-        <Header/>
-        <Navbar/>
+        <Helmet>
+            <title>How it works</title>
+            <meta name="description"
+                  content="Discover how our seamless auto transport process works! From booking to delivery, we simplify shipping for individuals and businesses across the USA. This quick guide will show you in 3 simple steps. Click on above link to see it. For more info call us at 567(666)-4696"/>
+        </Helmet>
 
-        <div className="header-content">
-            <div className="home-sloy">
-                <div className="home_contents">
-                    <div className="left_side">
-                        <div className="text-wrapper">
-                            <div className="top-text">
-                                Logistics & Leader Auto Ship
-                            </div>
-                            <div className="text-large">
-                                <p data-aos="zoom-in">How does auto transport work?</p>
-                            </div>
-                            <div className="des-text">
-                                This easy guide will show you in 3 simple steps.
-                            </div>
-                            <div className="buttons-home">
-                                <button onClick={() => navigate("/get-quote")} type="button" className="button-home">
-                                    Get a quote
-                                </button>
+        <header>
+            <Header/>
+            <Navbar/>
+        </header>
 
-                                <a href={`tel:${contact.phone1}`} className="button-home">
-                                    Call now
-                                </a>
+        <main>
+            <div className="header-content">
+                <div className="home-sloy">
+                    <div className="home_contents">
+                        <div className="left_side">
+                            <div className="text-wrapper">
+                                <strong className="top-text">
+                                    Logistics & Leader Auto Ship
+                                </strong>
+                                <h1 className="text-large">
+                                    <p data-aos="zoom-in">How does auto transport work?</p>
+                                </h1>
+                                <article className="des-text">
+                                    This easy guide will show you in 3 simple steps.
+                                </article>
+                                <div className="buttons-home">
+                                    <button onClick={() => navigate("/get-quote")} type="button"
+                                            className="button-home">
+                                        Get a quote
+                                    </button>
+
+                                    <a href={`tel:${contact.phone1}`} className="button-home">
+                                        Call now
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="right_side">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div data-aos="zoom-in" className="about-us">
-            <div className="img-side">
-                <video autoPlay loop muted src="./images/video2.mp4"></video>
-            </div>
-            <div className="sides">
-                <div className="main-title">
-                    How do i book with an auto transport company?
-                </div>
-                <div className="title">
-                    Leader Auto ship’s company guide to quick, easy and safe auto shipping
-                </div>
-                <div className="steps">
-                    <div className="step">
-                        <img src="./images/step1.png" alt=""/>
-                        <div className="text">
-                            <div className="title-step">
-                                Step 1
-                            </div>
-                            <div className="des">
-                                Quote and book your order
-                            </div>
-                        </div>
-                    </div>
-                    <div className="step">
-                        <img src="./images/step2.png" alt=""/>
-                        <div className="text">
-                            <div className="title-step">
-                                Step 2
-                            </div>
-                            <div className="des">
-                                We pick up your vehicle
-                            </div>
-                        </div>
-                    </div>
-                    <div className="step">
-                        <img src="./images/step3.png" alt=""/>
-                        <div className="text">
-                            <div className="title-step">
-                                Step 3
-                            </div>
-                            <div className="des">
-                                Recieve your vehicle
-                            </div>
+                        <div className="right_side">
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div className="section-works">
-            <div className="sides">
-                <img src="./images/step1-photo.jpg" alt=""/>
-            </div>
-            <div className="sides-text">
-                <div className="main-title">
-                    Step 1
+
+            <section className="about-us">
+                <div className="img-side">
+                    <video autoPlay loop muted playsInline preload="metadata">
+                        <source src="./images/video2.mp4" type="video/mp4"/>
+                        Your browser does not support video!
+                    </video>
                 </div>
-                <div className="title">
-                    <p>Quote and book your order</p>
+                <div className="sides">
+                    <strong className="main-title">
+                        How do i book with an auto transport company?
+                    </strong>
+                    <h2 className="title">
+                        Leader Auto ship’s company guide to quick, easy and safe auto shipping
+                    </h2>
+                    <div className="steps">
+                        <div className="step">
+                            <img src="./images/step1.webp" alt="step-one" loading="lazy"/>
+                            <div className="text">
+                                <h3 className="title-step">
+                                    Step 1
+                                </h3>
+                                <article className="des">
+                                    Quote and book your order
+                                </article>
+                            </div>
+                        </div>
+                        <div className="step">
+                            <img src="./images/step2.webp" alt=""/>
+                            <div className="text">
+                                <h3 className="title-step">
+                                    Step 2
+                                </h3>
+                                <article className="des">
+                                    We pick up your vehicle
+                                </article>
+                            </div>
+                        </div>
+                        <div className="step">
+                            <img src="./images/step3.webp" alt=""/>
+                            <div className="text">
+                                <h3 className="title-step">
+                                    Step 3
+                                </h3>
+                                <article className="des">
+                                    Recieve your vehicle
+                                </article>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className="des">
-                    <span onClick={() => navigate("/get-quote")}>Click—or tap—here for an instant online quote</span> in
-                    seconds (we’re talking finger-snapping fast!), or
-                    call or start a chat with one of our advisors. Then go ahead and compare our prices and services (we
-                    know you want to!)—we’re sure you’ll find our prices are very competitive.
+            </section>
+            <section className="section-works">
+                <div className="sides">
+                    <img src="./images/step1-photo.webp" alt="Quote and book your order" loading="lazy"/>
                 </div>
-                <button onClick={() => navigate("/get-quote")} type="button" className="work-btn">
-                    Get an instant quote
-                </button>
-            </div>
-        </div>
-        <div className="section-works">
-            <div className="sides-text">
-                <div className="main-title">
-                    Step 2
+                <div className="sides-text">
+                    <strong className="main-title">
+                        Step 1
+                    </strong>
+                    <h1 className="title">
+                        <p>Quote and book your order</p>
+                    </h1>
+                    <article className="des">
+                        <span
+                            onClick={() => navigate("/get-quote")}>Click—or tap—here for an instant online quote</span> in
+                        seconds (we’re talking finger-snapping fast!), or
+                        call or start a chat with one of our advisors. Then go ahead and compare our prices and services
+                        (we
+                        know you want to!)—we’re sure you’ll find our prices are very competitive.
+                    </article>
+                    <button onClick={() => navigate("/get-quote")} type="button" className="work-btn">
+                        Get an instant quote
+                    </button>
                 </div>
-                <div className="title">
-                    <p>We pick up your vehicle</p>
+            </section>
+            <section className="section-works">
+                <div className="sides-text">
+                    <strong className="main-title">
+                        Step 2
+                    </strong>
+                    <h1 className="title">
+                        <p>We pick up your vehicle</p>
+                    </h1>
+                    <article className="des">
+                        Schedule your pickup date, time and an easy-to-access pickup location with your trucker. You can
+                        even release your car while you’re at work.
+                    </article>
                 </div>
-                <div className="des">
-                    Schedule your pickup date, time and an easy-to-access pickup location with your trucker. You can
-                    even release your car while you’re at work.
+                <div className="sides">
+                    <img src="./images/step2-photo.webp" alt="We pick up your vehicle" loading="lazy"/>
                 </div>
-            </div>
-            <div className="sides">
-                <img src="./images/step2-photo.jpg" alt=""/>
-            </div>
-        </div>
-        <div className="section-works">
-            <div className="sides">
-                <img src="./images/service1.jpg" alt=""/>
-            </div>
-            <div className="sides-text">
-                <div className="main-title">
-                    Step 3
+            </section>
+            <section className="section-works">
+                <div className="sides">
+                    <img src="./images/service1.webp" alt="Receive your vehicle" loading="lazy"/>
                 </div>
-                <div className="title">
-                    <p>Receive your vehicle</p>
+                <div className="sides-text">
+                    <strong className="main-title">
+                        Step 3
+                    </strong>
+                    <h1 className="title">
+                        <p>Receive your vehicle</p>
+                    </h1>
+                    <article className="des">
+                        Reuniting you and your vehicle is an exciting moment—and one we look forward to atLeader Auto
+                        Ship!
+                        Your trucker will call you when your vehicle is almost home so you can greet them both right at
+                        your
+                        own driveway (or a nearby agreed-upon location).
+                    </article>
                 </div>
-                <div className="des">
-                    Reuniting you and your vehicle is an exciting moment—and one we look forward to atLeader Auto Ship!
-                    Your trucker will call you when your vehicle is almost home so you can greet them both right at your
-                    own driveway (or a nearby agreed-upon location).
-                </div>
-            </div>
-        </div>
-        <div className="table-box">
-            <table>
-                <thead>
-                <tr>
-                    <th>Total miles</th>
-                    <th>Pic up estimate</th>
-                    <th>Transport estimate</th>
-                    <th>Total shipping estimate</th>
-                </tr>
-                </thead>
-                <tbody>
-                {table.map((item, index) => {
-                    return <tr key={index}>
-                        <td>{item.distance} miles</td>
-                        <td>{item.pickup_time} days</td>
-                        <td>{item.transport_time} days</td>
-                        <td>{item.total} days</td>
+            </section>
+            <section className="table-box">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Total miles</th>
+                        <th>Pic up estimate</th>
+                        <th>Transport estimate</th>
+                        <th>Total shipping estimate</th>
                     </tr>
-                })}
-                </tbody>
-            </table>
-        </div>
-        <div className="quations-container">
-            {question.map((item, index) => {
-                return <div key={index} className={`quation ${ActiveQuestion === index ? "active" : ""}`}>
-                    <div className="top-side">
-                        <div className="number">
-                            0{index + 1}
-                        </div>
-                        <div className="title">
-                            {item.title}
-                        </div>
-                        <div onClick={() => {
-                            if (ActiveQuestion === index) {
-                                setActiveQuestion("")
-                            } else setActiveQuestion(index)
-                        }} className={`button ${ActiveQuestion === index ? "rotate-icon" : ""}`}>
-                            <img src="./images/Union.png" alt=""/>
-                        </div>
-                    </div>
-                    {ActiveQuestion === index && <div className="des-quation">
-                        {item.des}
-                    </div>}
-                </div>
-            })}
-
-        </div>
-        <div className="partners">
-            <Slider {...settingsPartners}>
-                {partners.map((item, index)=>{
-                    return <div key={index} className="logo">
-                        <img src={item.logo} alt=""/>
-                    </div>
-                })}
-            </Slider>
-        </div>
-        <div className="reviews-container">
-            <div className="main-title">
-                Explore Our Reviews!
-            </div>
-            <div className="title">
-                See What Our Customers are Saying
-            </div>
-            <div className="slider-box-reviews">
-                <Slider {...settingsReviews}>
-                    {comments.map((item, index) => {
-                        return <div key={index} className="review">
-                            <div className="content">
-                                <div className="header">
-                                    <div className="left">
-                                        <div className="name">
-                                            <div className="name-user">{item.name}</div>
-                                        </div>
-                                    </div>
-                                    <div className="google">
-                                        <img src={item.image} alt=""/>
-                                    </div>
-                                </div>
-                                <div className="des">
-                                    {item.comment}
-                                </div>
-                                <div className="stars">
-                                    <img src="./images/star1.png" alt=""/>
-                                    <img src="./images/star1.png" alt=""/>
-                                    <img src="./images/star1.png" alt=""/>
-                                    <img src="./images/star1.png" alt=""/>
-                                    <img src="./images/star1.png" alt=""/>
-                                </div>
+                    </thead>
+                    <tbody>
+                    {table.map((item, index) => {
+                        return <tr key={index}>
+                            <td>{item.distance} miles</td>
+                            <td>{item.pickup_time} days</td>
+                            <td>{item.transport_time} days</td>
+                            <td>{item.total} days</td>
+                        </tr>
+                    })}
+                    </tbody>
+                </table>
+            </section>
+            <section className="quations-container">
+                {question.map((item, index) => {
+                    return <div key={index} className={`quation ${ActiveQuestion === index ? "active" : ""}`}>
+                        <div className="top-side">
+                            <h1 className="number">
+                                0{index + 1}
+                            </h1>
+                            <h3 className="title">
+                                {item.title}
+                            </h3>
+                            <div onClick={() => {
+                                if (ActiveQuestion === index) {
+                                    setActiveQuestion("")
+                                } else setActiveQuestion(index)
+                            }} className={`button ${ActiveQuestion === index ? "rotate-icon" : ""}`}>
+                                <img src="./images/Union.png" alt="quation" loading="lazy"/>
                             </div>
+                        </div>
+                        {ActiveQuestion === index && <article className="des-quation">
+                            {item.des}
+                        </article>}
+                    </div>
+                })}
+
+            </section>
+            <section className="partners">
+                <Slider {...settingsPartners}>
+                    {partners.map((item, index) => {
+                        return <div key={index} className="logo">
+                            <img src={item.logo} alt="partners" loading="lazy"/>
                         </div>
                     })}
-
-
                 </Slider>
-            </div>
-        </div>
-        <Footer/>
+            </section>
+            <section className="reviews-container">
+                <h3 className="main-title">
+                    Explore Our Reviews!
+                </h3>
+                <h1 className="title">
+                    See What Our Customers are Saying
+                </h1>
+                <div className="slider-box-reviews">
+                    <Slider {...settingsReviews}>
+                        {comments.map((item, index) => {
+                            return <div key={index} className="review">
+                                <div className="content">
+                                    <div className="header">
+                                        <div className="left">
+                                            <div className="name">
+                                                <strong className="name-user">{item.name}</strong>
+                                            </div>
+                                        </div>
+                                        <div className="google">
+                                            <img src={item.image} alt="icon-reviews" loading="lazy"/>
+                                        </div>
+                                    </div>
+                                    <article className="des">
+                                        {item.comment}
+                                    </article>
+                                    <div className="stars">
+                                        <img src="./images/star1.webp" alt="review"/>
+                                        <img src="./images/star1.webp" alt="review"/>
+                                        <img src="./images/star1.webp" alt="review"/>
+                                        <img src="./images/star1.webp" alt="review"/>
+                                        <img src="./images/star1.webp" alt="review"/>
+                                    </div>
+                                </div>
+                            </div>
+                        })}
+
+
+                    </Slider>
+                </div>
+            </section>
+        </main>
+
+
+        <footer>
+            <Footer/>
+        </footer>
     </div>
 };
 

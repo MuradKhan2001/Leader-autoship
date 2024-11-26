@@ -10,6 +10,7 @@ import CountUp from "react-countup";
 import axios from "axios";
 import Aos from "aos";
 import {MyContext} from "../App/App";
+import {Helmet} from "react-helmet";
 
 
 const OurTeam = () => {
@@ -92,79 +93,62 @@ const OurTeam = () => {
 
 
     return <div className="our-team-container">
-        <Header/>
-        <Navbar/>
-        <div className="header-content">
-            <div className="home-sloy">
-                <div className="home_contents">
-                    <div className="left_side">
-                        <div className="text-wrapper">
-                            <div className="top-text">
-                                Logistics & Leader Auto Ship
-                            </div>
-                            <div className="text-large">
-                                <p data-aos="zoom-in">OUR TEAM</p>
-                            </div>
-                            <div className="buttons-home">
-                                <button onClick={() => navigate("/get-quote")} type="button" className="button-home">
-                                    Get a quote
-                                </button>
-                                <a href={`tel:${contact.phone1}`} className="button-home">
-                                    Call now
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="right_side">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div className="main-box">
-            <div className="titles">
-                <div className="title-min">
-                    Our team
-                </div>
-                <div className="main-title">
-                    MEET OUR TEAM
-                </div>
-            </div>
-            <div className="team-box">
-                {supervisor.map((item, index) => {
-                    return <div key={index} className="person">
-                        <div className="photo">
-                            {item.image ?
-                                <img className="img-person" src={`https://api.leaderautoship.com/` + item.image} alt=""/> :
-                                <img src="./images/person2.png" alt=""/>}
-                        </div>
-                        <div className="bottom-text">
-                            <div className="name">{item.name}</div>
-                            <div className="position">{item.position}</div>
-                            <div className="contact">
-                                <div className="icon">
-                                    <img src="./images/mail.png" alt=""/>
-                                </div>
-                                <a href={`mailto:${item.email}`} className="name">{item.email}</a>
-                            </div>
-                            <div className="contact">
-                                <div className="icon">
-                                    <img src="./images/telephone.png" alt=""/>
-                                </div>
-                                <a href={`tel:${item.phone}`} className="name">{item.phone}</a>
-                            </div>
-                        </div>
-                    </div>
-                })}
+        <Helmet>
+            <title>Our Team</title>
+            <meta name="description"
+                  content="Meet the experts behind our vehicle transport services. Our team is dedicated to providing you with seamless and stress-free shipping."/>
+        </Helmet>
 
-            </div>
-            <div className="team-box-mobile">
-                <Slider {...settingsPersons}>
+        <header>
+            <Header/>
+            <Navbar/>
+        </header>
+
+        <main>
+            <section className="header-content">
+                <div className="home-sloy">
+                    <div className="home_contents">
+                        <div className="left_side">
+                            <div className="text-wrapper">
+                                <strong className="top-text">
+                                    Logistics & Leader Auto Ship
+                                </strong>
+                                <h1 className="text-large">
+                                    <p data-aos="zoom-in">OUR TEAM</p>
+                                </h1>
+                                <div className="buttons-home">
+                                    <button onClick={() => navigate("/get-quote")} type="button"
+                                            className="button-home">
+                                        Get a quote
+                                    </button>
+                                    <a href={`tel:${contact.phone1}`} className="button-home">
+                                        Call now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="right_side">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section className="main-box">
+                <div className="titles">
+                    <strong className="title-min">
+                        Our team
+                    </strong>
+                    <h1 className="main-title">
+                        MEET OUR TEAM
+                    </h1>
+                </div>
+                <div className="team-box">
                     {supervisor.map((item, index) => {
                         return <div key={index} className="person">
                             <div className="photo">
                                 {item.image ?
-                                    <img className="img-person" src={`https://api.leaderautoship.com/` + item.image} alt=""/> :
-                                    <img src="./images/person2.png" alt=""/>}
+                                    <img className="img-person" src={`https://api.leaderautoship.com/` + item.image}
+                                         alt="supervisor" loading="lazy"/> :
+                                    <img src="./images/person2.png" alt="supervisor" loading="lazy"/>}
                             </div>
                             <div className="bottom-text">
                                 <div className="name">{item.name}</div>
@@ -184,102 +168,144 @@ const OurTeam = () => {
                             </div>
                         </div>
                     })}
+                </div>
+                <div className="team-box-mobile">
+                    <Slider {...settingsPersons}>
+                        {supervisor.map((item, index) => {
+                            return <div key={index} className="person">
+                                <div className="photo">
+                                    {item.image ?
+                                        <img className="img-person" src={`https://api.leaderautoship.com/` + item.image}
+                                             alt="supervisor" loading="lazy"/> :
+                                        <img src="./images/person2.png" alt="supervisor" loading="lazy"/>}
+                                </div>
+                                <div className="bottom-text">
+                                    <div className="name">{item.name}</div>
+                                    <div className="position">{item.position}</div>
+                                    <div className="contact">
+                                        <div className="icon">
+                                            <img src="./images/mail.png" alt=""/>
+                                        </div>
+                                        <a href={`mailto:${item.email}`} className="name">{item.email}</a>
+                                    </div>
+                                    <div className="contact">
+                                        <div className="icon">
+                                            <img src="./images/telephone.png" alt=""/>
+                                        </div>
+                                        <a href={`tel:${item.phone}`} className="name">{item.phone}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        })}
+                    </Slider>
+                </div>
+            </section>
+            <section className="admins-box">
+                <h1 className="main-title">
+                    TEAM MEMBERS
+                </h1>
+                <div className="team-box">
+                    {admin.map((item, index) => {
+                        return <div key={index} className="person">
+                            <div className="photo">
+                                {item.image ?
+                                    <img className="img-person" src={`https://api.leaderautoship.com/` + item.image}
+                                         alt="admin" loading="lazy"/> :
+                                    <img src="./images/person2.png" alt="admin" loading="lazy"/>}
+                            </div>
+                            <div className="bottom-text">
+                                <div className="name">{item.name}</div>
+                                <div className="position">{item.position}</div>
+                                <div className="contact">
+                                    <div className="icon">
+                                        <img src="./images/mail.png" alt=""/>
+                                    </div>
+                                    <a href={`mailto:${item.email}`} className="name">{item.email}</a>
+                                </div>
+                                <div className="contact">
+                                    <div className="icon">
+                                        <img src="./images/telephone.png" alt=""/>
+                                    </div>
+                                    <a href={`tel:${item.phone}`} className="name">{item.phone}</a>
+                                </div>
+                            </div>
+                        </div>
+                    })}
+                </div>
+            </section>
+            <section className="counter">
+                <h1 className="title">
+                    The numbers show Who we are
+                </h1>
+                <div className="counts">
+                    <div className="count">
+                        <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
+                            <div className="num">
+                                {counterOn &&
+                                    <CountUp start={0} end={statistics && statistics.clients} duration={2}
+                                             delay={0}/>}
+                                +
+                            </div>
+                        </ScrollTrigger>
+                        <div className="text">
+                            SATISFIED CUSTOMER
+                        </div>
+                    </div>
+                    <div className="count">
+                        <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
+                            <div className="num">
+                                {counterOn &&
+                                    <CountUp start={0} end={statistics && statistics.orders} duration={2}
+                                             delay={0}/>}
+                                +
+                            </div>
+                        </ScrollTrigger>
+                        <div className="text">
+                            REVIEWS
+                        </div>
+                    </div>
+                    <div className="count">
+                        <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
+                            <div className="num">
+                                {counterOn &&
+                                    <CountUp start={0} end={statistics && statistics.projects} duration={2}
+                                             delay={0}/>}
+                                +
+                            </div>
+                        </ScrollTrigger>
+                        <div className="text">
+                            EXPERIENCE
+                        </div>
+                    </div>
+                    <div className="count">
+                        <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
+                            <div className="num">
+                                {counterOn &&
+                                    <CountUp start={0} end={statistics && statistics.cities} duration={2}
+                                             delay={0}/>}
+                                +
+                            </div>
+                        </ScrollTrigger>
+                        <div className="text">
+                            DRIVERS
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section className="partners">
+                <Slider {...settingsPartners}>
+                    {partners.map((item, index) => {
+                        return <div key={index} className="logo">
+                            <img src={item.logo} alt="partners" loading="lazy"/>
+                        </div>
+                    })}
                 </Slider>
-            </div>
-        </div>
-        <div className="admins-box">
-            <div className="main-title">
-                TEAM MEMBERS
-            </div>
-            <div className="team-box">
-                {admin.map((item, index) => {
-                    return <div key={index} className="person">
-                        <div className="photo">
-                            {item.image ?
-                                <img className="img-person" src={`https://api.leaderautoship.com/` + item.image} alt=""/> :
-                                <img src="./images/person2.png" alt=""/>}
-                        </div>
-                        <div className="bottom-text">
-                            <div className="name">{item.name}</div>
-                            <div className="position">{item.position}</div>
-                            <div className="contact">
-                                <div className="icon">
-                                    <img src="./images/mail.png" alt=""/>
-                                </div>
-                                <a href={`mailto:${item.email}`} className="name">{item.email}</a>
-                            </div>
-                            <div className="contact">
-                                <div className="icon">
-                                    <img src="./images/telephone.png" alt=""/>
-                                </div>
-                                <a href={`tel:${item.phone}`} className="name">{item.phone}</a>
-                            </div>
-                        </div>
-                    </div>
-                })}
-            </div>
-        </div>
-        <div className="counter">
-            <div className="title">
-                The numbers show Who we are
-            </div>
-            <div className="counts">
-                <div className="count">
-                    <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
-                        <div className="num">
-                            {counterOn && <CountUp start={0} end={statistics && statistics.clients} duration={2} delay={0}/>}
-                            +
-                        </div>
-                    </ScrollTrigger>
-                    <div className="text">
-                        SATISFIED CUSTOMER
-                    </div>
-                </div>
-                <div className="count">
-                    <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
-                        <div className="num">
-                            {counterOn && <CountUp start={0} end={ statistics && statistics.orders} duration={2} delay={0}/>}
-                            +
-                        </div>
-                    </ScrollTrigger>
-                    <div className="text">
-                        REVIEWS
-                    </div>
-                </div>
-                <div className="count">
-                    <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
-                        <div className="num">
-                            {counterOn && <CountUp start={0} end={statistics && statistics.projects} duration={2} delay={0}/>}
-                            +
-                        </div>
-                    </ScrollTrigger>
-                    <div className="text">
-                        EXPERIENCE
-                    </div>
-                </div>
-                <div className="count">
-                    <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
-                        <div className="num">
-                            {counterOn && <CountUp start={0} end={statistics && statistics.cities} duration={2} delay={0}/>}
-                            +
-                        </div>
-                    </ScrollTrigger>
-                    <div className="text">
-                        DRIVERS
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div className="partners">
-            <Slider {...settingsPartners}>
-                {partners.map((item, index) => {
-                    return <div key={index} className="logo">
-                        <img src={item.logo} alt=""/>
-                    </div>
-                })}
-            </Slider>
-        </div>
-        <Footer/>
+            </section>
+        </main>
+
+        <footer>
+            <Footer/>
+        </footer>
     </div>
 };
 

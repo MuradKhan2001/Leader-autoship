@@ -8,6 +8,7 @@ import React, {useContext, useEffect, useState} from "react";
 import {MyContext} from "../App/App";
 import axios from "axios";
 import Aos from "aos";
+import {Helmet} from "react-helmet";
 
 
 const Reviews = () => {
@@ -58,86 +59,102 @@ const Reviews = () => {
     }, []);
 
     return <div className="reviews-container">
-        <Header/>
-        <Navbar/>
-        <div className="header-content">
-            <div className="home-sloy">
-                <div className="home_contents">
-                    <div className="left_side">
-                        <div className="text-wrapper">
-                            <div className="top-text">
-                                Logistics & Leader Auto Ship
-                            </div>
-                            <div className="text-large">
-                                <p data-aos="zoom-in">LEADER AUTO SHIP REVIEWS</p>
-                            </div>
-                            <div className="des-text">
-                                Ensuring our customers' full satisfaction is our priority, and receiving positive
-                                feedback on our car transport services brings us immense joy.
-                            </div>
-                            <div className="buttons-home">
-                                <button onClick={() => navigate("/get-quote")} type="button" className="button-home">
-                                    Get a quote
-                                </button>
-                                <a href={`tel:${contact.phone1}`} className="button-home">
-                                    Call now
-                                </a>
+        <Helmet>
+            <title>Reviews</title>
+            <meta name="description"
+                  content="Read honest customer reviews about our vehicle shipping services.See why individuals and businesses trust us for safe and reliable auto transport."/>
+        </Helmet>
+
+        <header>
+            <Header/>
+            <Navbar/>
+        </header>
+
+        <main>
+            <section className="header-content">
+                <div className="home-sloy">
+                    <div className="home_contents">
+                        <div className="left_side">
+                            <div className="text-wrapper">
+                                <strong className="top-text">
+                                    Logistics & Leader Auto Ship
+                                </strong>
+                                <h1 className="text-large">
+                                    <p data-aos="zoom-in">LEADER AUTO SHIP REVIEWS</p>
+                                </h1>
+                                <article className="des-text">
+                                    Ensuring our customers' full satisfaction is our priority, and receiving positive
+                                    feedback on our car transport services brings us immense joy.
+                                </article>
+                                <div className="buttons-home">
+                                    <button onClick={() => navigate("/get-quote")} type="button"
+                                            className="button-home">
+                                        Get a quote
+                                    </button>
+                                    <a href={`tel:${contact.phone1}`} className="button-home">
+                                        Call now
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="right_side">
+                        <div className="right_side">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <div className="reviews-container">
-            <div className="main-title">
-                Explore Our Reviews!
-            </div>
-            <div className="title">
-                See What Our Customers are Saying
-            </div>
-            <div className="slider-box-reviews">
-                {comments.map((item, index) => {
-                    return <div key={index} className={(index + 1) % 2 === 0 ? "review-large" : "review"}>
-                        <div className="content">
-                            <div className="header">
-                                <div className="left">
-                                    <div className="name">
-                                        <div className="name-user">{item.name}</div>
+            <section className="reviews-container">
+                <strong className="main-title">
+                    Explore Our Reviews!
+                </strong>
+                <h1 className="title">
+                    See What Our Customers are Saying
+                </h1>
+                <div className="slider-box-reviews">
+                    {comments.map((item, index) => {
+                        return <div key={index} className={(index + 1) % 2 === 0 ? "review-large" : "review"}>
+                            <div className="content">
+                                <div className="header">
+                                    <div className="left">
+                                        <div className="name">
+                                            <strong className="name-user">{item.name}</strong>
+                                        </div>
+                                    </div>
+                                    <div className="google">
+                                        <img src={item.image} alt="logo-reviews" loading="lazy"/>
                                     </div>
                                 </div>
-                                <div className="google">
-                                    <img src={item.image} alt=""/>
+                                <div className="des">
+                                    {item.comment}
+                                </div>
+                                <div className="stars">
+                                    <img src="./images/star1.webp" alt="review"/>
+                                    <img src="./images/star1.webp" alt="review"/>
+                                    <img src="./images/star1.webp" alt="review"/>
+                                    <img src="./images/star1.webp" alt="review"/>
+                                    <img src="./images/star1.webp" alt="review"/>
                                 </div>
                             </div>
-                            <div className="des">
-                                {item.comment}
-                            </div>
-                            <div className="stars">
-                                <img src="./images/star1.png" alt=""/>
-                                <img src="./images/star1.png" alt=""/>
-                                <img src="./images/star1.png" alt=""/>
-                                <img src="./images/star1.png" alt=""/>
-                                <img src="./images/star1.png" alt=""/>
-                            </div>
                         </div>
-                    </div>
-                })}
-            </div>
-        </div>
+                    })}
+                </div>
+            </section>
 
-        <div className="partners">
-            <Slider {...settingsPartners}>
-                {partners.map((item, index)=>{
-                    return <div key={index} className="logo">
-                        <img src={item.logo} alt=""/>
-                    </div>
-                })}
-            </Slider>
-        </div>
-        <Footer/>
+            <section className="partners">
+                <Slider {...settingsPartners}>
+                    {partners.map((item, index) => {
+                        return <div key={index} className="logo">
+                            <img src={item.logo} alt="partners" loading="lazy"/>
+                        </div>
+                    })}
+                </Slider>
+            </section>
+        </main>
+
+
+        <footer>
+            <Footer/>
+        </footer>
     </div>
 };
 

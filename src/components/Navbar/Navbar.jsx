@@ -5,7 +5,6 @@ import {CSSTransition} from "react-transition-group";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {MyContext} from "../App/App";
 import axios from "axios";
-import Aos from "aos";
 
 const Navbar = () => {
     let value = useContext(MyContext);
@@ -32,7 +31,7 @@ const Navbar = () => {
                 <div ref={nodeRef} className="sloy-mobile">
                     <div onClick={() => {
                     }} className="nav-item-hide">
-                        <img onClick={() => setNav(false)} src="./images/close.png" alt=""/>
+                        <img onClick={() => setNav(false)} src="./images/close.webp" alt="close-menu"/>
                     </div>
 
                     <div onClick={() => {
@@ -106,20 +105,20 @@ const Navbar = () => {
         
         <div className="mobile-left-side">
             <div className="logo">
-                <img onClick={()=> navigate("/")} src="./images/logo.png" alt=""/>
+                <img onClick={()=> navigate("/")} src="./images/logo.webp" alt="leader-auto-ship-logo"/>
             </div>
             
             <div className="icons-social-media">
                 <a target="_blank" href={contact.instagramm}>
-                    <img src="./images/Instagram.png" alt=""/>
+                    <img src="./images/Instagram.webp" alt="instagram" loading="lazy"/>
                 </a>
 
                 <a target="_blank" href={contact.facebook}>
-                    <img src="./images/Facebook.png" alt=""/>
+                    <img src="./images/Facebook.webp" alt="facebook" loading="lazy"/>
                 </a>
 
                 <a target="_blank" href={contact.twitter}>
-                    <img src="./images/Vector.png" alt=""/>
+                    <img src="./images/Vector.webp" alt="twitter" loading="lazy"/>
                 </a>
             </div>
 
@@ -130,7 +129,7 @@ const Navbar = () => {
             <div className="nav-show">
                 <img onClick={() => {
                     setNav(true)
-                }} src="./images/menu_hamburger.png" alt=""/>
+                }} src="./images/menu_hamburger.webp" alt=""/>
             </div>
         </div>
     </div>

@@ -8,6 +8,7 @@ import React, {useContext, useEffect, useState} from "react";
 import {MyContext} from "../App/App";
 import axios from "axios";
 import Aos from "aos";
+import {Helmet} from "react-helmet";
 
 
 const BussinesPageThree = () => {
@@ -82,125 +83,149 @@ const BussinesPageThree = () => {
     }, []);
 
     return <div className="for-business-container">
-        <Header/>
-        <Navbar/>
-        <div className="header-content header-content-three">
-            <div className="home-sloy">
-                <div className="home_contents">
-                    <div className="left_side">
-                        <div className="text-wrapper">
-                            <div className="top-text">
-                                Logistics & Leader Auto Ship
-                            </div>
-                            <div className="text-large">
-                                <p data-aos="zoom-in">Fast execution and service to support rental car velocity</p>
-                            </div>
-                            <div className="des-text">
-                                Leader Auto Ship’s 16,000+ carrier network and industry expertise delivers the capacity
-                                and service you need now
-                            </div>
-                            <div className="buttons-home">
-                                <button onClick={() => navigate("/get-quote")} type="button" className="button-home">
-                                    Get a quote
-                                </button>
-                                <a href={`tel:${contact.phone1}`} className="button-home">
-                                    Call now
-                                </a>
+
+        <Helmet>
+            <title>Car Rental Companies</title>
+            <meta name="description"
+                  content="Efficient vehicle transport solutions for car rental companies. Partner with us to manage your fleet logistics with ease."/>
+        </Helmet>
+
+        <header>
+            <Header/>
+            <Navbar/>
+        </header>
+
+        <main>
+            <section className="header-content header-content-three">
+                <div className="home-sloy">
+                    <div className="home_contents">
+                        <div className="left_side">
+                            <div className="text-wrapper">
+                                <strong className="top-text">
+                                    Logistics & Leader Auto Ship
+                                </strong>
+                                <h1 className="text-large">
+                                    <p data-aos="zoom-in">Fast execution and service to support rental car velocity</p>
+                                </h1>
+                                <article className="des-text">
+                                    Leader Auto Ship’s 16,000+ carrier network and industry expertise delivers the
+                                    capacity
+                                    and service you need now
+                                </article>
+                                <div className="buttons-home">
+                                    <button onClick={() => navigate("/get-quote")} type="button"
+                                            className="button-home">
+                                        Get a quote
+                                    </button>
+                                    <a href={`tel:${contact.phone1}`} className="button-home">
+                                        Call now
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="right_side">
+                        <div className="right_side">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <div className="section-works">
-            <div className="sides">
-                <img src="./for-business/three/photo1.jpg" alt=""/>
-            </div>
-            <div className="sides-text">
-                <div className="title">
-                    Proven rental car industry experience
+            <section className="section-works">
+                <div className="sides">
+                    <img src="./for-business/three/photo1.webp" alt="Proven rental car industry experience" loading="lazy"/>
                 </div>
-                <div className="des">
-                    We know the car rental space because our people have worked in it; now they’re at Leader Auto Ship.
-                    Each team member has worked at least 15 years at leading car rental companies. You’ll have access to
-                    that knowledge base and get the response you deserve, from people who understand exactly what you
-                    need.
-                    Leader Auto Ship works with big players, such as Enterprise, Avis and Hertz, as well as small and
-                    medium-sized rental car companies. Each client has a dedicated account team and a single point of
-                    contact to streamline communication and ensure the highest level of customer service.
+                <div className="sides-text">
+                    <h2 className="title">
+                        Proven rental car industry experience
+                    </h2>
+                    <article className="des">
+                        We know the car rental space because our people have worked in it; now they’re at Leader Auto
+                        Ship.
+                        Each team member has worked at least 15 years at leading car rental companies. You’ll have
+                        access to
+                        that knowledge base and get the response you deserve, from people who understand exactly what
+                        you
+                        need.
+                        Leader Auto Ship works with big players, such as Enterprise, Avis and Hertz, as well as small
+                        and
+                        medium-sized rental car companies. Each client has a dedicated account team and a single point
+                        of
+                        contact to streamline communication and ensure the highest level of customer service.
+                    </article>
                 </div>
-            </div>
-        </div>
-        <div className="section-works">
-            <div className="sides-text">
-                <div className="title">
-                    16,000+ nationwide carrier network
+            </section>
+            <section className="section-works">
+                <div className="sides-text">
+                    <h2 className="title">
+                        16,000+ nationwide carrier network
+                    </h2>
+                    <article className="des">
+                        Whether you have a single unit to move or 10,000, Leader Auto Ship can handle your volume with
+                        the
+                        highest standards of safety and professionalism. “How many trucks can you send now?” We hear
+                        that
+                        all the time and respond with “as many as you need.” That’s the power of a 16,000+ nationwide
+                        carrier network, fully vetted and ready to roll.
+                    </article>
                 </div>
-                <div className="des">
-                    Whether you have a single unit to move or 10,000, Leader Auto Ship can handle your volume with the
-                    highest standards of safety and professionalism. “How many trucks can you send now?” We hear that
-                    all the time and respond with “as many as you need.” That’s the power of a 16,000+ nationwide
-                    carrier network, fully vetted and ready to roll.
+                <div className="sides">
+                    <img src="./for-business/three/photo2.webp" alt=" 16,000+ nationwide carrier network" loading="lazy"/>
                 </div>
-            </div>
-            <div className="sides">
-                <img src="./for-business/three/photo2.jpg" alt=""/>
-            </div>
-        </div>
+            </section>
 
-        <div className="partners">
-            <Slider {...settingsPartners}>
-                {partners.map((item, index)=>{
-                    return <div key={index} className="logo">
-                        <img src={item.logo} alt=""/>
-                    </div>
-                })}
-            </Slider>
-        </div>
-        <div className="reviews-container">
-            <div className="main-title">
-                Explore Our Reviews!
-            </div>
-            <div className="title">
-                See What Our Customers are Saying
-            </div>
-            <div className="slider-box-reviews">
-                <Slider {...settingsReviews}>
-                    {comments.map((item, index) => {
-                        return <div key={index} className="review">
-                            <div className="content">
-                                <div className="header">
-                                    <div className="left">
-                                        <div className="name">
-                                            <div className="name-user">{item.name}</div>
-                                        </div>
-                                    </div>
-                                    <div className="google">
-                                        <img src={item.image} alt=""/>
-                                    </div>
-                                </div>
-                                <div className="des">
-                                    {item.comment}
-                                </div>
-                                <div className="stars">
-                                    <img src="./images/star1.png" alt=""/>
-                                    <img src="./images/star1.png" alt=""/>
-                                    <img src="./images/star1.png" alt=""/>
-                                    <img src="./images/star1.png" alt=""/>
-                                    <img src="./images/star1.png" alt=""/>
-                                </div>
-                            </div>
+            <section className="partners">
+                <Slider {...settingsPartners}>
+                    {partners.map((item, index) => {
+                        return <div key={index} className="logo">
+                            <img src={item.logo} alt="partners" loading="lazy"/>
                         </div>
                     })}
-
-
                 </Slider>
-            </div>
-        </div>
-        <Footer/>
+            </section>
+            <section className="reviews-container">
+                <h3 className="main-title">
+                    Explore Our Reviews!
+                </h3>
+                <h1 className="title">
+                    See What Our Customers are Saying
+                </h1>
+                <div className="slider-box-reviews">
+                    <Slider {...settingsReviews}>
+                        {comments.map((item, index) => {
+                            return <div key={index} className="review">
+                                <div className="content">
+                                    <div className="header">
+                                        <div className="left">
+                                            <div className="name">
+                                                <strong className="name-user">{item.name}</strong>
+                                            </div>
+                                        </div>
+                                        <div className="google">
+                                            <img src={item.image} alt="icon-reviews" loading="lazy"/>
+                                        </div>
+                                    </div>
+                                    <article className="des">
+                                        {item.comment}
+                                    </article>
+                                    <div className="stars">
+                                        <img src="./images/star1.webp" alt="review"/>
+                                        <img src="./images/star1.webp" alt="review"/>
+                                        <img src="./images/star1.webp" alt="review"/>
+                                        <img src="./images/star1.webp" alt="review"/>
+                                        <img src="./images/star1.webp" alt="review"/>
+                                    </div>
+                                </div>
+                            </div>
+                        })}
+
+
+                    </Slider>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <Footer/>
+        </footer>
     </div>
 };
 
