@@ -12,6 +12,7 @@ import {useNavigate} from "react-router-dom";
 import {MyContext} from "../App/App";
 import axios from "axios";
 import {Helmet} from "react-helmet"
+import LazyLoad from 'react-lazyload';
 import {Typeahead} from "react-bootstrap-typeahead";
 
 
@@ -42753,7 +42754,9 @@ const Home = () => {
             <Slider {...settingsHomeSlider}>
                 {homePhoto ? homePhoto.map((item, index) => {
                     return <div key={index}>
-                        <img src={item.image} alt="car-ship-banners" loading="lazy"/>
+                        <LazyLoad height={200} offset={100} once>
+                            <img src={item.image} alt="car-ship-banners" loading="lazy"/>
+                        </LazyLoad>
                     </div>
                 }) : ""}
             </Slider>
