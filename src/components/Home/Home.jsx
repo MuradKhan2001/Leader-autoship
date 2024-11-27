@@ -42683,6 +42683,17 @@ const Home = () => {
     useEffect(() => {
         axios.get(`${value.url}banner/`).then((response) => {
             setHomePhoto(response.data)
+
+            response.data.forEach((data) => {
+                if (!document.head.querySelector(`link[rel="preload"][href="${data["image"]}"]`)) {
+                    const link = document.createElement('link');
+                    link.rel = 'preload';
+                    link.as = 'image';
+                    link.href = data["image"];
+                    document.head.appendChild(link);
+                }
+            });
+
         });
 
         axios.get(`${value.url}statistics/`).then((response) => {
@@ -42755,7 +42766,13 @@ const Home = () => {
                 {homePhoto ? homePhoto.map((item, index) => {
                     return <div key={index}>
                         <LazyLoad height={200} offset={100} once>
-                            <img src={item.image} alt="car-ship-banners" loading="lazy"/>
+                            <img
+                                key={index}
+                                src={item.image}
+                                alt="banner-leader-auto-ship"
+                                style={{width: '100%', height: 'auto'}}
+                                loading="eager" // Ensure LCP images are loaded eagerly
+                            />
                         </LazyLoad>
                     </div>
                 }) : ""}
@@ -42765,7 +42782,7 @@ const Home = () => {
             <div className="home_contents">
                 <div className="left_side">
                     <div className="text-wrapper">
-                        <strong className="top-text">
+                    <strong className="top-text">
                             Logistics & Leader Auto Ship
                         </strong>
                         <h1 data-aos="zoom-in" className="text-large">
