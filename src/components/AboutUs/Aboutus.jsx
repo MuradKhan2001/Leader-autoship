@@ -96,12 +96,10 @@ const AboutUs = () => {
             <meta name="description"
                   content="Why choose us? We provide reliable, affordable, and fast vehicle shipping backed by excellent customer reviews and expert care. Leader Auto Ship llc is a top-rated auto transport company and has served more than one hundred thousand customers."/>
         </Helmet>
-
         <header>
             <Header/>
             <Navbar/>
         </header>
-
         <main>
             <section className="header-content">
                 <div className="home-sloy">
@@ -397,7 +395,6 @@ const AboutUs = () => {
                 </Slider>
             </section>
         </main>
-
         <footer>
             <Footer/>
         </footer>

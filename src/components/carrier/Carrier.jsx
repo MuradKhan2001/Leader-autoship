@@ -72,26 +72,22 @@ const Carrier = () => {
                 });
             },
         });
-
         useEffect(() => {
             axios.get(`${value.url}contact/`).then((response) => {
                 setContact(response.data[0])
             });
             Aos.init({duration: 1000});
         }, []);
-
         return <div className="carrier-container">
             <Helmet>
                 <title>CARRIERS</title>
                 <meta name="description"
                       content="We work with a network of licensed and reliable carriers to ensure safe and timely vehicle shipping for our customers."/>
             </Helmet>
-
             <header>
                 <Header/>
                 <Navbar/>
             </header>
-
             <main>
                 {
                     success && <div className="alert">
@@ -204,7 +200,6 @@ const Carrier = () => {
                     </div>
                 </form>
             </main>
-
             <footer>
                 <Footer/>
             </footer>
