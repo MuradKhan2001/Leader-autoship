@@ -62,7 +62,6 @@ const Home = () => {
     const [contact, setContact] = useState("");
 
     const [ActiveQuestion, setActiveQuestion] = useState("");
-
     const settingsHomeSlider = {
         lazyLoad: false,
         slidesToShow: 1,
@@ -88,7 +87,6 @@ const Home = () => {
             }
         }]
     };
-
     const settingsReviews = {
         lazyLoad: false,
         slidesToShow: 3,
@@ -113,7 +111,6 @@ const Home = () => {
             }
         }]
     };
-
     const settingsPartners = {
         lazyLoad: false,
         slidesToShow: 5,
