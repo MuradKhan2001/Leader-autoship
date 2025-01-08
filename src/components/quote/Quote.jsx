@@ -42551,7 +42551,20 @@ const Quote = () => {
         "31704 : Albany, GA"
     ]);
 
-
+    function gtag_report_conversion(url) {
+        var callback = function () {
+            if (typeof(url) != 'undefined') {
+                window.location = url;
+            }
+        };
+        window.gtag('event', 'conversion', {
+            'send_to': 'AW-11454493837/2JmICPy284AaEI3p9tUq',
+            'value': 1.0,
+            'currency': 'USD',
+            'event_callback': callback
+        });
+        return false;
+    }
 
     const getQuote = () => {
         if (first_available_date && full_name && phone && email) {
@@ -42581,6 +42594,7 @@ const Quote = () => {
             };
             axios.post(`${value.url}get-quota/`, data).then((response) => {
                 navigate("/success")
+                gtag_report_conversion("https://leaderautoship.com/success")
             })
         }
     };
