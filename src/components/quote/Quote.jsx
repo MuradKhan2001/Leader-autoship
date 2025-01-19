@@ -25,6 +25,11 @@ const Quote = () => {
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
 
+    const [first_available_date_validate, setFirst_available_date_validate] = useState(true);
+    const [full_name_validate, setFull_name_validate] = useState(true);
+    const [phone_validate, setPhone_validate] = useState(true);
+    const [email_validate, setEmail_validate] = useState(true);
+
     const [options, setOptions] = useState([
         "75002 : Allen, TX",
         "70381 : Morgan City, LA",
@@ -42553,7 +42558,7 @@ const Quote = () => {
 
     function gtag_report_conversion(url) {
         var callback = function () {
-            if (typeof(url) != 'undefined') {
+            if (typeof (url) != 'undefined') {
                 window.location = url;
             }
         };
@@ -42567,7 +42572,23 @@ const Quote = () => {
     }
 
     const getQuote = () => {
-        if (first_available_date && full_name && phone && email) {
+        if (!first_available_date || !validateDate(first_available_date)) {
+            setFirst_available_date_validate(true)
+        }
+
+        if (!full_name) {
+            setFull_name_validate(true)
+        }
+
+        if (!phone || !validatePhone(phone)) {
+            setPhone_validate(true)
+        }
+
+        if (!email || !validateEmail(email)) {
+            setEmail_validate(true)
+        }
+
+        if (!first_available_date_validate && !full_name_validate && !phone_validate && !email_validate) {
             const data = {
                 api_key: "las85oelaseutihlastihh3948509lasiuotnhientlasei3las",
                 first_name: full_name.split(" ")[0],
@@ -42597,6 +42618,23 @@ const Quote = () => {
                 gtag_report_conversion("https://leaderautoship.com/success")
             })
         }
+    };
+
+    const validateEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+
+    };
+
+    const validatePhone = (phone) => {
+        const phoneRegex = /^[0-9]{10,15}$/;
+        return phoneRegex.test(phone);
+    };
+
+    const validateDate = (date) => {
+        const today = new Date();
+        const inputDate = new Date(date);
+        return inputDate >= today;
     };
 
     return (
@@ -43090,24 +43128,36 @@ const Quote = () => {
                 <div className="step1">
                     <div className="input-quote">
                         <label htmlFor="from">First available date: *</label>
-                        <input onChange={(e) => setFirst_available_date(e.target.value)} id="from"
+                        <input className={first_available_date_validate ? "error" : ""} onChange={(e) => {
+                            setFirst_available_date(e.target.value)
+                            setFirst_available_date_validate(false)
+                        }} id="from"
                                type="date"/>
                     </div>
                     <div className="input-quote">
                         <label htmlFor="from">Full Name: *</label>
-                        <input onChange={(e) => setFull_name(e.target.value)}
+                        <input className={full_name_validate ? "error" : ""} onChange={(e) => {
+                            setFull_name(e.target.value)
+                            setFull_name_validate(false)
+                        }}
                                placeholder="Input your full name"
                                id="from" type="text"/>
                     </div>
                     <div className="input-quote">
                         <label htmlFor="from">Phone: *</label>
-                        <input onChange={(e) => setPhone(e.target.value)} placeholder="Contact No "
+                        <input className={phone_validate ? "error" : ""} onChange={(e) => {
+                            setPhone(e.target.value)
+                            setPhone_validate(false)
+                        }} placeholder="Contact No "
                                id="from"
                                type="text"/>
                     </div>
                     <div className="input-quote">
                         <label htmlFor="from">Send a copy of the quote to: *</label>
-                        <input onChange={(e) => setEmail(e.target.value)}
+                        <input className={email_validate ? "error" : ""} onChange={(e) => {
+                            setEmail(e.target.value)
+                            setEmail_validate(false)
+                        }}
                                placeholder="Enter your email" id="from" type="text"/>
                     </div>
                     <div className="button-box">

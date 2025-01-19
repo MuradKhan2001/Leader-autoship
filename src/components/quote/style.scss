@@ -551,7 +551,12 @@
           outline: none;
         }
       }
+
+      .error {
+        border: 1px solid red;
+      }
     }
+
     .button-box {
       width: 100%;
       display: flex;
