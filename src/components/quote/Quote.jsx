@@ -3,6 +3,7 @@ import "./style.scss";
 import {Typeahead} from "react-bootstrap-typeahead";
 import axios from "axios";
 import {MyContext} from "../App/App";
+import {useFormik} from "formik";
 import {useNavigate} from "react-router-dom";
 
 const Quote = () => {
@@ -19,16 +20,6 @@ const Quote = () => {
     const [Vehicle_make, setVehicle_make] = useState("");
     const [Vehicle_model, setVehicle_model] = useState("");
     const [Vehicle_modelList, setVehicle_modelList] = useState([]);
-
-    const [first_available_date, setFirst_available_date] = useState("");
-    const [full_name, setFull_name] = useState("");
-    const [phone, setPhone] = useState("");
-    const [email, setEmail] = useState("");
-
-    const [first_available_date_validate, setFirst_available_date_validate] = useState(true);
-    const [full_name_validate, setFull_name_validate] = useState(true);
-    const [phone_validate, setPhone_validate] = useState(true);
-    const [email_validate, setEmail_validate] = useState(true);
 
     const [options, setOptions] = useState([
         "75002 : Allen, TX",
@@ -42556,45 +42547,55 @@ const Quote = () => {
         "31704 : Albany, GA"
     ]);
 
-    function gtag_report_conversion(url) {
-        var callback = function () {
-            if (typeof (url) != 'undefined') {
-                window.location = url;
-            }
-        };
-        window.gtag('event', 'conversion', {
-            'send_to': 'AW-11454493837/2JmICPy284AaEI3p9tUq',
-            'value': 1.0,
-            'currency': 'USD',
-            'event_callback': callback
-        });
-        return false;
-    }
+    const validate = (values) => {
+        const errors = {};
+        const today = new Date().toISOString().split("T")[0];
 
-    const getQuote = () => {
-        if (!first_available_date || !validateDate(first_available_date)) {
-            setFirst_available_date_validate(true)
+        const fullNameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ'`-]+\s[A-Za-zÀ-ÖØ-öø-ÿ'`-]+$/;
+        if (!values.full_name) {
+            errors.full_name = "Required";
+        } else if (!fullNameRegex.test(values.full_name)) {
+            errors.full_name = "Required";
         }
 
-        if (!full_name) {
-            setFull_name_validate(true)
+        if (!values.first_available_date) {
+            errors.first_available_date = "Required";
+        } else if (values.first_available_date <= today) {
+            errors.first_available_date = "Required";
         }
 
-        if (!phone || !validatePhone(phone)) {
-            setPhone_validate(true)
+        const phoneRegex = /^[0-9]{10,15}$/;
+        if (!values.phone) {
+            errors.phone = "Required";
+        } else if (!phoneRegex.test(values.phone)) {
+            errors.phone = "Required";
         }
 
-        if (!email || !validateEmail(email)) {
-            setEmail_validate(true)
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!values.email) {
+            errors.email = "Required";
+        } else if (!emailRegex.test(values.email)) {
+            errors.email = "Required";
         }
 
-        if (!first_available_date_validate && !full_name_validate && !phone_validate && !email_validate) {
+        return errors;
+    };
+
+    const formik = useFormik({
+        initialValues: {
+            first_available_date:"",
+            full_name:"",
+            phone:"",
+            email:""
+        },
+        validate,
+        onSubmit: (values) => {
             const data = {
                 api_key: "las85oelaseutihlastihh3948509lasiuotnhientlasei3las",
-                first_name: full_name.split(" ")[0],
-                last_name: full_name.split(" ")[1] && full_name.split(" ")[1],
-                phone: phone,
-                email: email,
+                first_name: values.full_name.split(" ")[0],
+                last_name: values.full_name.split(" ")[1] && values.full_name.split(" ")[1],
+                phone: values.phone,
+                email: values.email,
                 pickup_city: zipFrom[0].split(":")[1].split(",")[0],
                 pickup_state: zipFrom[0].split(":")[1].split(",")[1],
                 pickup_zip: zipFrom[0].split(":")[0],
@@ -42602,7 +42603,7 @@ const Quote = () => {
                 dropoff_city: zipTo[0].split(":")[1].split(",")[0],
                 dropoff_state: zipTo[0].split(":")[1].split(",")[1],
                 dropoff_zip: zipTo[0].split(":")[0],
-                first_pickup_date: first_available_date,
+                first_pickup_date: values.first_available_date,
                 ship_via_id: radioQuote,
                 vehicle_runs: radioQuote2,
                 lead_status: "100",
@@ -42613,29 +42614,12 @@ const Quote = () => {
                     type: Vehicle_type,
                 }],
             };
+
             axios.post(`${value.url}get-quota/`, data).then((response) => {
                 navigate("/success")
-                gtag_report_conversion("https://leaderautoship.com/success")
             })
-        }
-    };
-
-    const validateEmail = (email) => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-
-    };
-
-    const validatePhone = (phone) => {
-        const phoneRegex = /^[0-9]{10,15}$/;
-        return phoneRegex.test(phone);
-    };
-
-    const validateDate = (date) => {
-        const today = new Date();
-        const inputDate = new Date(date);
-        return inputDate >= today;
-    };
+        },
+    });
 
     return (
         <div className="quote-container">
@@ -43128,36 +43112,27 @@ const Quote = () => {
                 <div className="step1">
                     <div className="input-quote">
                         <label htmlFor="from">First available date: *</label>
-                        <input className={first_available_date_validate ? "error" : ""} onChange={(e) => {
-                            setFirst_available_date(e.target.value)
-                            setFirst_available_date_validate(false)
-                        }} id="from"
-                               type="date"/>
+                        <input className={formik.errors.first_available_date ? "error" : ""} onChange={formik.handleChange} id="from"
+                               type="date" name="first_available_date"/>
                     </div>
                     <div className="input-quote">
                         <label htmlFor="from">Full Name: *</label>
-                        <input className={full_name_validate ? "error" : ""} onChange={(e) => {
-                            setFull_name(e.target.value)
-                            setFull_name_validate(false)
-                        }}
+                        <input className={formik.errors.full_name ? "error" : ""} onChange={formik.handleChange}
                                placeholder="Input your full name"
+                               name="full_name"
                                id="from" type="text"/>
                     </div>
                     <div className="input-quote">
                         <label htmlFor="from">Phone: *</label>
-                        <input className={phone_validate ? "error" : ""} onChange={(e) => {
-                            setPhone(e.target.value)
-                            setPhone_validate(false)
-                        }} placeholder="Contact No "
+                        <input className={formik.errors.phone ? "error" : ""} onChange={formik.handleChange} placeholder="Contact No "
+                               name="phone"
                                id="from"
                                type="text"/>
                     </div>
                     <div className="input-quote">
                         <label htmlFor="from">Send a copy of the quote to: *</label>
-                        <input className={email_validate ? "error" : ""} onChange={(e) => {
-                            setEmail(e.target.value)
-                            setEmail_validate(false)
-                        }}
+                        <input className={formik.errors.email ? "error" : ""} onChange={formik.handleChange}
+                               name="email"
                                placeholder="Enter your email" id="from" type="text"/>
                     </div>
                     <div className="button-box">
@@ -43165,7 +43140,7 @@ const Quote = () => {
                             Previous
                         </button>
 
-                        <button onClick={getQuote} className="quote-btn">
+                        <button onClick={formik.handleSubmit} className="quote-btn">
                             Submit
                         </button>
                     </div>
