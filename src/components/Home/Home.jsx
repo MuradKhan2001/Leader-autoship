@@ -17,7 +17,6 @@ import Loader from "../loader/Loader";
 
 const LazyQuote = React.lazy(() => import("../quote/Quote"));
 
-
 const Home = () => {
     let value = useContext(MyContext);
     const navigate = useNavigate();
@@ -707,7 +706,6 @@ const Home = () => {
 
             </section>
         </main>
-
         <footer>
             <Footer/>
         </footer>
