@@ -42554,20 +42554,25 @@ const Quote = () => {
 
     const validate = (values) => {
         const errors = {};
-        const today = new Date().toISOString().split("T")[0];
 
-        const fullNameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ'`-]+\s[A-Za-zÀ-ÖØ-öø-ÿ'`-]+$/;
+        // const today = new Date().toISOString().split("T")[0];
+
+        // const fullNameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ'`-]+\s[A-Za-zÀ-ÖØ-öø-ÿ'`-]+$/;
+
         if (!values.full_name) {
             errors.full_name = "Required";
-        } else if (!fullNameRegex.test(values.full_name)) {
-            errors.full_name = "Required";
         }
+
+        // else if (!fullNameRegex.test(values.full_name)) {
+        //     errors.full_name = "Required";
+        // }
 
         if (!values.first_available_date) {
             errors.first_available_date = "Required";
-        } else if (values.first_available_date <= today) {
-            errors.first_available_date = "Required";
         }
+        // else if (values.first_available_date <= today) {
+        //     errors.first_available_date = "Required";
+        // }
 
         const phoneRegex = /^(\+1\s?)?(\([2-9][0-9]{2}\)|[2-9][0-9]{2})[-.\s]?[0-9]{3}[-.\s]?[0-9]{4}$/;
         if (!values.phone) {
@@ -42597,8 +42602,8 @@ const Quote = () => {
         onSubmit: (values) => {
             const data = {
                 api_key: "las85oelaseutihlastihh3948509lasiuotnhientlasei3las",
-                first_name: values.full_name.split(" ")[0],
-                last_name: values.full_name.split(" ")[1] && values.full_name.split(" ")[1],
+                first_name: values.full_name,
+                last_name: values.full_name,
                 phone: values.phone,
                 email: values.email,
                 pickup_city: zipFrom[0].split(":")[1].split(",")[0],
@@ -42622,6 +42627,8 @@ const Quote = () => {
 
             axios.post(`${value.url}get-quota/`, data).then((response) => {
                 navigate("/success")
+            }).catch((error) => {
+                console.log(error);
             })
         },
     });
@@ -42666,9 +42673,10 @@ const Quote = () => {
                             options={options}
                             placeholder="ZIP or City"
                             minLength={1}
-                            selected={zipFrom ? [zipFrom] : []}
-                            onChange={(selected) => setZipfrom(selected[0] || "")}
+                            selected={zipFrom}
+                            onChange={(selected) => setZipfrom(selected)}
                         />
+
                     </div>
                     <div className="input-quote">
                         <label htmlFor="from">transport car to:*</label>
@@ -42677,8 +42685,8 @@ const Quote = () => {
                             options={options}
                             placeholder="ZIP or City"
                             minLength={1}
-                            selected={zipTo ? [zipTo] : []}
-                            onChange={(selected) => setZipto(selected[0] || "")}
+                            selected={zipTo}
+                            onChange={(selected) => setZipto(selected)}
                         />
                     </div>
 
@@ -42751,7 +42759,9 @@ const Quote = () => {
                                 id="vehicle"
                                 style={{
                                     color: Vehicle_type ? "#111827" : "#9ca3af"
-                                }}>
+                                }}
+                                value={Vehicle_type}
+                        >
                             <option value="">Select Vehicle type</option>
                             <option value="Car">Car</option>
                             <option value="Truck">Truck</option>
@@ -42777,7 +42787,7 @@ const Quote = () => {
                                 color: Vehicle_year ? "#111827" : "#9ca3af"
                             }}
                         >
-                            <option value="" >Select year</option>
+                            <option value="">Select year</option>
                             {years.map((year) => (
                                 <option key={year} value={year}>
                                     {year}
@@ -42798,7 +42808,9 @@ const Quote = () => {
                                 style={{
                                     color: Vehicle_make ? "#111827" : "#9ca3af"
                                 }}
-                                name="vehicle" id="vehicle">
+                                name="vehicle" id="vehicle"
+                                value={Vehicle_make}
+                        >
                             <option value="">Select Make</option>
                             <option value="Acura">Acura</option>
                             <option value="Alfa Romeo">Alfa Romeo</option>
