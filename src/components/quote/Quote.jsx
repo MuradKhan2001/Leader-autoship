@@ -42559,8 +42559,12 @@ const Quote = () => {
 
         // const fullNameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ'`-]+\s[A-Za-zÀ-ÖØ-öø-ÿ'`-]+$/;
 
-        if (!values.full_name) {
-            errors.full_name = "Required";
+        if (!values.first_name) {
+            errors.first_name = "Required";
+        }
+
+        if (!values.last_name) {
+            errors.last_name = "Required";
         }
 
         // else if (!fullNameRegex.test(values.full_name)) {
@@ -42594,7 +42598,8 @@ const Quote = () => {
     const formik = useFormik({
         initialValues: {
             first_available_date: "",
-            full_name: "",
+            first_name: "",
+            last_name: "",
             phone: "",
             email: ""
         },
@@ -42602,8 +42607,8 @@ const Quote = () => {
         onSubmit: (values) => {
             const data = {
                 api_key: "las85oelaseutihlastihh3948509lasiuotnhientlasei3las",
-                first_name: values.full_name,
-                last_name: values.full_name,
+                first_name: values.first_name,
+                last_name: values.last_name,
                 phone: values.phone,
                 email: values.email,
                 pickup_city: zipFrom[0].split(":")[1].split(",")[0],
@@ -42942,16 +42947,29 @@ const Quote = () => {
                         />
                     </div>
                     <div className="input-quote">
-                        <label htmlFor="from">Full Name: *</label>
+                        <label htmlFor="from">First Name: *</label>
                         <input
-                            className={formik.errors.full_name ? "error" : ""}
+                            className={formik.errors.first_name ? "error" : ""}
                             onChange={formik.handleChange}
-                            value={formik.values.full_name}
-                            placeholder="Input your full name"
-                            name="full_name"
+                            value={formik.values.first_name}
+                            placeholder="Input your first name"
+                            name="first_name"
                             type="text"
                         />
                     </div>
+
+                    <div className="input-quote">
+                        <label htmlFor="from">Last Name: *</label>
+                        <input
+                            className={formik.errors.last_name ? "error" : ""}
+                            onChange={formik.handleChange}
+                            value={formik.values.last_name}
+                            placeholder="Input your last name"
+                            name="last_name"
+                            type="text"
+                        />
+                    </div>
+
                     <div className="input-quote">
                         <label htmlFor="from">Phone: *</label>
                         <input
