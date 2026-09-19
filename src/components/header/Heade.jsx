@@ -29,8 +29,8 @@ const Header = () => {
                 </div>
                 <div className="text-information">
                     <div className="title">
-                        <div>Monday - Friday: Open 24 hours</div>
-                        <div>Weekends: 8:00am - 9:00pm EST</div>
+                        <div>Monday - Friday: 6:00am -11:00pm EST</div>
+                        <div>Weekends: 6:00am -11:00pm EST</div>
                     </div>
                 </div>
             </div>
